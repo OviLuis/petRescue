@@ -90,4 +90,12 @@ TEMPLATE_DIRS = (
 
 STATIC_URL = '/static/'
 
+
 AUTH_USER_MODEL = 'principal.Usuario'
+
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#    "django.core.context_processors.request",
+#    "django.contrib.auth.context_processors.auth",
+    ##Estaticos
+#    "django.core.context_processors.static",
+#)
