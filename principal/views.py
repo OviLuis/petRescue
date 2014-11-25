@@ -1,8 +1,9 @@
-from principal.models import Mascota
+from principal.models import *
 from django.contrib.auth.models import User
 from django.template.context import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from principal.forms import *
 from django.shortcuts import render_to_response
 
 # Create your views here.
@@ -12,6 +13,11 @@ def inicio(request):
 
 
 def perdidos(request):
+	
+	return render_to_response('perdidos.html',context_instance=RequestContext(request))
+
+
+def repotarPerdido(request):
 	if request.method == 'POST':
 		formulario = PerdidosForm(request.POST, request.FILES)
 		if formulario.is_valid():
@@ -19,8 +25,9 @@ def perdidos(request):
 			return HttpResponseRedirect('/perdidos')
 	else:
 		formulario = PerdidosForm()
+
 	return render_to_response('perdidosform.html',{'formulario':formulario},context_instance=RequestContext(request))
-	
+
 
 
 def encontrados(request):
