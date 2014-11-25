@@ -89,3 +89,10 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#    "django.core.context_processors.request",
+#    "django.contrib.auth.context_processors.auth",
+    ##Estaticos
+#    "django.core.context_processors.static",
+#)
