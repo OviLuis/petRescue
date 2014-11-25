@@ -12,7 +12,15 @@ def inicio(request):
 
 
 def perdidos(request):
-	return render_to_response ('perdidos.html', context_instance = RequestContext(request) )
+	if request.method == 'POST':
+		formulario = PerdidosForm(request.POST, request.FILES)
+		if formulario.is_valid():
+			formulario.save()
+			return HttpResponseRedirect('/perdidos')
+	else:
+		formulario = PerdidosForm()
+	return render_to_response('perdidosform.html',{'formulario':formulario},context_instance=RequestContext(request))
+	
 
 
 def encontrados(request):
