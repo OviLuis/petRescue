@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^perdidos/$', 'principal.views.perdidos', name='perdidos'),
     url(r'^encontrados/$', 'principal.views.encontrados', name='encontrados'),
     url(r'^adopciones/$', 'principal.views.adopcion', name='adopciones'),
+    url(r'^registro/$', 'principal.views.registro', name='registro'),
 
 
 
