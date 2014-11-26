@@ -42,46 +42,47 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         return self.nombre
 
 
-class Mascota(models.Model):
+class Publicacion(models.Model):
+    """docstring for Publicacion"""
+    usuario = models.ForeignKey(Usuario)
+    fechaPublicacion = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class Comentario(Publicacion):
+    """docstring for Comentario"""
+    texto = models.CharField(max_length=300)
+
+
+class Mascota(Publicacion):
     nombre = models.CharField(max_length=50)
-    raza = models.CharField(max_length=50)  
+    raza = models.CharField(max_length=50)
     edad = models.IntegerField()
     especie = models.CharField(max_length=50)
     sexo = models.CharField(max_length=10)
-    foto = models.ImageField(verbose_name= 'foto')
+    foto = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=400)
-    
+
+    class Meta:
+        abstract = True
 
     def  __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
 
 
-class Perdidos(Mascota):
-    fechaDesaparicion = models.DateTimeField(auto_now=True)
-    dirDesaparicion = models.CharField(max_length=50)
 
-    def __unicode__(self):
-        return u'%s' % (self.id)
+class Perdidos(Mascota):
+    fechaDesaparicion = models.DateTimeField()
+    dirDesaparicion = models.CharField(max_length=50)
 
 
 class Encontrados(Mascota):
     fechaEncuentro = models.DateTimeField()
     dirEncuentro = models.CharField(max_length=50)
 
-    def __unicode__(self):
-        return u'%s' % (self.id)
-
 
 class Adopciones(Mascota):
     direccion = models.CharField(max_length=59)
-
-    def __unicode__(self):
-        return u'%s' % (self.id)
-
-
-
-        
-
-
-    
 
