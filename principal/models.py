@@ -51,7 +51,7 @@ class Publicacion(models.Model):
         abstract = True
 
 
-class Comentario(Publicacion):
+class Comentario(Publicacion)
     """docstring for Comentario"""
     texto = models.CharField(max_length=300)
 
@@ -85,4 +85,3 @@ class Encontrados(Mascota):
 
 class Adopciones(Mascota):
     direccion = models.CharField(max_length=59)
-
