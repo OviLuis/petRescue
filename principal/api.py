@@ -4,6 +4,7 @@ from rest_framework import status
 
 
 from .models import *
+from .forms import *
 from .serializers import *
 
 
@@ -20,15 +21,22 @@ class PerdidoAPI(APIView):
     crea
     """
     def post(self, request, format=None):
-        """usuario = request.user
+        usuario = request.user
+        #print request.DATA
+        nombre = request.DATA.get('nombre')
+        raza = request.DATA.get('raza')
+        edad = request.DATA.get('edad')
+        especie = request.DATA.get('especie')
+        sexo = request.DATA.get('sexo')
+        foto = request.DATA.get('foto')
+        descripcion = request.DATA.get('descripcion')
+        fecha = request.DATA.get('fechaDesaparicion')
+        direccion = request.DATA.get('dirDesaparicion')
         try:
-            perdido = Perdidos()
-            perdido.save()
+            Perdidos(usuario=usuario, nombre=nombre, raza=raza, edad=edad, especie=especie, sexo=sexo, foto=foto, descripcion=descripcion, fechaDesaparicion=fecha, dirDesaparicion=direccion).save()
         except:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-
-        return Response(status=status.HTTP_201_CREATED)"""
-        #monto = request.DATA.get('monto')
+        return Response(status=status.HTTP_201_CREATED)
 
 
 from django.contrib.auth import login, logout, authenticate
