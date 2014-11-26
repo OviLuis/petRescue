@@ -6,12 +6,12 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'petRescue.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', 'principal.views.inicio', ),
-    url(r'^perdidos/$', 'principal.views.perdidos', name='perdidos'),
-    url(r'^repotarPerdido/$', 'principal.views.repotarPerdido', name='repotarPerdido'),
-    url(r'^encontrados/$', 'principal.views.encontrados', name='encontrados'),
-    url(r'^adopciones/$', 'principal.views.adopcion', name='adopciones'),
-    url(r'^registro/$', 'principal.views.registro', name='registro'),
+    url(r'^$', 'web.views.inicio', ),
+    url(r'^perdidos/$', 'web.views.perdidos', name='perdidos'),
+    url(r'^repotarPerdido/$', 'web.views.repotarPerdido', name='repotarPerdido'),
+    url(r'^encontrados/$', 'web.views.encontrados', name='encontrados'),
+    url(r'^adopciones/$', 'web.views.adopcion', name='adopciones'),
+    url(r'^registro/$', 'web.views.registro', name='registro'),
 
 
 
