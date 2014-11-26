@@ -41,14 +41,14 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
 class Publicacion(models.Model):
     """docstring for Publicacion"""
-    usuario = models.ForeignKey(Usuario, editable=False)
+    usuario = models.ForeignKey(Usuario)
     fechaPublicacion = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         abstract = True
 
 
-class Comentario(Publicacion)
+class Comentario(Publicacion):
     """docstring for Comentario"""
     texto = models.CharField(max_length=300)
 
