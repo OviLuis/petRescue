@@ -1,7 +1,6 @@
 from django.db import models
-
-
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+
 
 class MiUsuarioManager(BaseUserManager):
 
@@ -9,16 +8,16 @@ class MiUsuarioManager(BaseUserManager):
         if not email:
             raise ValueError('El email debe ingresarse')
         email = self.normalize_email(email)
-        user = self.model( email=email, is_active=True, is_staff=is_staff, is_superuser=is_superuser,**extra_fields)
+        user = self.model(email=email, is_active=True, is_staff=is_staff, is_superuser=is_superuser, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
     def create_user(self, email, password=None, **extra_fields):
-        return self._create_user( email, password,  False, False, **extra_fields)
+        return self._create_user(email, password, False, False, **extra_fields)
 
     def create_superuser(self,  email, password, **extra_fields):
-        return self._create_user( email, password,  True, True, **extra_fields)
+        return self._create_user(email, password, True, True, **extra_fields)
 
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
@@ -27,15 +26,13 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     nombre = models.CharField(max_length=55)
     direccion = models.CharField(max_length=50, null=True)
     telefono = models.IntegerField(max_length=15, null=True)
-
-
-
-    is_active = models.BooleanField (default=True)
-    is_staff = models.BooleanField (default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
 
     objects = MiUsuarioManager()
 
-    USERNAME_FIELD = 'email'    #campo login
+    #campo login
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nombre']
 
     def get_short_name(self):
@@ -44,8 +41,8 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
 class Publicacion(models.Model):
     """docstring for Publicacion"""
-    usuario = models.ForeignKey(Usuario)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
+    usuario = models.ForeignKey(Usuario, editable=False)
+    fechaPublicacion = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         abstract = True
@@ -68,9 +65,8 @@ class Mascota(Publicacion):
     class Meta:
         abstract = True
 
-    def  __unicode__(self):
+    def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
-
 
 
 class Perdidos(Mascota):
@@ -84,4 +80,4 @@ class Encontrados(Mascota):
 
 
 class Adopciones(Mascota):
-    direccion = models.CharField(max_length=59)
+    direccion = models.CharField(max_length=50)
