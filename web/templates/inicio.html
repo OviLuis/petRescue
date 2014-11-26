@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset='utf-8'> 
+		<title>Simple app</title>
+		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="{{STATIC_URL}}css/estilo.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	</head>
+	<body>
+	<div class="container">
+		<section>
+			<header class="page-header">
+				<h1>PetRescue</h1> <br>
+			</header>
+			<nav  class="navbar navbar-default navbar-static-top" role="navigation">
+				<ul  class="nav navbar-nav">
+					<li class="elementobarra">
+						<a href="#home" class="glyphicon glyphicon-home">Inicio</a>
+					</li>
+					<li>
+						<a href="/perdidos">Perdidos</a>
+					</li>
+					<li>
+						<a href="/perdidos">Adopción</a>
+					</li>
+					<li>
+						<a href="/encontrados">Encontrados</a>
+					</li>
+					<li>
+						<button class="btn btn-default">Ingresar</button>
+					</li>
+				</ul>
+			</nav>
+			{% block contenido %}
+
+			{% endblock contenido %}
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Quienes Somos</h2>
+				</div>
+			</div>
+			<footer>
+				<div class="row">
+				  <div class="col-md-4">
+				  	<ul class="secciones">
+					  <h2>Ubícanos</h2>
+					  <li><span class="glyphicon glyphicon-globe"></span>  Dirección :Calle 43 No 43-33.</li>
+					  <li><span class="glyphicon glyphicon-earphone"></span>  PBX: (57) 2 2241816-17</li>
+					  <li><span class="glyphicon glyphicon-envelope"></span>  Email: unicreditos@gmail.com</li>
+					</ul>
+
+				  </div>
+				  <div class="col-md-4">
+				  </div>
+				  <div class="col-md-4">
+					<ul class="secciones">
+					  <h2>Desarrollado por</h2>
+					  <li>Miguel Angel Bernal 1153852</li>
+					  <li>Luis Ovidio Gonzalez 1154010</li>
+					  <li>Aslhey Ramirez 1153765</li>
+					</ul>			 	
+				  </div>
+				</div>
+
+			</footer>
+		</section>
+	</div>
+	<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
+	<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
+	<script src="{{STATIC_URL}}libs/bootstrap/ui-bootstrap-tpls-0.12.0.min.js" ></script>
+	</body>
+</html>
+
