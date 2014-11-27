@@ -21,19 +21,12 @@ class PerdidoAPI(APIView):
     crea
     """
     def post(self, request, format=None):
-        usuario = request.user
-        #print request.DATA
-        nombre = request.DATA.get('nombre')
-        raza = request.DATA.get('raza')
-        edad = request.DATA.get('edad')
-        especie = request.DATA.get('especie')
-        sexo = request.DATA.get('sexo')
-        foto = request.DATA.get('foto')
-        descripcion = request.DATA.get('descripcion')
-        fecha = request.DATA.get('fechaDesaparicion')
-        direccion = request.DATA.get('dirDesaparicion')
         try:
-            Perdidos(usuario=usuario, nombre=nombre, raza=raza, edad=edad, especie=especie, sexo=sexo, foto=foto, descripcion=descripcion, fechaDesaparicion=fecha, dirDesaparicion=direccion).save()
+            serializado = PerdidoSerializer(data=request.DATA, files=request.FILES)
+            if serializado.is_valid():
+                serializado.save()
+            else:
+                print "No valido"
         except:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         return Response(status=status.HTTP_201_CREATED)
