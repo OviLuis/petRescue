@@ -6,9 +6,11 @@ urlpatterns = patterns('',
 
 	url(r'^$','web.views.inicio', name='inicio' ),
 	url(r'^perdidos/$', 'web.views.perdidos', name='perdidos'),
-    url(r'^repotarPerdido/$', 'web.views.repotarPerdido', name='repotarPerdido'),
+    url(r'^reportarPerdido/$', 'web.views.reportarPerdido', name='reportarPerdido'),
     url(r'^encontrados/$', 'web.views.encontrados', name='encontrados'),
+    url(r'^reportarEncontrado/$', 'web.views.reportarEncontrado', name='reportarEncontrado'),
     url(r'^adopciones/$', 'web.views.adopcion', name='adopciones'),
+    url(r'^reportarAdopcion/$', 'web.views.reportarAdopcion', name='reportarAdopcion'),
     url(r'^registro/$', 'web.views.registro', name='registro'),
 
  )

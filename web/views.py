@@ -19,7 +19,7 @@ def perdidos(request):
 	return render_to_response('perdidos.html',context_instance=RequestContext(request))
 
 
-def repotarPerdido(request):
+def reportarPerdido(request):
 	if request.method == 'POST':
 		formulario = PerdidosForm(request.POST, request.FILES)
 		if formulario.is_valid():
@@ -36,8 +36,34 @@ def encontrados(request):
 	return render_to_response ('encontrados.html', context_instance = RequestContext(request))
 
 
+
+def reportarEncontrado(request):
+	if request.method == 'POST':
+		formulario = EncontradosForm(request.POST, request.FILES)
+		if formulario.is_valid():
+			formulario.save()
+			return HttpResponseRedirect('/encontrados')
+	else:
+		formulario = EncontradosForm()
+
+	return render_to_response('encontradosform.html',{'formulario':formulario},context_instance=RequestContext(request))
+
+
 def adopcion(request):
 	return render_to_response ('adopcion.html', context_instance = RequestContext(request));
+
+
+def reportarAdopcion(request):
+	if request.method == 'POST':
+		formulario = AdopcionesForm(request.POST, request.FILES)
+		if formulario.is_valid():
+			formulario.save()
+			return HttpResponseRedirect('/adopcion')
+	else:
+		formulario = AdopcionesForm()
+
+	return render_to_response('adopcionesform.html',{'formulario':formulario},context_instance=RequestContext(request))
+
 
 
 def registro(request):
