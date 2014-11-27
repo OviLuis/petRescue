@@ -1,55 +1,27 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 
-
-from .models import *
-from .forms import *
 from .serializers import *
 
 
-class PerdidoAPI(APIView):
+def function(offset):
+    offset = int(offset)
+    dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
+    perdidos = Perdidos.objects.filter(dt)
+    return perdidos
+
+
+
+
+#from rest_framework import viewsets
+#from rest_framework.permissions import AllowAny
+
+
+
     """
     retorna
-    """
+    
     def get(self, request, format=None):
-        perdidos = Perdidos.objects.all()
+        perdidos = Perdidos.objects.get(pk=1)
         serializado = PerdidoSerializer(perdidos, many=True)
         return Response(serializado.data)
 
     """
-    crea
-    """
-    def post(self, request, format=None):
-        try:
-            serializado = PerdidoSerializer(data=request.DATA, files=request.FILES)
-            if serializado.is_valid():
-                serializado.save()
-            else:
-                print "No valido"
-        except:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
-        return Response(status=status.HTTP_201_CREATED)
-
-
-from django.contrib.auth import login, logout, authenticate
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-
-
-class AuthView(APIView):
-    authentication_classes = (SessionAuthentication, BasicAuthentication)
-
-    def post(self, request, *args, **kwargs):
-        email = request.DATA.get('email', None)
-        password = request.DATA.get('password', None)
-        user = authenticate(email=email, password=password)
-        if user is not None and user.is_active:
-            login(request, user)
-            serializer = UsuarioSerializer(user, many=False)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            return Response(status=status.HTTP_401_UNAUTHORIZED)
-
-    def delete(self, request, *args, **kwargs):
-        logout(request)
-        return Response(status=status.HTTP_200_OK)

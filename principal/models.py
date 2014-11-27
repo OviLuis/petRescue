@@ -41,16 +41,11 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
 class Publicacion(models.Model):
     """docstring for Publicacion"""
-    usuario = models.ForeignKey(Usuario)
+    usuario = models.ForeignKey(Usuario, editable=False)
     fechaPublicacion = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         abstract = True
-
-
-class Comentario(Publicacion):
-    """docstring for Comentario"""
-    texto = models.CharField(max_length=300)
 
 
 class Mascota(Publicacion):
@@ -59,7 +54,7 @@ class Mascota(Publicacion):
     edad = models.IntegerField()
     especie = models.CharField(max_length=50)
     sexo = models.CharField(max_length=10)
-    foto = models.ImageField(upload_to='mascotas',verbose_name='Imagen')
+    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen', null=True, blank=True)
     descripcion = models.CharField(max_length=400)
 
     class Meta:
@@ -67,6 +62,11 @@ class Mascota(Publicacion):
 
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
+
+
+class Comentario(Publicacion):
+    """docstring for Comentario"""
+    texto = models.CharField(max_length=300)
 
 
 class Perdidos(Mascota):

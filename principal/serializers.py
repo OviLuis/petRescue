@@ -17,7 +17,6 @@ class PerdidoSerializer(serializers.ModelSerializer):
     class Meta:
         """docstring for Meta"""
         model = Perdidos
-        #fields = ('nombre', 'raza', 'edad', 'especie', 'sexo', 'foto', 'descripcion', 'fechaDesaparicion', 'dirDesaparicion')
 
 
 class EncontradoSerializer(serializers.ModelSerializer):
@@ -34,3 +33,10 @@ class AdopcionSerializer(serializers.ModelSerializer):
         """docstring for Meta"""
         model = Adopciones
         #fields = ('nombre', 'raza', 'edad', 'especie', 'sexo', 'foto', 'descripcion', 'direccion', )
+
+
+class ComentarioSerializer(serializers.ModelSerializer):
+    """docstring for ComentarioSerializer"""
+    class Meta:
+        """docstring for Meta"""
+        model = Comentario
