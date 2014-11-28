@@ -15,8 +15,8 @@ def inicio(request):
 
 
 def perdidos(request):
-	
-	return render_to_response('perdidos.html',context_instance=RequestContext(request))
+	perdidos = Perdidos.objects.all()
+	return render_to_response('perdidos.html',{'perdidos':perdidos},context_instance=RequestContext(request))
 
 
 def reportarPerdido(request):

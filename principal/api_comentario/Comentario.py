@@ -6,8 +6,10 @@ from rest_framework.response import Response
 from principal.models import Comentario
 from principal.serializers import *
 
+from django.contrib.auth.decorators import login_required
 
-class ComentarioAPI(viewsets.ModelViewSet):
+
+class ComentarioCRUD(viewsets.ModelViewSet):
     """docstring for ComentarioAPI"""
     model = Comentario
     serializer_class = ComentarioSerializer
@@ -25,6 +27,20 @@ class ComentarioAPI(viewsets.ModelViewSet):
 
     def pre_save(self, obj):
         obj.usuario = self.request.user
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+
+class ComentarioAPI(APIView):
+    """docstring for ComentarioAPI"""
+
+    def get(self, request, *args, **kwargs):
+        comentarios = Comentario.objects.all()
+        serializado = ComentarioSerializer(comentarios, many=True)
+        return Response(serializado.data, status=status.HTTP_200_OK)
 
 
 """    @action(permission_classes=[IsAuthenticated])
