@@ -1,5 +1,6 @@
 Django==1.7.1
 Pillow==2.6.1
 argparse==1.2.1
+django-mockups==0.4.8
 djangorestframework==2.4.4
 wsgiref==0.1.2

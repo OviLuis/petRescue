@@ -1,34 +1,21 @@
-function getDatosEncontrado()
-{
-	var form_encontrado = {
-		nombre: $("#id_nombre").val(),
-		raza: $("#id_raza").val(),
-		edad: $("#id_edad").val(),
-		especie: $("#id_especie").val(),
-		sexo: $("#id_sexo").val(),
-		descripcion: $("#id_descripcion").val(),
-		fechaEncuentro: $("#id_fechaEncuentro").val(),
-		dirEncuentro: $("#id_dirEncuentro").val(),
-		foto: $("#id_foto").val()
-		}
-	console.log(form_encontrado)
-	return form_encontrado;
-}
+function sendDatosEncontrado(data) {
+	//obtiene el csrftoken
+	var csrftoken = $.cookie('csrftoken');
+	//url de la peticion
+	url = 'http://'+window.location.host+'/api/encontrado/'
 
+	//configura el csrftoken a la peticion ajax
+	$.ajaxSetup({
+    	beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    	}
+	});
 
-function sendRequest (data) {
-	//http://192.168.14.45/ajax2/server/main.php
-	/*$.get("main.php", {lang: data}, function(response){
-		$("#gretting").text(response)
-	});*/
-
-	url = 'http://'+window.location.host+'/api/perdido/'
-	console.log(url)
-
+	//peticion ajax
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: data
+		data: $("#formulario_encontrado").serialize()
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
@@ -47,11 +34,9 @@ function sendRequest (data) {
 
 
 $(document).ready(function(){
-	$("#test_encontrado").click(function(){
-	//$("#repotar_perdido_btn").click(function(){
-		
-		//sendRequest(getDatosPerdido());
-		getDatosEncontrado()
-	});
+	$("#formulario_encontrado").submit(function(){
+        sendDatosEncontrado();
+    });
+
 
 });

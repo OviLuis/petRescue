@@ -24,7 +24,6 @@ def reportarPerdido(request):
     if request.method == 'POST':
         formulario = PerdidosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
             return HttpResponseRedirect('/perdidos')
     else:
         formulario = PerdidosForm()
@@ -42,7 +41,6 @@ def reportarEncontrado(request):
     if request.method == 'POST':
         formulario = EncontradosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
             return HttpResponseRedirect('/encontrados')
     else:
         formulario = EncontradosForm()
@@ -58,8 +56,7 @@ def reportarAdopcion(request):
     if request.method == 'POST':
         formulario = AdopcionesForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/adopcion')
+            return HttpResponseRedirect('/adopciones')
     else:
         formulario = AdopcionesForm()
 

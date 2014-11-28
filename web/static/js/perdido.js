@@ -1,31 +1,41 @@
-function getDatosPerdido()
+function getDatosPerdidos()
 {
-	var form_perdido = {
-		nombre: $("#id_nombre").val(),
-		raza: $("#id_raza").val(),
-		edad: $("#id_edad").val(),
-		especie: $("#id_especie").val(),
-		sexo: $("#id_sexo").val(),
-		descripcion: $("#id_descripcion").val(),
-		fechaDesaparicion: $("#id_fechaDesaparicion").val(),
-		dirDesaparicion: $("#id_dirDesaparicion").val(),
-		foto: $("#id_foto").val()
-		}
-	console.log(form_perdido)
-	return form_perdido;
+	$.ajax({
+            url : "http://"+window.location.host+"/api/perdido", 
+            type : "GET",   
+            success : function(json) {
+                console.log("completo")
+				creaDivs(json)
+            },
+            error : function(xhr,errmsg,err) {
+                alert(xhr.status + ": " + xhr.responseText);
+            }
+        })
+		.done(function(json){
+		
+	});
 }
 
 
-function sendRequest (data) {
+
+function sendDatosPerdidos() {
+	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
-
+	//url de la peticion
 	url = 'http://'+window.location.host+'/api/perdido/'
-	console.log(url)
 
+	//configura el csrftoken a la peticion ajax
+	$.ajaxSetup({
+    	beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    	}
+	});
+
+	//peticion ajax
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: data
+		data: $("#formulario_perdido").serialize()
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
@@ -40,14 +50,30 @@ function sendRequest (data) {
 		//console.log("completo")
 		console.log("always")
 	})
+
+}
+
+function creaDivs(json) {
+	for (var i = 0, length = json.length; i <length ; i++ ) 
+    {
+        var div_parent = document.createElement("div");
+        var node = document.createTextNode(json[i]['nombre']);
+        div_parent.appendChild(node);
+        document.getElementById("perdidos").appendChild(div_parent);
+    }
+    
 }
 
 
 $(document).ready(function(){
-	$("#test_perdido").click(function(){
-	//$("#repotar_perdido_btn").click(function(){
-		
-		sendRequest(getDatosPerdido());
+	
+	$("#formulario_perdido").submit(function() {
+		sendDatosPerdidos();
 	});
+
+	$("#cat_perdidos").click(function() {
+        getDatosPerdidos();
+        return false;
+    });
 
 });
