@@ -11,7 +11,7 @@ from principal.models import *
 # Create your views here.
 
 
-def inicio(request):
+def home(request):
     return render_to_response('inicio.html', context_instance=RequestContext(request))
 
 
@@ -60,7 +60,7 @@ def reportarAdopcion(request):
     return render_to_response('adopcionesform.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 
-def home(request):
+def inicio(request):
     usuario = request.user
     if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
