@@ -1,12 +1,10 @@
 {% extends 'inicio.html' %}
 
 {% block contenido %}
-<a href="#" id='test_perdido'>Test</a>
-
 <div id="form_perdido">
-	<form id="formulario" method="post" enctype="multipart/form-data" action="">{% csrf_token %}
+	<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">{% csrf_token %}
 		{{formulario.as_p}}
-		<p><input id='repotar_perdido_btn' type='submit' value='confirmar'/></p>
+		<p><input type='submit' value='confirmar' class="btn btn-primary" /></p>
 	</form>
 </div>
 {% endblock %}
