@@ -7,6 +7,11 @@ from .api_autenticacion import Autenticacion
 from rest_framework import routers
 
 
+from .api_usuario import Usuario
+usuario = routers.DefaultRouter()
+usuario.register(r'usuario', Usuario.UsuarioAPI)
+
+
 from .api_perdidos import Perdido
 perdido = routers.DefaultRouter()
 perdido.register(r'perdido', Perdido.PerdidoAPI)
@@ -27,10 +32,18 @@ comentario = routers.DefaultRouter()
 comentario.register(r'comentario', Comentario.ComentarioAPI)
 
 
+#PAra traer los comentarios
+#perdido_comentarios = routers.DefaultRouter()
+#perdido_comentarios.register('comentario', Comentario.ComentarioAPI)
+
+
 urlpatterns = patterns(
     '',
+    url(r'^api/', include(usuario.urls)),
     url(r'^api/', include(perdido.urls)),
     url(r'^api/', include(encontrado.urls)),
     url(r'^api/', include(adopcion.urls)),
     url(r'^api/', include(comentario.urls)),
+#
+#
     url(r'^api/auth', Autenticacion.AuthView.as_view()),)

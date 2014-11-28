@@ -57,3 +57,6 @@ target/
 *.sqlite3
 
 python/
+
+#imagenes
+carga/

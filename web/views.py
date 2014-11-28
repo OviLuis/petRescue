@@ -70,11 +70,11 @@ def registro(request):
 	usuario = request.user
 	
 	if request.method=='POST':
-		formulario = UserCreationForm(request.POST)
+		formulario = UsuarioForm(request.POST)
 		if formulario.is_valid:
 			formulario.save()
 			return HttpResponseRedirect('/')
 			
 	else:
-		formulario = UserCreationForm()
+		formulario = UsuarioForm()
 	return render_to_response ('nuevousuario.html',{'formulario':formulario, 'usuario':usuario}, context_instance=RequestContext(request))

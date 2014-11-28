@@ -12,6 +12,10 @@ class PerdidoAPI(viewsets.ModelViewSet):
     queryset = Perdidos.objects.all()
     #permission_classes = (permissions.IsOwner,)
 
+    def create(self, request):
+    	print "Crear Perdido"
+        pass
+
     def pre_save(self, obj):
         obj.usuario = self.request.user
 
