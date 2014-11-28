@@ -1,0 +1,21 @@
+{% extends 'inicio.html' %}
+{% block contenido %}
+
+<div class="row">
+	<div class="col-md-4">
+		<h2>Bienvenidos</h2>
+	</div>
+
+	<div class="col-md-4">
+	</div>
+
+	<div class="col-md-4">
+		<h1>Registra un nuevo usuario</h1>
+
+		<form id='formulario' method='post' action=''>{% csrf_token %}
+			<table>{{formulario}}</table>	
+			<input type='submit' value='Registrar'/>
+		</form>
+	</div>
+</div>
+{% endblock %}
