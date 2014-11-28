@@ -17,10 +17,7 @@ function getDatosPerdido()
 
 
 function sendRequest (data) {
-	//http://192.168.14.45/ajax2/server/main.php
-	/*$.get("main.php", {lang: data}, function(response){
-		$("#gretting").text(response)
-	});*/
+	var csrftoken = $.cookie('csrftoken');
 
 	url = 'http://'+window.location.host+'/api/perdido/'
 	console.log(url)
