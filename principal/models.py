@@ -50,16 +50,15 @@ class Publicacion(models.Model):
 
 class Mascota(Publicacion):
     nombre = models.CharField(max_length=50)
-    raza = models.CharField(max_length=50)
-    edad = models.IntegerField()
     especie = models.CharField(max_length=50)
+    raza = models.CharField(max_length=50)
+    edad = models.IntegerField()    
     sexo = models.CharField(max_length=10)
     foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen', null=True, blank=True)
-    descripcion = models.CharField(max_length=400)
+    descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
 
-    class Meta:
-        abstract = True
-
+    #class Meta:
+        #abstract = True
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
 
@@ -67,6 +66,10 @@ class Mascota(Publicacion):
 class Comentario(Publicacion):
     """docstring for Comentario"""
     texto = models.CharField(max_length=300)
+    mascota = models.ForeignKey(Mascota)
+
+    def __unicode__(self):
+        return u'%s - %s' % (self.id, self.mascota)
 
 
 class Perdidos(Mascota):

@@ -22,9 +22,11 @@ class EncontradosForm(ModelForm):
 class AdopcionesForm(ModelForm):
 	class Meta:
 			model = Adopciones
-			
-		
-			
-		
-	
-		
+
+
+class UsuarioForm(ModelForm):
+	"""docstring for UsuarioForm"""
+	class Meta:
+		"""docstring for Meta"""
+		model = Usuario
+		fields = ('email', 'nombre', 'direccion', 'telefono', 'password')

@@ -12,5 +12,8 @@ urlpatterns = patterns('',
     url(r'^adopciones/$', 'web.views.adopcion', name='adopciones'),
     url(r'^reportarAdopcion/$', 'web.views.reportarAdopcion', name='reportarAdopcion'),
     url(r'^registro/$', 'web.views.registro', name='registro'),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+       {'document_root':settings.MEDIA_ROOT,}
+       ),
 
  )

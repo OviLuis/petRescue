@@ -2,7 +2,26 @@
 
 {% block contenido %}
 
-aqui iran las mascotas que esten en perdidas.
+
+
+{% for dato in perdidos %}
+			<!--<p class="{% cycle 'impar' 'par'%}">{{dato.titulo}}</p>-->
+			<div id="perdidos">
+				<p>nombre : {{dato.nombre}}</p>
+
+				<img src='{{MEDIA_URL}}{{dato.foto}}'/>
+				<p>raza : {{dato.raza}}</p>
+				<p>edad : {{dato.edad}} años</p>
+				<p>descripcion: {{dato.descripcion}}</p>
+			</div>
+			{% empty %}
+			No hay recetas registradas aun.
+			{% endfor %}
+
+
+
+
+
 
 <a href="/reportarPerdido">Reportar Perdido</a>
 
