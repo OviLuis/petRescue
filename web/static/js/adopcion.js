@@ -19,16 +19,16 @@ function sendDatosAdopcion() {
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
-		console.log("done")
+		console.log("done");
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
-		console.log("fail: "+ error.responseText)
-		console.log(error)
+		console.log("fail: "+ error.responseText);
+		console.log(error);
 	})
 	.always(function(){
 		//console.log("completo")
-		console.log("always")
-	})
+		console.log("always");
+	});
 }
 

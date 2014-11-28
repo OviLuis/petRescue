@@ -52,7 +52,7 @@ class Mascota(Publicacion):
     nombre = models.CharField(max_length=50)
     especie = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
-    edad = models.IntegerField()    
+    edad = models.IntegerField()
     sexo = models.CharField(max_length=10)
     foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen', null=True, blank=True)
     descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
@@ -73,12 +73,12 @@ class Comentario(Publicacion):
 
 
 class Perdidos(Mascota):
-    fechaDesaparicion = models.CharField(max_length = 15, help_text='dd/mm/aaaa', )
+    fechaDesaparicion = models.CharField(max_length=15, help_text='dd/mm/aaaa')
     dirDesaparicion = models.CharField(max_length=50)
 
 
 class Encontrados(Mascota):
-    fechaEncuentro = models.CharField(max_length = 15, help_text='dd/mm/aaaa')
+    fechaEncuentro = models.CharField(max_length=15, help_text='dd/mm/aaaa')
     dirEncuentro = models.CharField(max_length=50)
 
 

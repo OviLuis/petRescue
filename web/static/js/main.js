@@ -37,7 +37,7 @@ var main = function(){
 	inicializarAdopcion();
 	inicializarEncontrado();
 
-}
+};
 
 function inicializarPerdido()
 {
@@ -58,7 +58,7 @@ function inicializarEncontrado(){
 	$("#formulario_encontrado").submit(function(){
         sendDatosEncontrado();
     });
-};
+}
 
 
 $(document).ready(main);
