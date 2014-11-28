@@ -32,11 +32,3 @@ function sendDatosAdopcion() {
 	})
 }
 
-
-$(document).ready(function(){
-	$("#formulario_adopcion").submit(function(){
-        sendDatosAdopcion();
-    });
-
-
-});

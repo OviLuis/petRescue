@@ -32,11 +32,3 @@ function sendDatosEncontrado(data) {
 	})
 }
 
-
-$(document).ready(function(){
-	$("#formulario_encontrado").submit(function(){
-        sendDatosEncontrado();
-    });
-
-
-});

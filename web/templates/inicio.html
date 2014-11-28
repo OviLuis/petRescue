@@ -20,7 +20,7 @@
 					</li>
 
 					<li>
-						<a id="cat_perdidos" href="/perdidos">Mascostas Perdidas</a>
+						<a id="cat_perdidos" href="{% url 'web:perdidos' %}">Mascostas Perdidas</a>
 					</li>
 					<li>
 						<a href="/adopciones">Mascostas en Adopción</a>
@@ -30,7 +30,10 @@
 					</li>
 				</ul>
 			</nav>
-			{% block contenido %}{% endblock %}
+			<div id="contenido"></div>
+
+			{% block contenido %}
+			{% endblock %}
 			
 			<footer>
 				<div class="row">
@@ -67,7 +70,7 @@
 	<script src="{{STATIC_URL}}js/perdido.js" ></script>
 	<script src="{{STATIC_URL}}js/encontrado.js" ></script>
 	<script src="{{STATIC_URL}}js/adopcion.js" ></script>
-	<script src="{{STATIC_URL}}js/ajax.js" ></script>
+	<script src="{{STATIC_URL}}js/main.js" ></script>
 	</body>
 </html>
 
