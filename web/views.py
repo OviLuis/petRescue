@@ -13,23 +13,22 @@ from principal.models import *
 
 
 def inicio(request):
-    return render_to_response('inicio.html', context_instance = RequestContext(request))
+    return render_to_response('inicio.html', context_instance=RequestContext(request))
 
 
 def perdidos(request):
-    perdidos = Perdidos.objects.all()
-    return render_to_response('perdidos.html',{'perdidos':perdidos},context_instance=RequestContext(request))
+    return render_to_response('perdidos.html', context_instance=RequestContext(request))
 
 
 def reportarPerdido(request):
     if request.method == 'POST':
         formulario = PerdidosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            return HttpResponseRedirect(reverse('web:reportarPerdido'))
+            return HttpResponseRedirect(reverse('web:perdidos'))
     else:
         formulario = PerdidosForm()
 
-    return render_to_response('perdidosform.html',{'formulario':formulario},context_instance=RequestContext(request))
+    return render_to_response('perdidosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 
 
