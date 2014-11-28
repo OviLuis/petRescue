@@ -7,9 +7,15 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         """docstring for Meta"""
         model = Usuario
-        fields = ('email', 'nombre', 'direccion', 'telefono', 'password')
+        fields = ('id', 'email', 'nombre', 'direccion', 'telefono', 'password')
         read_only_fields = ('id', )
         write_only_fields = ('password', )
+
+    def restore_object(self, attrs, instance=None):
+        print "RESTOURE "+attrs['password']
+        user = super(UsuarioSerializer, self).restore_object(attrs, instance)
+        user.set_password(attrs['password'])
+        return user
 
 
 class PerdidoSerializer(serializers.ModelSerializer):
