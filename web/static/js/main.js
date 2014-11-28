@@ -36,6 +36,7 @@ var main = function(){
 	inicializarPerdido();
 	inicializarAdopcion();
 	inicializarEncontrado();
+	inicializarRegistroUsuario();
 
 };
 
@@ -58,6 +59,14 @@ function inicializarEncontrado(){
 	$("#formulario_encontrado").submit(function(){
         sendDatosEncontrado();
     });
+}
+
+function inicializarRegistroUsuario()
+{
+	$("#formulario_usuario").submit(function(){
+        sendDatosUsuario();
+    });
+
 }
 
 

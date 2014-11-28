@@ -65,8 +65,7 @@ def home(request):
     if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
         if formulario.is_valid:
-            formulario.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('web:home'))
     else:
         formulario = UsuarioForm()
     return render_to_response('home.html', {'formulario': formulario, 'usuario': usuario}, context_instance=RequestContext(request))
