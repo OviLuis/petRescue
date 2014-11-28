@@ -6,7 +6,7 @@ function mostrar(){
 	$("#perdidos").click(function() {
                     
                     $.ajax({
-                        url : "/api/perdido",//"http://"+window.location.host+"/api/perdido", 
+                        url : "http://"+window.location.host+"/api/perdido", 
                         type : "GET",   
                         //dataType: "json",                
                         
