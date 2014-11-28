@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from django import forms
 from principal.models import *
 
+
 class MascotaForm(ModelForm):
     class Meta:
             model = Mascota
@@ -19,7 +20,6 @@ class EncontradosForm(ModelForm):
             model = Encontrados
 
 
-
 class AdopcionesForm(ModelForm):
     class Meta:
             model = Adopciones
@@ -33,7 +33,6 @@ class UsuarioForm(ModelForm):
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}))
     password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirmar Contraseña'}))
 
-
-    class Meta: 
+    class Meta:
         model = Usuario
         fields = []

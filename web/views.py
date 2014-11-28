@@ -1,8 +1,7 @@
 from principal.models import *
-from django.contrib.auth.models import User
 from django.template.context import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm
 from principal.forms import *
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
@@ -31,10 +30,8 @@ def reportarPerdido(request):
     return render_to_response('perdidosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 
-
 def encontrados(request):
-    return render_to_response ('encontrados.html', context_instance = RequestContext(request))
-
+    return render_to_response('encontrados.html', context_instance=RequestContext(request))
 
 
 def reportarEncontrado(request):
@@ -45,11 +42,11 @@ def reportarEncontrado(request):
     else:
         formulario = EncontradosForm()
 
-    return render_to_response('encontradosform.html',{'formulario':formulario},context_instance=RequestContext(request))
+    return render_to_response('encontradosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 
 def adopcion(request):
-    return render_to_response ('adopcion.html', context_instance = RequestContext(request));
+    return render_to_response('adopcion.html', context_instance=RequestContext(request))
 
 
 def reportarAdopcion(request):
@@ -60,15 +57,15 @@ def reportarAdopcion(request):
     else:
         formulario = AdopcionesForm()
 
-    return render_to_response('adopcionesform.html',{'formulario':formulario},context_instance=RequestContext(request))
+    return render_to_response('adopcionesform.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 
 def home(request):
     usuario = request.user
-    if request.method=='POST':
+    if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
         if formulario.is_valid:
             return HttpResponseRedirect(reverse('web:home'))
     else:
         formulario = UsuarioForm()
-    return render_to_response ('home.html',{'formulario':formulario, 'usuario':usuario}, context_instance=RequestContext(request))
+    return render_to_response('home.html', {'formulario': formulario, 'usuario': usuario}, context_instance=RequestContext(request))

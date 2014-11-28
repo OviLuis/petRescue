@@ -38,7 +38,7 @@ var main = function(){
 	inicializarEncontrado();
 	inicializarRegistroUsuario();
 
-}
+};
 
 function inicializarPerdido()
 {
@@ -59,7 +59,7 @@ function inicializarEncontrado(){
 	$("#formulario_encontrado").submit(function(){
         sendDatosEncontrado();
     });
-};
+}
 
 function inicializarRegistroUsuario()
 {

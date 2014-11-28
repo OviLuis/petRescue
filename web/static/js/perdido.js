@@ -4,8 +4,8 @@ function getDatosPerdidos()
 		url : "http://"+window.location.host+"/api/perdido", 
         type : "GET",   
         success : function(json) {
-            console.log("completo")
-			creaDivs(json)
+            console.log("completo");
+			creaDivs(json);
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -22,7 +22,7 @@ function sendDatosPerdidos() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/perdido/'
+	url = 'http://'+window.location.host+'/api/perdido/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -39,17 +39,17 @@ function sendDatosPerdidos() {
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
-		console.log("done")
+		console.log("done");
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
-		console.log("fail: "+ error.responseText)
-		console.log(error)
+		console.log("fail: "+ error.responseText);
+		console.log(error);
 	})
 	.always(function(){
 		//console.log("completo")
-		console.log("always")
-	})
+		console.log("always");
+	});
 
 }
 
