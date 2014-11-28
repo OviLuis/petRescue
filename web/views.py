@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from principal.forms import *
 from django.shortcuts import render_to_response
+from django.core.urlresolvers import reverse
 
 from principal.models import *
 
@@ -24,7 +25,7 @@ def reportarPerdido(request):
     if request.method == 'POST':
         formulario = PerdidosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            return HttpResponseRedirect('/perdidos')
+            return HttpResponseRedirect(reverse('web:reportarPerdido'))
     else:
         formulario = PerdidosForm()
 
@@ -41,7 +42,7 @@ def reportarEncontrado(request):
     if request.method == 'POST':
         formulario = EncontradosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            return HttpResponseRedirect('/encontrados')
+            return HttpResponseRedirect(reverse('web:reportarEncontrado'))
     else:
         formulario = EncontradosForm()
 
