@@ -73,7 +73,7 @@ class Comentario(Publicacion):
 
 
 class Perdidos(Mascota):
-    fechaDesaparicion = models.CharField(max_length = 15, help_text='dd/mm/aaaa')
+    fechaDesaparicion = models.CharField(max_length = 15, help_text='dd/mm/aaaa', )
     dirDesaparicion = models.CharField(max_length=50)
 
 
