@@ -2,20 +2,88 @@
 {% block contenido %}
 
 <div class="row">
-	<div class="col-md-4">
-		<h2>Bienvenidos</h2>
+	<div class="col-md-8">
+		<h2>Bienvenidos a PetRescue</h2>
+		<p>
+			Somos una comunidad donde podras conectarte con tus amigos y otras personas fascinantes  que forman parte de tu vida con el fin ayudar a que nuestras Mascotas tengan una mejor calidad de vida y, en definitiva, sean más felices.
+		</p>
+	
+		<!-- empieza -->
+		<div class="slider">
+		  <div class="slide active-slide">
+		    <div class="container">
+		      <div class="row">
+		        <div class="slide-copy col-md-6">
+		          <h1>Ayuda Adoptando una mascota</h1>
+		          <p>
+		          	Si estás buscando adoptar o dar en adopción un perro, nuestra comunidad sera de gran ayuda para ti, realizar la publicacion es muy facil 
+		          </p>
+		        </div>
+		        <div class="slide-img col-md-5">
+		          	<img src="{{STATIC_URL}}/img/Slider/2.jpg">
+		        </div>
+		      </div>
+		    </div>      
+		  </div>
+
+		  
+	      <div class="slide slide-feature">
+	      <!-- imagen   <div class="container">
+	          <div class="col-md-8">
+	            <div class="col-md-12">
+	              <a href="#"><img src="{{STATIC_URL}}/img/Slider/1.jpg"></a>
+	            </div>
+	          </div>
+	        </div> -->      
+	      </div> 
+
+	      <div class="slide">
+	        <div class="container">
+	          <div class="row">
+	            <div class="slide-copy col-md-6">
+	              <h1>Encuentra tu mascota Perdida</h1>
+	              <h2></h2>
+	              <p>texto.</p>
+	              
+	            </div>
+	            <div class="slide-img col-md-5">
+	            	<img src="{{STATIC_URL}}/img/Slider/3.jpg">
+	            </div>
+	          </div>
+	        </div>      
+	      </div> 
+
+    </div>
+
+	<div class="row">
+		<div class="slider-nav">
+      <a href="#" class="arrow-prev"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-prev.png"></a>
+      <ul class="slider-dots">
+        <li class="dot active-dot">&bull;</li>
+        <li class="dot">&bull;</li>
+        <li class="dot">&bull;</li>
+      </ul>
+      <a href="#" class="arrow-next"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-next.png"></a>
+    </div> 
+	</div>
+    
+		<!-- termina -->
+
 	</div>
 
-	<div class="col-md-4">
-	</div>
 
 	<div class="col-md-4">
-		<h1>Registra un nuevo usuario</h1>
-
-		<form id='formulario' method='post' action=''>{% csrf_token %}
-			<table>{{formulario}}</table>	
-			<input type='submit' value='Registrar'/>
-		</form>
+		<h3> Eres nuevo en PetRescue
+			<br>
+			<small>Registrarse es muy sencillo</small>
+		</h3>
+		<div class="form-group">
+			<form id='formulario' method='post' action=''>{% csrf_token %}
+				{% csrf_token %}
+				{{formulario.as_p}}	
+				<input type='submit' class="btn btn-primary" value='Registrar'/>
+			</form>
+		</div>
 	</div>
 </div>
 {% endblock %}
