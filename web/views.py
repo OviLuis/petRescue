@@ -63,7 +63,17 @@ def reportarAdopcion(request):
 
 
 def inicio(request):
-    if inicioSesion in request.POST:
+    if 'registro' in request.POST:
+        usuario = request.user
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid:
+            return HttpResponseRedirect(reverse('web:home'))
+        else:
+            formulario = UsuarioForm()
+    elif 'inicioSesion' in request.POST:
+        loguin_form = loguinForm()
+
+#de aca viejo
     """usuario = request.user
     if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
@@ -71,7 +81,7 @@ def inicio(request):
             return HttpResponseRedirect(reverse('web:home'))
     else:
         formulario = UsuarioForm()"""
-    return render_to_response('home.html', {'formulario': formulario, 'usuario': usuario}, context_instance=RequestContext(request))
+    return render_to_response('home.html', {'formulario': formulario, 'usuario': usuario}, {'loguin_form': loguin_form}, context_instance=RequestContext(request))
 
 
 def detail(request, mascota_id):

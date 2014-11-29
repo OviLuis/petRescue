@@ -38,6 +38,6 @@ class UsuarioForm(ModelForm):
         fields = []
 
 
-class loguin(forms.Form):
+class loguinForm(forms.Form):
     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Correo Electronico'}))
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}))
