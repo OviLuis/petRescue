@@ -87,7 +87,9 @@ footer{
 }
 
 .slide-img {
-  text-align: right;
+  margin-top: 65px;
+  width: 340px;
+  height: 320px;
 }
 
 /* Slide feature */
