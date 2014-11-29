@@ -135,31 +135,27 @@
 
 
 	<div class="col-md-4">
-		<div>
+		<div id="login" >
 		<h3> Inicia Sesion </h3>
 		<div class="form-group">
-				<form id='formulario_usuario' method='post' action=''>
+				<form id='formulario_login' method='post' action=''>
 					{% csrf_token %}
 					{{loguin_form.as_p}}	
+					<div id="msg-login-error"></div>
 					<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 				</form>
-				<script type="text/javascript">
-					$("#formulario_usuario").submit(function(){
-        				sendDatosUsuario();
-    				});
-    			</script>
 
-			</div>
+		</div>
 
 		</div>		
 
-		<div>
+		<div id="registro">
 			<h3> Eres nuevo en PetRescue
 				<br>
 				<small>Registrarse es muy sencillo</small>
 			</h3>
 			<div class="form-group">
-				<form id='formulario_usuario' method='post' action=''>
+				<form id='formulario_registro_usuario' method='post' action=''>
 					{% csrf_token %}
 					{{formulario.as_p}}	
 					<input type='submit' name="registro" class="btn btn-primary" value='Registrar'/>
@@ -167,5 +163,14 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$("#formulario_registro_usuario").submit(function(){
+        	sendDatosRegistroUsuario();
+    	});
+    	$("#formulario_login").submit(function(){
+        	sendDatosLogin();
+        	return false;
+    	});
+    </script>
 </div>
 {% endblock %}
