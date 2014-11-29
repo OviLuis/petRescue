@@ -54,16 +54,24 @@ function sendDatosPerdidos() {
 }
 
 function creaDivs(json) {
+
+	var div_parent = $('#contenido');
+
 	for (var i = 0, length = json.length; i < length ; i++ ) 
     {
-        var div_parent = document.createElement("div");
+        var messageChild = $("<div><h1><span> json[i]['especie'] </span></h1></div>");
+		messageChild.attr('class','child');
+	
+		div_parent.append(messageChild);
+
+		console.log(jason[i]);
         //var node2 = document.createTextNode(json[i]['especie']);
         //var node = document.createTextNode(json[i]['nombre']);
         
         //div_parent.appendChild(node2);
         //div_parent.appendChild(node);
         
-        document.getElementById("contenido").appendChild(div_parent);
+        //document.getElementById("contenido").appendChild(div_parent);
     }
     
 }
