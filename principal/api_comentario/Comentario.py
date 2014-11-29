@@ -45,11 +45,11 @@ class ComentarioAPI(APIView):
 
 """    @action(permission_classes=[IsAuthenticated])
     def like(self, request, pk=None):
-        
+
         #Likes a review. User authentication is required.
 
         # I want no params for this action and I want to show a different serializer class.
-        
+
         review = self.get_object()
         try:
             review.like(request.user.userprofile)

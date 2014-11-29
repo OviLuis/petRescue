@@ -84,12 +84,12 @@ USE_L10N = True
 USE_TZ = True
 
 #carga las imagenes de las mascotas
-MEDIA_ROOT = os.path.join(BASE_DIR,'carga')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'carga')
 MEDIA_URL = '/media/'
 
 #templates
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,'web/templates'),
+    os.path.join(BASE_DIR, 'web/templates'),
 )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

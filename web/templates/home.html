@@ -78,7 +78,7 @@
 			<small>Registrarse es muy sencillo</small>
 		</h3>
 		<div class="form-group">
-			<form id='formulario' method='post' action=''>{% csrf_token %}
+			<form id='formulario_usuario' method='post' action=''>{% csrf_token %}
 				{% csrf_token %}
 				{{formulario.as_p}}	
 				<input type='submit' class="btn btn-primary" value='Registrar'/>

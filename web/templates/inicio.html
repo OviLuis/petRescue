@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 	<head>
 		<meta charset='utf-8'> 
-		<title>Simple app</title>
+		<title>PetRescue</title>
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="{{STATIC_URL}}css/estilo.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -20,7 +20,7 @@
 					</li>
 
 					<li>
-						<a id="cat_perdidos" href="/perdidos">Mascostas Perdidas</a>
+						<a id="cat_perdidos" href="{% url 'web:perdidos' %}">Mascostas Perdidas</a>
 					</li>
 					<li>
 						<a href="/adopciones">Mascostas en Adopción</a>
@@ -30,7 +30,10 @@
 					</li>
 				</ul>
 			</nav>
-			{% block contenido %}{% endblock %}
+			<div id="contenido"></div>
+
+			{% block contenido %}
+			{% endblock %}
 			
 			
 			<footer>
@@ -68,7 +71,10 @@
 	<script src="{{STATIC_URL}}js/perdido.js" ></script>
 	<script src="{{STATIC_URL}}js/encontrado.js" ></script>
 	<script src="{{STATIC_URL}}js/adopcion.js" ></script>
+	<script src="{{STATIC_URL}}js/usuario.js" ></script>
+	<script src="{{STATIC_URL}}js/main.js" ></script>
 	</body>
 </html>
+
 
 

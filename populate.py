@@ -16,6 +16,7 @@ def add_usuario():
     usuario = Usuario.objects.create_user(email="populate@populate.com", nombre="populate", direccion="populate", telefono="121212", password="populate")
     return usuario
 
+
 def add_perdido(usuario):
     print "add perdido"
     perdido = Perdidos(nombre="Populate",raza="populate", edad="12", especie="populate", sexo="populate", foto="C://populate.jpg", descripcion="populate", fechaDesaparicion="2014-11-28T02:31:49.658Z",dirDesaparicion="Populate", usuario=usuario)
