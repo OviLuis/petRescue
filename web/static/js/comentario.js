@@ -1,15 +1,8 @@
 function appendComentario(comentario)
 {
-	var parent = document.createElement("div");
-    var texto = document.createTextNode(comentario.texto);
-    var fecha = document.createTextNode(comentario.fechaPublicacion)
-    var usuario = document.createTextNode(comentario.usuario)
-    
-    parent.appendChild(usuario);
-    parent.appendChild(texto);
-    parent.appendChild(fecha);
-    
-    document.getElementById("comentarios").appendChild(parent);
+    $("#comentarios").append("<span>"+comentario.usuario+"</span>"
+    	+"<span>"+comentario.texto+"</span>"
+    	+"<span>"+comentario.fechaPublicacion+"</span>")
 }
 
 

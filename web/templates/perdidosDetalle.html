@@ -24,6 +24,11 @@
 </div>
 
 <script type="text/javascript">
+	$("#formulario_comentario").submit(function(){
+        sendComentario();
+        return false;
+    });
+    
 	$("#ver_comentarios").click(function () {
     	getComentarios({{mascota.id}})
     	return false
