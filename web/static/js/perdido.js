@@ -54,7 +54,7 @@ function sendDatosPerdidos() {
 }
 
 function creaDivs(json) {
-	for (var i = 0, length = json.length; i <length ; i++ ) 
+	for (var i = 0, length = json.length; i < length ; i++ ) 
     {
         var div_parent = document.createElement("div");
         var node = document.createTextNode(json[i]['nombre']);
