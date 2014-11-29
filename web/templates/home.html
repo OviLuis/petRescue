@@ -138,7 +138,7 @@
 				<form id='formulario_usuario' method='post' action=''>
 					{% csrf_token %}
 					{{formulario.as_p}}	
-					<input type='submit' class="btn btn-primary" value='Ingresar'/>
+					<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 				</form>
 				<script type="text/javascript">
 					$("#formulario_usuario").submit(function(){
@@ -159,7 +159,7 @@
 				<form id='formulario_usuario' method='post' action=''>
 					{% csrf_token %}
 					{{formulario.as_p}}	
-					<input type='submit' class="btn btn-primary" value='Registrar'/>
+					<input type='submit' name="registro" class="btn btn-primary" value='Registrar'/>
 				</form>
 			</div>
 		</div>
