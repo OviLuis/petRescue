@@ -37,8 +37,8 @@ from rest_framework import status
 class ComentarioAPI(APIView):
     """docstring for ComentarioAPI"""
 
-    def get(self, request, *args, **kwargs):
-        comentarios = Comentario.objects.all()
+    def get(self, request, id_mascota,  *args, **kwargs):
+        comentarios = Comentario.objects.filter(mascota=id_mascota)
         serializado = ComentarioSerializer(comentarios, many=True)
         return Response(serializado.data, status=status.HTTP_200_OK)
 

@@ -14,7 +14,7 @@ usuario.register(r'usuario', Usuario.UsuarioAPI)
 
 from .api_perdidos import Perdido
 perdido = routers.DefaultRouter()
-perdido.register(r'perdido', Perdido.PerdidoCRUD)
+perdido.register(r'perdido/edit', Perdido.PerdidoCRUD)
 
 
 from .api_encontrado import Encontrado
@@ -29,7 +29,7 @@ adopcion.register(r'adopcion', Adopcion.AdopcionCRUD)
 
 from .api_comentario import Comentario
 comentario = routers.DefaultRouter()
-comentario.register(r'comentario', Comentario.ComentarioCRUD)
+comentario.register(r'comentario/edit', Comentario.ComentarioCRUD)
 
 
 #PAra traer los comentarios
@@ -39,13 +39,18 @@ comentario.register(r'comentario', Comentario.ComentarioCRUD)
 
 urlpatterns = patterns(
     '',
+    #urls para CRUD
     url(r'^api/', include(usuario.urls)),
     url(r'^api/', include(perdido.urls)),
     url(r'^api/', include(encontrado.urls)),
     url(r'^api/', include(adopcion.urls)),
     url(r'^api/', include(comentario.urls)),
 
-    url(r'^api/p/', Perdido.PerdidoAPI.as_view()),
+    #urls publicas
+    url(r'^api/perdido/', Perdido.PerdidoAPI.as_view()),
+    url(r'^api/comentario/(?P<id_mascota>\d+)', Comentario.ComentarioAPI.as_view()),
+    
+
 #
 #
     url(r'^api/auth', Autenticacion.AuthView.as_view()),)

@@ -38,6 +38,9 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.nombre
 
+    def __unicode__(self):
+        return u'%s %s' % (self.id, self.nombre)
+
 
 class Publicacion(models.Model):
     """docstring for Publicacion"""

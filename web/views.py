@@ -6,6 +6,8 @@ from principal.forms import *
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
 
+from django.http import Http404
+
 from principal.models import *
 
 # Create your views here.
@@ -69,3 +71,11 @@ def inicio(request):
     else:
         formulario = UsuarioForm()
     return render_to_response('home.html', {'formulario': formulario, 'usuario': usuario}, context_instance=RequestContext(request))
+
+
+def detail(request, mascota_id):
+    try:
+        mascota = Mascota.objects.get(pk=mascota_id)
+    except Mascota.DoesNotExist:
+        raise Http404
+    return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
