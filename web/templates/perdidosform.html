@@ -1,4 +1,4 @@
-{% extends 'inicio.html' %}
+{% extends 'template_base.html' %}
 
 {% block contenido %}
 <div id="form_perdido">
@@ -6,5 +6,10 @@
 		{{formulario.as_p}}
 		<p><input type='submit' value='confirmar' class="btn btn-primary" /></p>
 	</form>
+	<script type="text/javascript">
+	$("#formulario_perdido").submit(function() {
+		sendDatosPerdidos();
+	});
+</script>
 </div>
 {% endblock %}

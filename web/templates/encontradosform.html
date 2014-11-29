@@ -1,9 +1,13 @@
-{% extends 'inicio.html' %}
+{% extends 'template_base.html' %}
 
 {% block contenido %}
 	<form id="formulario_encontrado" method="post" enctype="multipart/form-data" action="">{% csrf_token %}
 		{{formulario.as_p}}
 		<p><input type='submit' value='confirmar' class="btn btn-primary" /></p>
 	</form>
-
+	<script type="text/javascript">
+		$("#formulario_encontrado").submit(function(){
+        	sendDatosEncontrado();
+    	});
+	</script>
 {% endblock %}
