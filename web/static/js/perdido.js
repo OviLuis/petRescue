@@ -5,7 +5,8 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-			creaDivs(json);
+            console.log(json);
+			creaDivs(json[1]);
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -55,23 +56,20 @@ function sendDatosPerdidos() {
 
 function creaDivs(json) {
 
-	var div_parent = $('#contenido');
+	console.log("esto es creaDivs");
+
+	//var div_parent = $('#contenido');
 
 	for (var i = 0, length = json.length; i < length ; i++ ) 
     {
-        var messageChild = $("<div><h1><span> json[i]['especie'] </span></h1></div>");
-		messageChild.attr('class','child');
-	
-		div_parent.append(messageChild);
-
-		console.log(jason[i]);
+        
         //var node2 = document.createTextNode(json[i]['especie']);
-        //var node = document.createTextNode(json[i]['nombre']);
+        var node = document.createTextNode(json[i]['especie']);
         
         //div_parent.appendChild(node2);
-        //div_parent.appendChild(node);
+        div_parent.appendChild(node);
         
-        //document.getElementById("contenido").appendChild(div_parent);
+        document.getElementById("contenido").appendChild(div_parent);
     }
     
 }
