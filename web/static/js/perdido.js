@@ -1,7 +1,7 @@
 function getDatosPerdidos()
 {
 	$.ajax({
-		url : "http://"+window.location.host+"/api/perdido", 
+		url : "http://"+window.location.host+"/api/perdido/", 
         type : "GET",   
         success : function(json) {
             console.log("completo");
@@ -12,7 +12,7 @@ function getDatosPerdidos()
         }
     })
 	.done(function(json){
-		
+		console.log(json);
 	});
 }
 
