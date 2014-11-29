@@ -18,11 +18,13 @@ var main = function(){
 	{
 		console.log('adopciones');
 		inicializarAdopcion();
+		getDatosAdopciones();
 	}
 	if ('/encontrados/' === currentPath)
 	{
 		console.log('encontrados');
 		inicializarEncontrado();
+		getDatosEncontrados();
 	}
 	
 

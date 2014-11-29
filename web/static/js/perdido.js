@@ -57,8 +57,12 @@ function creaDivs(json) {
 	for (var i = 0, length = json.length; i < length ; i++ ) 
     {
         var div_parent = document.createElement("div");
-        var node = document.createTextNode(json[i]['nombre']);
-        div_parent.appendChild(node);
+        //var node2 = document.createTextNode(json[i]['especie']);
+        //var node = document.createTextNode(json[i]['nombre']);
+        
+        //div_parent.appendChild(node2);
+        //div_parent.appendChild(node);
+        
         document.getElementById("contenido").appendChild(div_parent);
     }
     

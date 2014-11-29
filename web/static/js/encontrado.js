@@ -1,3 +1,21 @@
+function getDatosEncontrados()
+{
+	$.ajax({
+		url : "http://"+window.location.host+"/api/encontrado", 
+        type : "GET",   
+        success : function(json) {
+            console.log("completo");
+			creaDivs(json);
+        },
+        error : function(xhr,errmsg,err) {
+        	alert(xhr.status + ": " + xhr.responseText);
+        }
+    })
+	.done(function(json){
+		
+	});
+}
+
 function sendDatosEncontrado(data) {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
@@ -30,5 +48,16 @@ function sendDatosEncontrado(data) {
 		//console.log("completo")
 		console.log("always");
 	});
+}
+
+function creaDivs(json) {
+	for (var i = 0, length = json.length; i < length ; i++ ) 
+    {
+        var div_parent = document.createElement("div");
+        var node = document.createTextNode(json[i]['nombre']);
+        div_parent.appendChild(node);
+        document.getElementById("contenido").appendChild(div_parent);
+    }
+    
 }
 
