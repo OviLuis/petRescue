@@ -14,9 +14,10 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "petRescue.settings")
 from django.core.wsgi import get_wsgi_application
 #default
 
-#application = get_wsgi_application()
-
+if True:
+    application = get_wsgi_application()
+    print "Modo desarrollador"
+else:
 #deploy
-from dj_static import Cling
-
-application = Cling(get_wsgi_application())
+    from dj_static import Cling
+    application = Cling(get_wsgi_application())

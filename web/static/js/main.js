@@ -37,7 +37,8 @@ var main = function(){
 	inicializarAdopcion();
 	inicializarEncontrado();
 	inicializarRegistroUsuario();
-	inicializarComentario();
+
+	console.log($.cookie());
 
 };
 
@@ -66,15 +67,6 @@ function inicializarRegistroUsuario()
 {
 	$("#formulario_usuario").submit(function(){
         sendDatosUsuario();
-    });
-
-}
-
-function inicializarComentario()
-{
-	$("#formulario_comentario").submit(function(){
-        sendComentario();
-        return false;
     });
 
 }

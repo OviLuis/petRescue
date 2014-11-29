@@ -55,6 +55,7 @@ function sendDatosLogin() {
 	.done(function(response){
 		//$("#gretting").text(response)
 		console.log("done")
+		$.cookie('nombre', 'mi nombre', { expires: 7, path: '/' });
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
