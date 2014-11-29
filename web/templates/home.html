@@ -1,4 +1,4 @@
-{% extends 'inicio.html' %}
+{% extends 'template_base.html' %}
 {% block contenido %}
 
 <div class="row">
@@ -140,6 +140,12 @@
 					{{formulario.as_p}}	
 					<input type='submit' class="btn btn-primary" value='Ingresar'/>
 				</form>
+				<script type="text/javascript">
+					$("#formulario_usuario").submit(function(){
+        				sendDatosUsuario();
+    				});
+    			</script>
+
 			</div>
 
 		</div>		
