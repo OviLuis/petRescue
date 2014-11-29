@@ -2,21 +2,6 @@ from rest_framework import serializers
 from .models import *
 
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    """docstring for UsuarioSerializer"""
-    class Meta:
-        """docstring for Meta"""
-        model = Usuario
-        fields = ('id', 'email', 'nombre', 'direccion', 'telefono', 'password')
-        read_only_fields = ('id', )
-        write_only_fields = ('password', )
-
-    def restore_object(self, attrs, instance=None):
-        print "RESTOURE "+attrs['password']
-        user = super(UsuarioSerializer, self).restore_object(attrs, instance)
-        user.set_password(attrs['password'])
-        return user
-
 
 class PerdidoSerializer(serializers.ModelSerializer):
     """docstring for ClassName"""
@@ -41,8 +26,29 @@ class AdopcionSerializer(serializers.ModelSerializer):
         #fields = ('nombre', 'raza', 'edad', 'especie', 'sexo', 'foto', 'descripcion', 'direccion', )
 
 
+#class ComentarioSerializer(serializers.HyperlinkedModelSerializer):
 class ComentarioSerializer(serializers.ModelSerializer):
     """docstring for ComentarioSerializer"""
+    #usuario = serializers.HyperlinkedIdentityField(view_name='usuario')
+
     class Meta:
         """docstring for Meta"""
         model = Comentario
+        fields = ('id', 'texto', 'mascota', 'fechaPublicacion', 'usuario')
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    """docstring for UsuarioSerializer"""
+    #comentarios = ComentarioSerializer(many=True)
+
+    class Meta:
+        """docstring for Meta"""
+        model = Usuario
+        fields = ('id', 'email', 'nombre', 'direccion', 'telefono', 'password')#, 'comentarios')
+        read_only_fields = ('id', )
+        write_only_fields = ('password', )
+
+    def restore_object(self, attrs, instance=None):
+        print "RESTOURE "+attrs['password']
+        user = super(UsuarioSerializer, self).restore_object(attrs, instance)
+        user.set_password(attrs['password'])
+        return user

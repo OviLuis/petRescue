@@ -37,6 +37,7 @@ var main = function(){
 	inicializarAdopcion();
 	inicializarEncontrado();
 	inicializarRegistroUsuario();
+	inicializarComentario();
 
 };
 
@@ -65,6 +66,15 @@ function inicializarRegistroUsuario()
 {
 	$("#formulario_usuario").submit(function(){
         sendDatosUsuario();
+    });
+
+}
+
+function inicializarComentario()
+{
+	$("#formulario_comentario").submit(function(){
+        sendComentario();
+        return false;
     });
 
 }
