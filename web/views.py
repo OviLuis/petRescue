@@ -14,7 +14,7 @@ from principal.models import *
 
 
 def home(request):
-    return render_to_response('inicio.html', context_instance=RequestContext(request))
+    return render_to_response('template_base.html', context_instance=RequestContext(request))
 
 
 def perdidos(request):

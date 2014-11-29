@@ -9,6 +9,12 @@ var main = function(){
 
 
 	console.log($.cookie());
+	//si hay  un usuario autenticado -> elimino los formularios
+	if (verificarAutenticado())
+	{
+		$("#login").remove()
+		$("#registro").remove()		
+	}
 
 };
 
