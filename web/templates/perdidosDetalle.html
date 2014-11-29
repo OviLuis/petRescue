@@ -1,0 +1,33 @@
+{% extends 'inicio.html' %}
+{% block contenido %}
+<div id="perdido">
+{{mascota.nombre}}
+{{mascota.especie}}
+{{mascota.raza}}
+{{mascota.edad}}
+{{mascota.sexo}}
+{{mascota.descipcion}}
+{{mascota.fechaDesaparicion}}
+<img src="{{MEDIA_URL}}{{mascota.foto}}">
+{{mascota.dirDesaparicion}}
+</div>
+<a href="" id="ver_comentarios">Ver comentarios</a>
+<div id="comentarios">
+	
+</div>
+<div id="addComentario">
+	<form id="formulario_comentario">{% csrf_token %}
+		<input id="id_texto" name="texto" type="text"></input><div id="msg-com-error"></div>
+		<input id="id_mascota" name="mascota" value="{{mascota.id}}" type="hidden">
+		<p><input type='submit' value='Comentar' class="btn btn-primary" /></p>
+	</form>
+</div>
+
+<script type="text/javascript">
+	$("#ver_comentarios").click(function () {
+    	getComentarios({{mascota.id}})
+    	return false
+    });
+	
+</script>
+{% endblock %}
