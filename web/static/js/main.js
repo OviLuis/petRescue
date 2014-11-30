@@ -16,6 +16,8 @@ var main = function(){
 		$("#registro").remove()		
 	}
 
+	/*$('#myButton').popover();*/
+
 };
 
 

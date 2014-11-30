@@ -2,15 +2,16 @@
 
 {% block contenido %}
 
-
-<div id="perdidos"></div>
-
+<div class="container" id="contenido">
 
 <a href="{% url 'web:reportarPerdido' %}">Reportar Perdido</a>
+</div>
+
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		getDatosPerdidos()
+		getDatosPerdidos();
 	}); 
 </script>
 

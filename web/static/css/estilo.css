@@ -6,19 +6,16 @@ body{
 }
 
 .active {
-    border-bottom: 5px solid #AC193D;
+    border-bottom: 5px solid #297FE5;
 }
 
 /* cabecera */
 .page-header{
+	height: 110px;
 	background-color: #297FE5;
 	color:  white;
 	margin-top: 0;
 	margin-bottom: 0;
-}
-
-.navbar{
-	/*background-color: #FFFFDA;*/
 
 }
 
@@ -31,6 +28,9 @@ footer{
 	color:  white;
 }
 
+.mascota{
+	background-color: red;
+}
 
 
 
