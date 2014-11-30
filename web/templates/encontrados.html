@@ -4,9 +4,15 @@
 {% block contenido %}
   
 
-<div class="container" id="contenido">	
-</div>
+<div class="container" id="contenido">	</div>
+
 
 <a href="{% url 'web:reportarEncontrado' %}"> Reportar Encontrado</a>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		getDatosEncontrados();
+	}); 
+</script>
 	
 {% endblock %}

@@ -14,6 +14,11 @@ from principal.models import *
 # Create your views here.
 
 
+def home(request):
+    return render_to_response('index.html', context_instance=RequestContext(request))
+
+
+
 def perdidos(request):
     return render_to_response('perdidos.html', context_instance=RequestContext(request))
 

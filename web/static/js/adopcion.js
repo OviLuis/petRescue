@@ -4,20 +4,8 @@ function getDatosAdopciones()
 		url : "http://"+window.location.host+"/api/adopcion", 
         type : "GET",   
         success : function(json) {
-            console.log("completo");
-			
-			var div_parent = $('#contenido');
-		for (var i = 0, length = json.length; i < length ; i++ ) 
-		    {
-        		var data = $('<div><h2><span>'+ json[i]['nombre'] + '</span></h2>'+
-        							'<img src="{{MEDIA_URL}}{{mascota.'+json[i]['foto']+'}}">'+ 
-        							'<p>'+ json[i]['descripcion'] + '</p>'+
-        							'</div>');
-
-				data.attr('class','child');
-	
-				div_parent.append(data);
-			}
+            console.log(json);
+			creaDivs(json);
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -63,16 +51,5 @@ function sendDatosAdopcion() {
 	});
 }
 
-/*
-function creaDivs(json) {
-	for (var i = 0, length = json.length; i < length ; i++ ) 
-    {
-        var div_parent = document.createElement("div");
-        var node = document.createTextNode(json[i]['nombre']);
-        div_parent.appendChild(node);
-        document.getElementById("contenido").appendChild(div_parent);
-    }
-    
-}*/
 
 
