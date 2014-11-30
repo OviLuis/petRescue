@@ -2,6 +2,18 @@
 {% block contenido %}
 <div class="container">
 	<div class="row">
+
+	{% if user.is_authenticated %}
+		<div id="usuario">
+			<p>{{user.nombre}}</p>
+			<p>{{user.email}}</p>
+		</div>
+
+		<div>
+			<a href="#" id="logout">Cerrar sessión</a>
+		</div>
+
+	{% else %}
 		<div class="col-md-8">
 		<!--slide boostra-->
 		   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -57,18 +69,6 @@
 	    </div>
 		<!--fin slide boostra -->
 		</div>
-
-	{% if user.is_authenticated %}
-		<div id="usuario">
-			<p>{{user.nombre}}</p>
-			<p>{{user.email}}</p>
-		</div>
-
-		<div>
-			<a id="logout">Cerrar sessión</a>
-		</div>
-
-	{% else %}
 
 		<div class="col-md-4">
 			<div id="login" >

@@ -10,3 +10,12 @@ urlpatterns = patterns('',
     url(r'^', include('principal.urls')),
     url(r'^', include('web.urls', namespace='web')),
 )
+
+
+from django.conf import settings
+from django.contrib.staticfiles import views
+
+if not settings.DEBUG:
+    urlpatterns += [
+        url(r'^static/(?P<path>.*)$', views.serve),
+    ]
