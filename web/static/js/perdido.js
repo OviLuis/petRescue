@@ -56,7 +56,7 @@ function sendDatosPerdidos() {
 function creaDivs(json) {
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-        $('<div>').text(json[i]['nombre''sexo']).prependTo('#contenido').addClass("mascota");
+        $('<div>').text(json[i]['nombre']).prependTo('#contenido').addClass("mascota");
     }
     
     

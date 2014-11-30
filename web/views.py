@@ -55,7 +55,7 @@ def reportarAdopcion(request):
     if request.method == 'POST':
         formulario = AdopcionesForm(request.POST, request.FILES)
         if formulario.is_valid():
-            return HttpResponseRedirect('/adopciones')
+            return HttpResponseRedirect(reverse('web:reportarAdopcion'))
     else:
         formulario = AdopcionesForm()
 
