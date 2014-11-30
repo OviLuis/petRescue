@@ -2,9 +2,11 @@
 
 
 {% block contenido %}
-aqui iran la mascotas en adopcion
 
-<a href="/reportarAdopcion"> Reportar Adopcion</a>
+
+<div id="adopciones"></div>
+
+<a href="{% url 'web:reportarAdopcion' %}"> Reportar Adopcion</a>
 
 <script type="text/javascript">
 	$(document).ready(function(){

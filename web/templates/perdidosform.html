@@ -3,13 +3,19 @@
 {% block contenido %}
 <div id="msg-success"></div>
 <div id="form_perdido">
-	<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">{% csrf_token %}
-		{{formulario.as_p}}
-		<p><input type='submit' value='confirmar' class="btn btn-primary" /></p>
-	</form>
-	<script type="text/javascript">
-	$("#formulario_perdido").submit(function(event) {
-		sendDatosPerdidos(event);
+
+	<div class="form-group col-md-4">
+		<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">
+			{% csrf_token %}
+			{{formulario.as_p}}
+			<input type='submit' value='confirmar' class="btn btn-primary" />
+		</form>	
+	</div>
+</div>
+		
+<script type="text/javascript">
+	$("#formulario_perdido").submit(function() {
+		sendDatosPerdidos();
 	});
 </script>
 </div>

@@ -13,19 +13,20 @@
 	<div class="container">
 		<section>
 			<header class="page-header">
-				<a href="/"><h1>PetRescue</h1></a> <br>
+				<h1>PetRescue</h1>
 			</header>
 			<nav  class="navbar navbar-default navbar-static-top" role="navigation">
 				<ul  class="nav navbar-nav">
 					
 					
-					<li class="elementobarra">
+					<!--popover id="myButton" data-toggle="popover" data-trigger="focus"  data-placement="bottom" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"-->
+					<li class="active" >
 						<a href="/home">
 							<span class="glyphicon glyphicon-home"></span>  Inicio</span>
 						</a>
 					</li>
 
-					<li>
+					<li >
 						<a id="cat_perdidos" href="{% url 'web:perdidos' %}">Mascostas Perdidas</a>
 					</li>
 					<li>
@@ -36,10 +37,10 @@
 					</li>
 				</ul>
 			</nav>
-			<div id="contenido"></div>
-
+				
 			{% block contenido %}
 			{% endblock %}
+			
 			
 			<footer>
 				<div class="row">
@@ -71,8 +72,6 @@
 	<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
 	<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
 	
-
-	<script src="{{STATIC_URL}}js/slider.js" ></script>
 	<script src="{{STATIC_URL}}js/perdido.js" ></script>
 	<script src="{{STATIC_URL}}js/encontrado.js" ></script>
 	<script src="{{STATIC_URL}}js/adopcion.js" ></script>
