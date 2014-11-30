@@ -29,6 +29,11 @@ footer{
 	color:  white;
 }
 
+.imagenMascota{
+	width: 100px;
+	height: 100px;
+}
+
 .mascota{
 	background-color: red;
 }

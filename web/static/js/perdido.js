@@ -60,9 +60,19 @@ function creaDivs(json) {
 	
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-    	$('<div>').appendTo('#contenido').addClass("mascota").attr('id', 'info'+i);
+    	var data = $('<div class = "mascota row">'+
+    					'<div class= "col-md-4">'+
+    						'<img class="imagenMascota" src="/media/'+json[i]['foto']+'"/>'+
+    					'</div>'+
+    					'<div class = "col-md-8">'+	
+    						'<h2>'+json[i]['nombre']+'</h2>'+
+        					'<p>'+ json[i]['descripcion'] + '</p>'+
+						'</div>'+
+					 '</div>');
+    	$('#contenido').append(data);
+    	/*$('<div>').appendTo('#contenido').addClass("mascota col-md-4").attr('id', 'info'+i);
     	$('<img src="/media/'+json[i]['foto']+'"/>').appendTo('#info'+i).addClass('imagenMascota');
     	$('<p>').text('Descripcion: '+json[i]['descripcion']).appendTo('#info'+i);
-    	$('<p>').text('Nombre: '+json[i]['nombre']).prependTo('#info'+i);
+    	$('<p>').text('Nombre: '+json[i]['nombre']).prependTo('#info'+i);*/
     }   
 }
