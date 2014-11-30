@@ -11,8 +11,10 @@ var main = function(){
 	if ('/perdidos/' === currentPath)
 	{
 		console.log('Perdidos');
+		
 		inicializarPerdido();
 		getDatosPerdidos();
+		
 	}
 	if ('/adopciones/' === currentPath)
 	{
@@ -40,7 +42,7 @@ var main = function(){
 	inicializarEncontrado();
 	inicializarRegistroUsuario();
 
-	console.log($.cookie());
+	//console.log($.cookie());
 
 };
 

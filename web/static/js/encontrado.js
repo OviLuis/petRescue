@@ -6,6 +6,18 @@ function getDatosEncontrados()
         success : function(json) {
             console.log("completo");
 			//creaDivs(json);
+			var div_parent = $('#contenido');
+		for (var i = 0, length = json.length; i < length ; i++ ) 
+		    {
+        		var messageChild = $('<div><h2><span>'+ json[i]['nombre'] + '</span></h2>'+
+        							'<p>'+ json[i]['foto'] + '</p>'+
+        							'<p>'+ json[i]['descripcion'] + '</p>'+
+        							'</div>');
+
+				messageChild.attr('class','child');
+	
+				div_parent.append(messageChild);
+			}
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
