@@ -25,17 +25,18 @@ var main = function(){
 var active = function()
 {
 	var elementos = document.getElementsByClassName('nav navbar-nav')[0].children;
-	var aux = ['http://localhost:8000/home', ''];
+	var localizacion = window.location.href;
 
-
-	}
 	for (x in elementos)
 		{
-			console.log(elementos[x].children[0].href);
+			if(localizacion == elementos[x].children[0].href)
+				{
+					elementos[x].setAttribute('class','active');
+				}
 
 		}
-
 }
+
 
 
 
