@@ -2,8 +2,12 @@
 
 {% block contenido %}
 <div id="msg-success"></div>
-<div id="form_perdido">
-
+<div class="container">
+	<h1>Publica mascotas perdidas.</h1>
+	<p>
+		Puedes publicar una mascota perdida, es muy facil, completa el formulario e ingresa una completa descripción de cómo, cuando y donde perdiste a tu mascota.<br> Nuestra comunidad intentará ayudar en la búsqueda.
+	</p>
+		
 	<div class="form-group col-md-4">
 		<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">
 			{% csrf_token %}
