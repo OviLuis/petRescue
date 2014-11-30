@@ -1,8 +1,6 @@
 /*estilos generales */
 
 body{
-	/*margin: 0 60px 0 60px;*/
-	/*margin: 0 5% 0 5%;*/
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -38,7 +36,6 @@ footer{
 .mascota{
 	margin: 20px;
 	border: 1px solid #e7e7e7;
-	background-color: red;
 }
 
 .logo
@@ -46,3 +43,5 @@ footer{
 	font-family: 'Cherry Cream Soda', cursive;
 	margin-top: 29px;
 }
+
+/*fa fa-paw*/

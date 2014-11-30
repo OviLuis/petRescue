@@ -15,8 +15,7 @@ from principal.models import *
 
 
 def home(request):
-    return render_to_response('index.html', context_instance=RequestContext(request))
-
+    return render_to_response('index.html', {'loguin_form': loguin_form}, context_instance=RequestContext(request))
 
 
 def perdidos(request):
@@ -73,9 +72,16 @@ def reportarAdopcion(request):
         return render_to_response('403.html', context_instance=RequestContext(request))
 
 
-
 def inicio(request):
-    formulario = UsuarioForm()
+    usuario = request.user
+    if request.method == 'POST':
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid:
+            return HttpResponseRedirect(reverse('web:inicio'))
+    else:
+        formulario = UsuarioForm()
+
+    """formulario = UsuarioForm()
     usuario = request.user
     loguin_form = loguinForm()
     if 'registro' in request.POST:
@@ -86,9 +92,9 @@ def inicio(request):
         else:
             formulario = UsuarioForm()
     elif 'inicioSesion' in request.POST:
-        loguin_form = loguinForm()
+        loguin_form = loguinForm()"""
 
-    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'loguin_form': loguin_form}, context_instance=RequestContext(request))
+    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
 
 
 def detail(request, mascota_id):
