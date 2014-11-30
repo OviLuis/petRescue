@@ -5,6 +5,7 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
+
             console.log(json);
 		
 		var div_parent = $('#contenido');
@@ -20,16 +21,17 @@ function getDatosPerdidos()
 	
 				div_parent.append(data);
 			}
+
+			creaDivs(json);
+
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
         }
     })
-
 	.done(function(json){
 		console.log(json);
 	});
-
 }
 
 
@@ -69,4 +71,11 @@ function sendDatosPerdidos() {
 
 }
 
-
+function creaDivs(json) {
+	for (var i = 0, length = json.length; i <length ; i++ ) 
+    {
+        $('<div>').text(json[i]['nombre']).prependTo('#contenido').addClass("mascota");
+    }
+    
+    
+}

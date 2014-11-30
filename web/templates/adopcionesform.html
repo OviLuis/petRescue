@@ -1,14 +1,22 @@
 {% extends 'template_base.html' %}
 
 {%block contenido %}
-	<form id="formulario_adopcion" method="post" enctype="multipart/form-data" action="">{% csrf_token %}
-		{{formulario.as_p}}
-		<p><input type='submit' value='confirmar' class="btn btn-primary" /></p>
-	</form>
-	<script type="text/javascript">
-		$("#formulario_adopcion").submit(function(){
-        	sendDatosAdopcion();
-		});
-	</script>
 
+<div>
+	<div class="form-group col-md-4">
+
+		<form id="formulario_adopcion" method="post" enctype="multipart/form-data" action="">
+			{% csrf_token %}
+			{{formulario.as_p}}
+			<input type='submit' value='confirmar' class="btn btn-primary" />
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#formulario_adopcion").submit(function(){
+    	sendDatosAdopcion();
+	});
+</script>
+</div>
 {% endblock %}
