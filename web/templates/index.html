@@ -89,33 +89,6 @@
 			</div>
 		</div>
 
-		<!-- Modal -->
-		<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
-					</div>
-					<div class="modal-body">
-						<div id="login" >
-							<div class="form-group">
-										<form id='formulario_login' method='post' action=''>
-											{% csrf_token %}
-											{{loguin_form.as_p}}
-											<div id="msg-login-error"></div>
-											<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
-										</form>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-
-
-
-
 	{% endif %}
 		<script type="text/javascript">
 			$("#formulario_registro_usuario").submit(function(){
