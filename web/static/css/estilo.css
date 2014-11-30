@@ -30,11 +30,14 @@ footer{
 }
 
 .imagenMascota{
-	width: 100px;
-	height: 100px;
+	width: 320px;
+	height: 180px;
+	margin: 5px;
 }
 
 .mascota{
+	margin: 20px;
+	border: 1px solid #e7e7e7;
 	background-color: red;
 }
 
