@@ -9,14 +9,14 @@ function getDatosEncontrados()
 			var div_parent = $('#contenido');
 		for (var i = 0, length = json.length; i < length ; i++ ) 
 		    {
-        		var messageChild = $('<div><h2><span>'+ json[i]['nombre'] + '</span></h2>'+
-        							'<p>'+ json[i]['foto'] + '</p>'+
+        		var data = $('<div><h2><span>'+ json[i]['nombre'] + '</span></h2>'+
+        							'<img src="{{MEDIA_URL}}{{mascota.'+json[i]['foto']+'}}">'+ 
         							'<p>'+ json[i]['descripcion'] + '</p>'+
         							'</div>');
 
-				messageChild.attr('class','child');
+				data.attr('class','child');
 	
-				div_parent.append(messageChild);
+				div_parent.append(data);
 			}
         },
         error : function(xhr,errmsg,err) {

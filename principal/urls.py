@@ -19,7 +19,7 @@ perdido.register(r'perdido/edit', Perdido.PerdidoCRUD)
 
 from .api_encontrado import Encontrado
 encontrado = routers.DefaultRouter()
-encontrado.register(r'encontrado', Encontrado.EncontradoCRUD)
+encontrado.register(r'encontrado/edit', Encontrado.EncontradoCRUD)
 
 
 from .api_adopcion import Adopcion
@@ -48,6 +48,7 @@ urlpatterns = patterns(
 
     #urls publicas
     url(r'^api/perdido/', Perdido.PerdidoAPI.as_view()),
+    url(r'^api/encontrado/', Encontrado.EncontradoAPI.as_view()),
     url(r'^api/comentario/(?P<id_mascota>\d+)', Comentario.ComentarioAPI.as_view()),
 
 

@@ -1,4 +1,4 @@
-function sendDatosUsuario() {
+function sendDatosRegistroUsuario() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
@@ -15,7 +15,7 @@ function sendDatosUsuario() {
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: $("#formulario_usuario").serialize()
+		data: $("#formulario_registro_usuario").serialize()
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
@@ -53,14 +53,19 @@ function sendDatosLogin() {
 		data: $("#formulario_login").serialize()
 	})
 	.done(function(response){
-		//$("#gretting").text(response)
-		console.log("done")
-		$.cookie('nombre', 'mi nombre', { expires: 7, path: '/' });
+		$.cookie('usuario_id', response.id , { expires: 7, path: '/' });
+		$.cookie('usuario_nombre', response.nombre , { expires: 7, path: '/' });
+		$.cookie('usuario_email', response.email , { expires: 7, path: '/' });
+		$("#login").remove()
+		$("#registro").remove()
+		
 	})
 	.fail(function(error){
-		//$("#gretting").text("Fail")	
-		console.log("fail: "+ error.responseText)
-		console.log(error)
+		if(401 == error.status)
+		{
+			$('#msg-login-error').text('Datos de usuario Incorrectos');
+		}
+
 	})
 	.always(function(){
 		//console.log("completo")
