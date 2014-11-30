@@ -19,7 +19,7 @@ body{
 
 }
 
-.navbar li a{	
+.navbar li a{
 	color: #EDC143;
 }
 
@@ -32,6 +32,8 @@ footer{
 	background-color: red;
 }
 
-
-
-
+.logo
+{
+	font-family: 'Cherry Cream Soda', cursive;
+	margin:0;
+}
