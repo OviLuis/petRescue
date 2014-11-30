@@ -1,7 +1,9 @@
 {% extends 'template_base.html' %}
 
 {% block contenido %}
+<div id="msg-success"></div>
 <div id="form_perdido">
+
 	<div class="form-group col-md-4">
 		<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">
 			{% csrf_token %}
