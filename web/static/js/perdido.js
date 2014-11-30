@@ -24,6 +24,8 @@ function getDatosPerdidos()
 
 			creaDivs(json);
 
+			console.log("perdidos");
+
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -72,9 +74,11 @@ function sendDatosPerdidos() {
 }
 
 function creaDivs(json) {
+	console.log("creaDivs");
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-        $('<div>').text(json[i]['nombre']).prependTo('#contenido').addClass("mascota");
+    	console.log(json[i]['descripcion']);
+        $('<p>').text(json[i]['nombre']).prependTo('#contenido').addClass("mascota");
     }
     
     
