@@ -18,3 +18,6 @@ urlpatterns = patterns('',
   
 
 )
+
+
+handler404 = 'web.views.error404'

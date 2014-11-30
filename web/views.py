@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from principal.forms import *
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
 
 from django.http import Http404
 
@@ -22,14 +23,17 @@ def perdidos(request):
 
 
 def reportarPerdido(request):
-    if request.method == 'POST':
-        formulario = PerdidosForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            return HttpResponseRedirect(reverse('web:perdidos'))
-    else:
-        formulario = PerdidosForm()
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            formulario = PerdidosForm(request.POST, request.FILES)
+            if formulario.is_valid():
+                return HttpResponseRedirect(reverse('web:perdidos'))
+        else:
+            formulario = PerdidosForm()
 
-    return render_to_response('perdidosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+        return render_to_response('perdidosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('403.html', context_instance=RequestContext(request))
 
 
 def encontrados(request):
@@ -37,14 +41,17 @@ def encontrados(request):
 
 
 def reportarEncontrado(request):
-    if request.method == 'POST':
-        formulario = EncontradosForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            return HttpResponseRedirect(reverse('web:reportarEncontrado'))
-    else:
-        formulario = EncontradosForm()
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            formulario = EncontradosForm(request.POST, request.FILES)
+            if formulario.is_valid():
+                return HttpResponseRedirect(reverse('web:reportarEncontrado'))
+        else:
+            formulario = EncontradosForm()
 
-    return render_to_response('encontradosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+        return render_to_response('encontradosform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('403.html', context_instance=RequestContext(request))
 
 
 def adopcion(request):
@@ -52,14 +59,18 @@ def adopcion(request):
 
 
 def reportarAdopcion(request):
-    if request.method == 'POST':
-        formulario = AdopcionesForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            return HttpResponseRedirect(reverse('web:reportarAdopcion'))
-    else:
-        formulario = AdopcionesForm()
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            formulario = AdopcionesForm(request.POST, request.FILES)
+            if formulario.is_valid():
+                return HttpResponseRedirect(reverse('web:reportarAdopcion'))
+        else:
+            formulario = AdopcionesForm()
 
-    return render_to_response('adopcionesform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+        return render_to_response('adopcionesform.html', {'formulario': formulario}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('403.html', context_instance=RequestContext(request))
+
 
 
 def inicio(request):
@@ -85,3 +96,7 @@ def detail(request, mascota_id):
     except Mascota.DoesNotExist:
         raise Http404
     return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
+
+
+def error404(request):
+    return render_to_response('404.html', context_instance=RequestContext(request))
