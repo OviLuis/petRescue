@@ -56,9 +56,8 @@ function sendDatosLogin() {
 		$.cookie('usuario_id', response.id , { expires: 7, path: '/' });
 		$.cookie('usuario_nombre', response.nombre , { expires: 7, path: '/' });
 		$.cookie('usuario_email', response.email , { expires: 7, path: '/' });
-		$("#login").remove()
-		$("#registro").remove()
-		
+		console.log("autenticado")
+		location.reload();		
 	})
 	.fail(function(error){
 		if(401 == error.status)
@@ -66,6 +65,45 @@ function sendDatosLogin() {
 			$('#msg-login-error').text('Datos de usuario Incorrectos');
 		}
 
+	})
+	.always(function(){
+		//console.log("completo")
+		console.log("always")
+	})
+}
+
+
+function logout() {
+	//obtiene el csrftoken
+	var csrftoken = $.cookie('csrftoken');
+	//url de la peticion
+	url = 'http://'+window.location.host+'/api/auth/'
+
+	//configura el csrftoken a la peticion ajax
+	$.ajaxSetup({
+    	beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    	}
+	});
+
+	//peticion ajax
+	$.ajax({
+		type: 'DELETE',
+		url: url
+	})
+	.done(function(response){
+		//$("#gretting").text(response)
+		console.log("done")
+		$.removeCookie('usuario_id');
+		$.removeCookie('usuario_nombre');
+		$.removeCookie('usuario_email');
+
+		location.reload()
+	})
+	.fail(function(error){
+		//$("#gretting").text("Fail")	
+		console.log("fail: "+ error.responseText)
+		console.log(error)
 	})
 	.always(function(){
 		//console.log("completo")
