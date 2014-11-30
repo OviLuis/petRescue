@@ -6,16 +6,28 @@
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="{{STATIC_URL}}css/estilo.css">
 		<link href='http://fonts.googleapis.com/css?family=Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
 	<body>
-	<div class="container">
+
 		<section>
 			<header class="page-header">
-				<h1 class="logo">PetRescue</h1>
+				<div class="container">
+
+
+
+					<h1 class="logo">PetRescue</h1>
+
+
+				<a class="pull-right btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>
+
+
+			</div>
 			</header>
+			<div class="container">
 			<nav  class="navbar navbar-default navbar-static-top" role="navigation">
 				<ul  class="nav navbar-nav">
 
@@ -24,7 +36,7 @@
 					<li class="active" >
 
 						<a href="/home">
-							<span class="glyphicon glyphicon-home"></span>Inicio</span>
+							<span class="glyphicon glyphicon-home"></span> Inicio</span>
 
 						</a>
 					</li>
@@ -45,31 +57,19 @@
 			{% endblock %}
 
 
-			<footer>
+			<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+				<div class="container">
+
+
 				<div class="row">
-				  <div class="col-md-4">
-				  	<ul class="secciones">
-					  <h2>Ubícanos</h2>
-					  <li><span class="glyphicon glyphicon-globe"></span>  Dirección :Calle 43 No 43-33.</li>
-					  <li><span class="glyphicon glyphicon-earphone"></span>  PBX: (57) 2 2241816-17</li>
-					  <li><span class="glyphicon glyphicon-envelope"></span>  Email: unicreditos@gmail.com</li>
-					</ul>
-
-				  </div>
-				  <div class="col-md-4">
-				  </div>
-				  <div class="col-md-4">
-					<ul class="secciones">
-					  <h2>Desarrollado por</h2>
-					  <li>Miguel Angel Bernal 1153852</li>
-					  <li>Luis Ovidio Gonzalez 1154010</li>
-					  <li>Aslhey Ramirez 1153765</li>
-					</ul>
-				  </div>
+				 <p>
+					Todos los Derechos Reservados | PetRescue | Tulua Valle 2014
+				</p>
 				</div>
+			</div>
+			</nav>
 
-			</footer>
-		</section>
+
 	</div>
 
 	<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
