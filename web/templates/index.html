@@ -27,9 +27,24 @@
 	</div>
 <hr>
 	<div class="row">
+<<<<<<< HEAD
 
 		<div class="col-md-8">
+=======
+>>>>>>> 1c0aba0a62fa6b64182b52a7b8beeda967a996d0
 
+	{% if user.is_authenticated %}
+		<div id="usuario">
+			<p>{{user.nombre}}</p>
+			<p>{{user.email}}</p>
+		</div>
+
+		<div>
+			<a href="#" id="logout">Cerrar sessión</a>
+		</div>
+
+	{% else %}
+		<div class="col-md-8">
 		<!--slide boostra-->
 		   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	      <!-- Indicators -->
@@ -84,18 +99,6 @@
 	    </div>
 		<!--fin slide boostra -->
 		</div>
-
-	{% if user.is_authenticated %}
-		<div id="usuario">
-			<p>{{user.nombre}}</p>
-			<p>{{user.email}}</p>
-		</div>
-
-		<div>
-			<a id="logout">Cerrar sessión</a>
-		</div>
-
-	{% else %}
 
 		<div class="col-md-4">
 

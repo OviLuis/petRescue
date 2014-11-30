@@ -1,7 +1,12 @@
 {% extends 'template_base.html' %}
 
 {% block contenido %}
-<div>
+<div class="container">
+	<h1>Publica mascotas encontradas.</h1>
+	<p>
+		 Puedes publicar una mascota que hayas encontrado, es muy facil, completa el formulario e ingresa una completa descripción de cómo, cuando y donde encontraste la mascota.<br> Nuestra comunidad agradecera tu ayuda.
+	</p>
+		
 	<div class="form-group col-md-4">
 		<form id="formulario_encontrado" method="post" enctype="multipart/form-data" action="">
 			{% csrf_token %}
