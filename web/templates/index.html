@@ -2,8 +2,19 @@
 {% block contenido %}
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
 
+	{% if user.is_authenticated %}
+		<div id="usuario">
+			<p>{{user.nombre}}</p>
+			<p>{{user.email}}</p>
+		</div>
+
+		<div>
+			<a href="#" id="logout">Cerrar sessión</a>
+		</div>
+
+	{% else %}
+		<div class="col-md-8">
 		<!--slide boostra-->
 		   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	      <!-- Indicators -->
@@ -58,6 +69,7 @@
 	    </div>
 		<!--fin slide boostra -->
 		</div>
+
 		<div class="col-md-4">
 			<div id="login" >
 				<h3> Inicia Sesion </h3>
@@ -88,6 +100,7 @@
 				</div>
 			</div>
 		</div>
+	{% endif %}
 		<script type="text/javascript">
 			$("#formulario_registro_usuario").submit(function(){
 	        	sendDatosRegistroUsuario();
@@ -95,6 +108,11 @@
 	    	$("#formulario_login").submit(function(){
 	        	sendDatosLogin();
 	        	return false;
+	    	});
+
+	    	$("#logout").click(function(){
+	    		logout();
+	    		return false;
 	    	});
 	    </script>
 	</div>	

@@ -5,26 +5,11 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-
-            console.log(json);
-		
-		var div_parent = $('#contenido');
-		for (var i = 0, length = json.length; i < length ; i++ ) 
-		    {
-		    	
-        		var data = $('<div><h2><a href="">'+ json[i]['nombre'] + '</a></h2>'+
-        							'<img src="{{MEDIA_URL}}{{mascota.'+json[i]['foto']+'}}">'+ 
-        							'<p>'+ json[i]['descripcion'] + '</p>'+
-        							'</div>');
-
-				data.attr('class','child');
-	
-				div_parent.append(data);
-			}
-
+            console.log(json);		
 			creaDivs(json);
 
-			console.log("perdidos");
+			
+
 
         },
         error : function(xhr,errmsg,err) {
@@ -38,11 +23,11 @@ function getDatosPerdidos()
 
 
 
-function sendDatosPerdidos() {
+function sendDatosPerdidos(event) {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/perdido/';
+	url = 'http://'+window.location.host+'/api/perdido/edit/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -60,6 +45,9 @@ function sendDatosPerdidos() {
 	.done(function(response){
 		//$("#gretting").text(response)
 		console.log("done");
+		$("#formulario_perdido").remove()
+		$("#msg-success").append("<span>Publicado</span>")
+		event.preventDefault();
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
@@ -74,12 +62,12 @@ function sendDatosPerdidos() {
 }
 
 function creaDivs(json) {
-	console.log("creaDivs");
+	
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-    	console.log(json[i]['descripcion']);
-        $('<p>').text(json[i]['nombre']).prependTo('#contenido').addClass("mascota");
-    }
-    
-    
+    	$('<div>').appendTo('#contenido').addClass("mascota").attr('id', 'info'+i);
+    	$('<img src="/media/'+json[i]['foto']+'"/>').appendTo('#info'+i).addClass('imagenMascota');
+    	$('<p>').text('Descripcion: '+json[i]['descripcion']).appendTo('#info'+i);
+    	$('<p>').text('Nombre: '+json[i]['nombre']).prependTo('#info'+i);
+    }   
 }
