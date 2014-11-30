@@ -4,7 +4,6 @@ from django.conf import settings
 urlpatterns = patterns('',
 
   url(r'^$', 'web.views.inicio', name='inicio'),
-  url(r'^home/$', 'web.views.home', name='home'),
   url(r'^perdidos/$', 'web.views.perdidos', name='perdidos'),
   url(r'^reportarPerdido/$', 'web.views.reportarPerdido', name='reportarPerdido'),
   url(r'^encontrados/$', 'web.views.encontrados', name='encontrados'),
