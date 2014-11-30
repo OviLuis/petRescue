@@ -1,9 +1,8 @@
 {% extends 'template_base.html' %}
 {% block contenido %}
 <div class="container">
-	<div class="row">
 
-	{% if user.is_authenticated %}
+{% if user.is_authenticated %}
 		<div id="usuario">
 			<p>{{user.nombre}}</p>
 			<p>{{user.email}}</p>
@@ -31,7 +30,7 @@
 	            <div class="carousel-caption">
 	              <h1>Bienvenidos a PetRescue</h1>
 	              <p>
-		    		Somos una comunidad donde podras conectarte con tus amigos y otras personas fascinantes  que forman parte de tu vida con el fin ayudar a que nuestras Mascotas tengan una mejor calidad de vida y, en definitiva, sean más felices.	      	 
+		    		Somos una comunidad donde podras conectarte con tus amigos y otras personas fascinantes  que forman parte de tu vida con el fin ayudar a que nuestras Mascotas tengan una mejor calidad de vida y, en definitiva, sean más felices.
 			      </p>
 	            </div>
 	          </div>
@@ -53,7 +52,7 @@
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Encuentra tu mascota Perdida</h1>
-	              
+
 	            </div>
 	          </div>
 	        </div>
@@ -71,20 +70,9 @@
 		</div>
 
 		<div class="col-md-4">
-			<div id="login" >
-				<h3> Inicia Sesion </h3>
-				<div class="form-group">
-						<form id='formulario_login' method='post' action=''>
-							{% csrf_token %}
-							{{loguin_form.as_p}}	
-							<div id="msg-login-error"></div>
-							<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
-						</form>
 
-				</div>
-			</div>		
 
-			<hr>
+			<!--<hr>-->
 
 			<div id="registro">
 				<h3> Eres nuevo en PetRescue
@@ -94,12 +82,13 @@
 				<div class="form-group">
 					<form id='formulario_registro_usuario' method='post' action=''>
 						{% csrf_token %}
-						{{formulario.as_p}}	
+						{{formulario.as_p}}
 						<input type='submit' name="registro" class="btn btn-primary" value='Registrar'/>
 					</form>
 				</div>
 			</div>
 		</div>
+
 	{% endif %}
 		<script type="text/javascript">
 			$("#formulario_registro_usuario").submit(function(){
@@ -115,7 +104,7 @@
 	    		return false;
 	    	});
 	    </script>
-	</div>	
+	</div>
 </div>
 
 {% endblock %}

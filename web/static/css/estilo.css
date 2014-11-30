@@ -2,7 +2,8 @@
 
 body{
 	/*margin: 0 60px 0 60px;*/
-	margin: 0 5% 0 5%;
+	/*margin: 0 5% 0 5%;*/
+	font-family: 'Open Sans', sans-serif;
 }
 
 .active {
@@ -19,7 +20,7 @@ body{
 
 }
 
-.navbar li a{	
+.navbar li a{
 	color: #EDC143;
 }
 
@@ -28,10 +29,20 @@ footer{
 	color:  white;
 }
 
+.imagenMascota{
+	width: 320px;
+	height: 180px;
+	margin: 5px;
+}
+
 .mascota{
+	margin: 20px;
+	border: 1px solid #e7e7e7;
 	background-color: red;
 }
 
-
-
-
+.logo
+{
+	font-family: 'Cherry Cream Soda', cursive;
+	margin-top: 29px;
+}
