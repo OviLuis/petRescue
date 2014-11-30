@@ -7,5 +7,11 @@
 <div id="encontrados"></div>
 
 <a href="{% url 'web:reportarEncontrado' %}"> Reportar Encontrado</a>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		getDatosEncontrados()
+	}); 
+</script>
 	
 {% endblock %}

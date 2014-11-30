@@ -11,7 +11,7 @@ function getDatosPerdidos()
 		for (var i = 0, length = json.length; i < length ; i++ ) 
 		    {
 		    	
-        		var data = $('<div><h2><span>'+ json[i]['nombre'] + '</span></h2>'+
+        		var data = $('<div><h2><a href="">'+ json[i]['nombre'] + '</a></h2>'+
         							'<img src="{{MEDIA_URL}}{{mascota.'+json[i]['foto']+'}}">'+ 
         							'<p>'+ json[i]['descripcion'] + '</p>'+
         							'</div>');

@@ -4,8 +4,7 @@ function getDatosAdopciones()
 		url : "http://"+window.location.host+"/api/adopcion", 
         type : "GET",   
         success : function(json) {
-            console.log("completo");
-			
+            console.log(json);
 			var div_parent = $('#contenido');
 		for (var i = 0, length = json.length; i < length ; i++ ) 
 		    {
