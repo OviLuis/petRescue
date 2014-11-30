@@ -75,9 +75,5 @@ function creaDivs(json) {
 						'</div>'+
 					 '</div>');
     	$('#contenido').append(data);
-    	/*$('<div>').appendTo('#contenido').addClass("mascota col-md-4").attr('id', 'info'+i);
-    	$('<img src="/media/'+json[i]['foto']+'"/>').appendTo('#info'+i).addClass('imagenMascota');
-    	$('<p>').text('Descripcion: '+json[i]['descripcion']).appendTo('#info'+i);
-    	$('<p>').text('Nombre: '+json[i]['nombre']).prependTo('#info'+i);*/
     }   
 }

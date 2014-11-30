@@ -51,15 +51,5 @@ function sendDatosAdopcion() {
 	});
 }
 
-function creaDivs(json) {
-	
-	for (var i = 0, length = json.length; i <length ; i++ ) 
-    {
-    	$('<div>').appendTo('#contenido').addClass("mascota").attr('id', 'info'+i);
-    	$('<img src="/media/'+json[i]['foto']+'"/>').appendTo('#info'+i).addClass('imagenMascota');
-    	$('<p>').text('Descripcion: '+json[i]['descripcion']).appendTo('#info'+i);
-    	$('<p>').text('Nombre: '+json[i]['nombre']).prependTo('#info'+i);
-    }   
-}
 
 
