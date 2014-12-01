@@ -9,7 +9,7 @@
 	</p>
 		
 	<div class="form-group col-md-4">
-		<form id="formulario_perdido" method="post" enctype="multipart/form-data" action="">
+		<form id="formulario_perdido" method="POST" enctype="multipart/form-data" action="">
 			{% csrf_token %}
 			{{formulario.as_p}}
 			<input type='submit' value='confirmar' class="btn btn-primary" />
@@ -18,8 +18,8 @@
 </div>
 		
 <script type="text/javascript">
-	$("#formulario_perdido").submit(function() {
-		sendDatosPerdidos();
+	$("#formulario_perdido").submit(function(event) {
+		sendDatosPerdidos(event);
 	});
 </script>
 </div>

@@ -57,7 +57,7 @@ class Mascota(Publicacion):
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
     sexo = models.CharField(max_length=10)
-    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen', null=True, blank=True)
+    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen')
     descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
 
     #class Meta:

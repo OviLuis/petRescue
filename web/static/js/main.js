@@ -12,7 +12,6 @@ var main = function(){
 
 	//console.log($.cookie());
 
-	console.log($.cookie());
 	//si hay  un usuario autenticado -> elimino los formularios
 
 
