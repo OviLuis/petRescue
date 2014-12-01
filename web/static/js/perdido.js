@@ -78,13 +78,17 @@ function creaDivs(json) {
     {
     	var data = $('<div class = "mascota col-md-5">'+
     					'<div class= "col-md-6">'+
-    						'<a href="/perdidos/'+json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" src="/media/'+json[i]['foto']+'"/></a>'+
+    						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
     					'<div class = "col-md-6">'+	
     						'<a href="/perdidos/'+json[i]['id']+'"><h2>'+json[i]['nombre']+'</h2></a>'+
         					'<p>'+ json[i]['descripcion'] + '</p>'+
 						'</div>'+
 					 '</div>');
+    	
+
+
+
     	$('#contenido').append(data);
     }   
 }

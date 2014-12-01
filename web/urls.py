@@ -11,10 +11,12 @@ urlpatterns = patterns('',
   url(r'^adopciones/$', 'web.views.adopcion', name='adopciones'),
   url(r'^reportarAdopcion/$', 'web.views.reportarAdopcion', name='reportarAdopcion'),
   url(r'^perdidos/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
+  url(r'^encontrados/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
+  url(r'^adopciones/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
   url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
        {'document_root':settings.MEDIA_ROOT,}
   ),
-  
+
 
 )
 

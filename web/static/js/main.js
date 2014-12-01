@@ -1,8 +1,8 @@
 var main = function(){
 
 	console.log('ready');
-
-
+	console.log(window.location.href);
+	console.log(window.location.pathname);
 	/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();
         return true;
