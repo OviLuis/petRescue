@@ -3,7 +3,7 @@
 	{% block secciones %}
 	{% endblock secciones %}
 
-<a href="" id="ver_comentarios">Ver comentarios</a>
+<a href="" id="ver_comentarios">Mostrar comentarios</a>
 <div id="comentarios">	
 </div>
 
@@ -17,7 +17,7 @@
 	</div>	
 {% else %}
 	<div class="alert alert-danger col-md-6" role="alert">
-  		<p>Debes iniciar sesion para poder ver o realizar comentarios</p>
+  		<p>Debes iniciar sesion para poder realizar comentarios</p>
   		<strong>
   			<a href="" data-toggle="modal" data-target=".bs-example-modal-sm">Para iniciar sesion has click aqui</a>
   		</strong>
@@ -36,7 +36,12 @@
     });
     
 	$("#ver_comentarios").click(function () {
-    	getComentarios({{mascota.id}})
+		$("#comentarios").append("<div class=\"circle\"></div><div class=\"circle1\"></div>")
+		evento(getComentarios({{mascota.id}}))
+		setTimeout('evento()', 7000)
+
+
+    	
     	return false;
     });
 	

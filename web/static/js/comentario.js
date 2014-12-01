@@ -62,9 +62,17 @@ function getComentarios(idMascota)
 		url : "http://"+window.location.host+"/api/comentario/"+idMascota+"/", 
         type : "GET",   
         success : function(json) {
-        	//$("#comentarios").removeChilds()
+        	$("#comentarios").empty()
+
 			appendListaComentario(json);
 			console.log(json)
+			if (0 == json.length) 
+			{
+				console.log("vacio")
+				$("#comentarios").append("<span>No hay comentarios<span>")
+			};
+			$("#ver_comentarios").remove()
+
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);

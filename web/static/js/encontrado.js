@@ -5,7 +5,6 @@ function getDatosEncontrados()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-            console.log(json);
 			creaDivs(json);
 		
         },
@@ -15,6 +14,10 @@ function getDatosEncontrados()
     })
 	.done(function(json){
 		
+	})
+	.always(function(){
+		console.log("always")
+		$("#loading").remove() 
 	});
 }
 

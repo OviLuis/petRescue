@@ -106,13 +106,23 @@ def inicio(request):
     return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
 
 
+from django.contrib.contenttypes.models import ContentType
+
 def detail(request, mascota_id):
     try:
-        mascota = Mascota.objects.get(pk=mascota_id)
-    except Mascota.DoesNotExist:
-        raise Http404
+        mascota = Adopciones.objects.get(pk=mascota_id)
+    except Adopciones.DoesNotExist:
+        try:
+            mascota = Encontrados.objects.get(pk=mascota_id)
+        except Encontrados.DoesNotExist:
+            try:
+                mascota = Perdidos.objects.get(pk=mascota_id)
+            except Perdidos.DoesNotExist:
+                raise Http404
+
     return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
 def error404(request):
     return render_to_response('404.html', context_instance=RequestContext(request))
+

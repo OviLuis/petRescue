@@ -6,17 +6,17 @@ function getDatosPerdidos()
         success : function(json) {
             console.log("completo");
 			creaDivs(json);
-
-			
-
-
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
         }
     })
 	.done(function(json){
-	});
+	})
+	.always(function  () {
+		$("#loading").remove() 
+	})
+	;
 }
 
 

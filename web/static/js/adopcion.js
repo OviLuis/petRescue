@@ -13,6 +13,10 @@ function getDatosAdopciones()
     })
 	.done(function(json){
 		
+	})
+	.always(function(){
+		console.log("always")
+		$("#loading").remove() 
 	});
 }
 
