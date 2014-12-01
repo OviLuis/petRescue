@@ -48,7 +48,10 @@ def reportarEncontrado(request):
         if request.method == 'POST':
             formulario = EncontradosForm(request.POST, request.FILES)
             if formulario.is_valid():
-                return HttpResponseRedirect(reverse('web:reportarEncontrado'))
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:encontrados'))
         else:
             formulario = EncontradosForm()
 
@@ -66,7 +69,10 @@ def reportarAdopcion(request):
         if request.method == 'POST':
             formulario = AdopcionesForm(request.POST, request.FILES)
             if formulario.is_valid():
-                return HttpResponseRedirect(reverse('web:reportarAdopcion'))
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:adopciones'))
         else:
             formulario = AdopcionesForm()
 
