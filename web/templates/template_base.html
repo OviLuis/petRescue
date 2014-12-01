@@ -30,7 +30,7 @@
 
 						{% else %}
 							<div class="pull-right col-md-6">
-								<a class="pull-right btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>	
+								<a class="pull-right btn btn-sm btn-primary btn-inicia-sesion" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>	
 							</div>
 							
 						{% endif %}
@@ -57,6 +57,9 @@
 					</li>
 					<li>
 						<a href="/encontrados/">Mascostas Encontrados</a>
+					</li>
+					<li>
+						<a href="#">Acerca de</a>
 					</li>
 				</ul>
 			</nav>
@@ -101,17 +104,21 @@
 								<div class="form-group">
 											<form id='formulario_login' method='post' action=''>
 												{% csrf_token %}
-												{{loguin_form.as_p}}
+												<div class="form-group">
+													<input  type="mail" class="form-control" placeholder="Correo Electronico">
+													<br>
+													<input  type="password" class="form-control" placeholder="Contraseña">
+												</div>
 												<div id="msg-login-error"></div>
 											</form>
 									</div>
+									<div>
+										<strong style="margin-right:118px">
+  											<a href="/">Registraté</a>
+  										</strong>
+										<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
+									</div>
 								</div>
-						</div>
-						<div class="modal-footer">
-							<strong style="margin-right:118px">
-  								<a href="/">Registraté</a>
-  							</strong>
-							<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 						</div>
 					</div>
 				</div>
