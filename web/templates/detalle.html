@@ -3,7 +3,7 @@
 	{% block secciones %}
 	{% endblock secciones %}
 
-<a href="" id="ver_comentarios">Ver comentarios</a>
+<a href="" id="ver_comentarios">Mostrar comentarios</a>
 <div id="comentarios">	
 </div>
 
@@ -17,7 +17,7 @@
 	</div>	
 {% else %}
 	<div class="alert alert-danger col-md-6" role="alert">
-  		<p>Debes iniciar sesion para poder ver o realizar comentarios</p>
+  		<p>Debes iniciar sesion para poder realizar comentarios</p>
   		<strong>
   			<a href="" data-toggle="modal" data-target=".bs-example-modal-sm">Para iniciar sesion has click aqui</a>
   		</strong>
@@ -30,13 +30,25 @@
 
 
 <script type="text/javascript">
+	function evento(){
+			getComentarios({{mascota.id}})
+		}
 	$("#formulario_comentario").submit(function(){
         sendComentario();
         return false;
     });
     
 	$("#ver_comentarios").click(function () {
-    	getComentarios({{mascota.id}})
+       	$("#comentarios").empty()
+    	$("#ver_comentarios").hide()
+
+
+		$("#comentarios").append("<div class=\"circle1\"></div>")
+
+		setTimeout('evento()', 3000)
+
+
+    	
     	return false;
     });
 	

@@ -5,20 +5,18 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-            console.log(json);		
 			creaDivs(json);
-
-			
-
-
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
         }
     })
 	.done(function(json){
-		console.log(json);
-	});
+	})
+	.always(function  () {
+		$("#loading").remove() 
+	})
+	;
 }
 
 
@@ -36,11 +34,22 @@ function sendDatosPerdidos(event) {
     	}
 	});
 
+	console.log(event.target)
+
+	var formData = $("#formulario_perdido").serialize();
+    //include video thumb src
+    	//formData += '&foto=' + $("#id_foto")[0].files[0]
+
+		//formData = formData + '&foto=' + value;
+
+
+	console.log(formData);
+
 	//peticion ajax
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: $("#formulario_perdido").serialize()
+		data: formData
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
@@ -52,7 +61,9 @@ function sendDatosPerdidos(event) {
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
 		console.log("fail: "+ error.responseText);
-		console.log(error);
+				event.preventDefault();
+
+
 	})
 	.always(function(){
 		//console.log("completo")

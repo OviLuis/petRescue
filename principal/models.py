@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 
+
+from django.db.models.query import QuerySet
+
+
+
 class MiUsuarioManager(BaseUserManager):
 
     def _create_user(self, email, password, is_staff, is_superuser, **extra_fields):
@@ -57,7 +62,7 @@ class Mascota(Publicacion):
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
     sexo = models.CharField(max_length=10)
-    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen', null=True, blank=True)
+    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen')
     descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
 
     #class Meta:

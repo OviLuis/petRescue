@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'petRescue.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-if True:
+if DEBUG:
     print "Depuracion"
     DATABASES = {
         'default': {
@@ -71,8 +71,8 @@ if True:
     }
 else:
     print "deployment"
-    #import dj_database_url
-    #DATABASES['default'] = dj_database_url.config()
+    import dj_database_url
+    DATABASE = { 'default': dj_database_url.config() }
 
 
 # Internationalization
@@ -125,8 +125,24 @@ AUTH_USER_MODEL = 'principal.Usuario'
 ALLOWED_HOSTS = ['*']
 
 
-STATICFILES_FINDERS = ( 
+"""
+FILE_UPLOAD_HANDLERS = (
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler", )
+"""
+"""
+STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',)
+"""
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.core.context_processors.tz",
+"django.contrib.messages.context_processors.messages",
+'django.core.context_processors.request',
 )

@@ -27,7 +27,10 @@ def reportarPerdido(request):
         if request.method == 'POST':
             formulario = PerdidosForm(request.POST, request.FILES)
             if formulario.is_valid():
-                return HttpResponseRedirect(reverse('web:perdidos'))
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = PerdidosForm()
 
@@ -45,7 +48,10 @@ def reportarEncontrado(request):
         if request.method == 'POST':
             formulario = EncontradosForm(request.POST, request.FILES)
             if formulario.is_valid():
-                return HttpResponseRedirect(reverse('web:reportarEncontrado'))
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = EncontradosForm()
 
@@ -63,7 +69,10 @@ def reportarAdopcion(request):
         if request.method == 'POST':
             formulario = AdopcionesForm(request.POST, request.FILES)
             if formulario.is_valid():
-                return HttpResponseRedirect(reverse('web:reportarAdopcion'))
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = AdopcionesForm()
 
@@ -97,13 +106,23 @@ def inicio(request):
     return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
 
 
+from django.contrib.contenttypes.models import ContentType
+
 def detail(request, mascota_id):
     try:
-        mascota = Mascota.objects.get(pk=mascota_id)
-    except Mascota.DoesNotExist:
-        raise Http404
+        mascota = Adopciones.objects.get(pk=mascota_id)
+    except Adopciones.DoesNotExist:
+        try:
+            mascota = Encontrados.objects.get(pk=mascota_id)
+        except Encontrados.DoesNotExist:
+            try:
+                mascota = Perdidos.objects.get(pk=mascota_id)
+            except Perdidos.DoesNotExist:
+                raise Http404
+
     return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
 def error404(request):
     return render_to_response('404.html', context_instance=RequestContext(request))
+
