@@ -17,13 +17,25 @@
 		<section>
 			<header class="page-header">
 				<div class="container">
-					<h1 class="logo" > <span class="fa fa-paw "></span> PetRescue</h1>
+					
+					<div class="col-md-6">
+						<h1 class="logo" > <span class="fa fa-paw "></span> PetRescue</h1>		
+					</div>
+					<div class="pull-right col-md-6">
+						{% if user.is_authenticated %}
+						<div class="pull-right">
+							<h3>Bienvenido {{user.nombre}}</h3>
+							<a href="#" class="pull-right btn btn-sm btn-primary" id="logout">Cerrar sesión</a>
+						</div>
 
-
-				<a class="pull-right btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>
-
-
-			</div>
+						{% else %}
+							<div class="pull-right col-md-6">
+								<a class="pull-right btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>	
+							</div>
+							
+						{% endif %}
+					</div>
+				</div>
 			</header>
 			<div class="container">
 			<nav  class="navbar navbar-default navbar-static-top" role="navigation">
@@ -32,10 +44,8 @@
 
 					<!--popover id="myButton" data-toggle="popover" data-trigger="focus"  data-placement="bottom" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"-->
 					<li>
-
 						<a href="/">
 							<span class="glyphicon glyphicon-home"></span> Inicio</span>
-
 						</a>
 					</li>
 
@@ -46,7 +56,6 @@
 						<a href="/adopciones/">Mascostas en Adopción</a>
 					</li>
 					<li>
-
 						<a href="/encontrados/">Mascostas Encontrados</a>
 					</li>
 				</ul>
@@ -55,41 +64,58 @@
 			{% block contenido %}
 			{% endblock %}
 
-		<!--
-			<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-				<div class="container">
-
-
+			<!--<footer>
 				<div class="row">
-				 <p>
-					Todos los Derechos Reservados | PetRescue | Tulua Valle 2014
-				</p>
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+					<br>
+					<div style="margin-left: 168px">
+					</div>
+					<hr>
+						<div style="margin-left: 168px">
+							<span class="fa fa-google-plus-square fa-3x">		
+							<span class="fa fa-facebook-square">
+							<span class="fa fa-twitter-square ">										
+						</div>
+						
+					</div>
+					<div class="col-md-4">
+					</div>
+				
+				</div>
+			</footer>-->
+				
+			<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
+						</div>
+						<div class="modal-body">
+							<div id="login" >
+								<div class="form-group">
+											<form id='formulario_login' method='post' action=''>
+												{% csrf_token %}
+												{{loguin_form.as_p}}
+												<div id="msg-login-error"></div>
+											</form>
+									</div>
+								</div>
+						</div>
+						<div class="modal-footer">
+							<strong style="margin-right:118px">
+  								<a href="/">Registraté</a>
+  							</strong>
+							<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
+						</div>
+					</div>
 				</div>
 			</div>
-			</nav>
-		--><div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
-					</div>
-					<div class="modal-body">
-						<div id="login" >
-							<div class="form-group">
-										<form id='formulario_login' method='post' action=''>
-											{% csrf_token %}
-											{{loguin_form.as_p}}
-											<div id="msg-login-error"></div>
-										</form>
-								</div>
-							</div>
-						</div>
-					<div class="modal-footer"></div>
-						<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
-					</div>
-			</div>
-		</div>
 
 	</div>
 

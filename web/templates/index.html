@@ -3,14 +3,6 @@
 <div class="container">
 
 {% if user.is_authenticated %}
-		<div id="usuario">
-			<p>{{user.nombre}}</p>
-			<p>{{user.email}}</p>
-		</div>
-
-		<div>
-			<a href="#" id="logout">Cerrar sessión</a>
-		</div>
 
 	{% else %}
 		<div class="col-md-8">
