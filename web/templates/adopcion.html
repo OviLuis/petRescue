@@ -1,11 +1,11 @@
 {% extends 'template_base.html' %}
-
-
 {% block contenido %}
 
 <div class="container" id="contenido">	
 <h2>Mascotas en Adopción</h2>
 </div>
+
+<a href="{% url 'web:reportarAdopcion' %}"  class="btn btn-lg btn-primary" role="button">Publicar una mascota en adopcion</a>
 
 <a href="{% url 'web:reportarAdopcion' %}"> Publicar una mascota en adopcion</a>
 
