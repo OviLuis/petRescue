@@ -30,6 +30,7 @@ function sendComentario() {
 		console.log("done");
 		console.log(response)
 		appendComentario(response)
+		$("#id_texto").val("")
 	})
 	.fail(function(error){
 		console.log("fail")
@@ -63,7 +64,6 @@ function getComentarios(idMascota)
         type : "GET",   
         success : function(json) {
         	$("#comentarios").empty()
-
 			appendListaComentario(json);
 			console.log(json)
 			if (0 == json.length) 

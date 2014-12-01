@@ -30,15 +30,22 @@
 
 
 <script type="text/javascript">
+	function evento(){
+			getComentarios({{mascota.id}})
+		}
 	$("#formulario_comentario").submit(function(){
         sendComentario();
         return false;
     });
     
 	$("#ver_comentarios").click(function () {
-		$("#comentarios").append("<div class=\"circle\"></div><div class=\"circle1\"></div>")
-		evento(getComentarios({{mascota.id}}))
-		setTimeout('evento()', 7000)
+       	$("#comentarios").empty()
+    	$("#ver_comentarios").hide()
+
+
+		$("#comentarios").append("<div class=\"circle1\"></div>")
+
+		setTimeout('evento()', 3000)
 
 
     	
