@@ -47,10 +47,17 @@ footer{
 	border-radius: 0px 25px 0px 25px;
 }
 
-.logo
+.logo a
 {
 	font-family: 'Cherry Cream Soda', cursive;
 	margin-top: 29px;
+    text-decoration: none;
+    color:white;
+}
+
+.logo a:hover{
+    text-decoration: none;
+    color: white;
 }
 
 .btn-inicia-sesion
