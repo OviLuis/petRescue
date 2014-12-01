@@ -3,9 +3,11 @@
 {% block contenido %}
 
 {{msg}}
-<div class="container" id="contenido">	
-	<h2>Mascotas Perdidas</h2>
-	Hola maroca
+
+<div class="container">
+	<div class="row" id="contenido">
+		<h2>Mascotas Perdidas</h2>	
+	</div>	
 </div>
 <div class="ball" id="loading"></div>
 <a href="{% url 'web:reportarPerdido' %}"  class="btn btn-lg btn-primary" role="button"> Publica una mascota perdida</a>
