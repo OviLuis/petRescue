@@ -16,7 +16,16 @@
 	</form>
 	</div>	
 {% else %}
-	<p>Inicia session para colaborar(?)</p>
+	<div class="alert alert-danger col-md-6" role="alert">
+  		<p>Debes iniciar sesion para poder ver o realizar comentarios</p>
+  		<strong>
+  			<a href="#">Para iniciar sesion has click aqui</a>
+  		</strong>
+  		<br>
+  		<strong>
+  			<a href="/">Registraté</a>
+  		</strong>
+	</div>
 {% endif %}
 
 
@@ -28,7 +37,7 @@
     
 	$("#ver_comentarios").click(function () {
     	getComentarios({{mascota.id}})
-    	return false
+    	return false;
     });
 	
 </script>

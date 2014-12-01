@@ -1,14 +1,17 @@
 {% extends 'detalle.html' %}
 {% block secciones %}
-<div id="perdido">
-{{mascota.nombre}}
-{{mascota.especie}}
-{{mascota.raza}}
-{{mascota.edad}}
-{{mascota.sexo}}
-{{mascota.descipcion}}
-{{mascota.fechaDesaparicion}}
-<img src="{{MEDIA_URL}}{{mascota.foto}}">
-{{mascota.dirDesaparicion}}
+<div class="row">
+	<div class="col-md-8 " id="detalleMascota">
+		<img src="{{MEDIA_URL}}{{mascota.foto}}" /><br>
+		<label>Nombre: {{mascota.nombre}}</label><br>
+		<label>Especie: {{mascota.especie}}</label>	<br>
+		<label>Raza: {{mascota.raza}}</label><br>
+		<label>Edad: {{mascota.edad}}</label><br>
+		<label>Sexo: {{mascota.sexo}}</label><br>
+		<label>Descripcion: {{mascota.descipcion}}</label><br>
+		<label>Fecha de desaparicion: {{mascota.fechaDesaparicion}}</label><br>
+		<label>Dirección de desaparicion: {{mascota.dirDesaparicion}}</label><br>
+	</div>
+
 </div>
 {% endblock%}

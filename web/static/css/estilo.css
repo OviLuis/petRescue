@@ -27,6 +27,12 @@ footer{
 	color:  white;
 }
 
+#detalleMascota{
+	margin-left: 200px;
+	border: 1px solid #e7e7e7;
+	border-radius: 0px 25px 0px 25px;
+	padding: 10px 10px 10px 150px;
+}
 .imagenMascota{
 	width: 320px;
 	height: 180px;
@@ -36,6 +42,7 @@ footer{
 .mascota{
 	margin: 20px;
 	border: 1px solid #e7e7e7;
+	border-radius: 0px 25px 0px 25px;
 }
 
 .logo

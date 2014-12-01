@@ -5,6 +5,7 @@
 		<title>PetRescue</title>
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="{{STATIC_URL}}css/estilo.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
@@ -16,10 +17,7 @@
 		<section>
 			<header class="page-header">
 				<div class="container">
-
-
-
-					<h1 class="logo">PetRescue</h1>
+					<h1 class="logo" > <span class="fa fa-paw "></span> PetRescue</h1>
 
 
 				<a class="pull-right btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>
@@ -83,11 +81,12 @@
 											{% csrf_token %}
 											{{loguin_form.as_p}}
 											<div id="msg-login-error"></div>
-											<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 										</form>
 								</div>
 							</div>
 						</div>
+					<div class="modal-footer"></div>
+						<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 					</div>
 			</div>
 		</div>
@@ -96,7 +95,6 @@
 
 	<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
 	<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
-
 	<script src="{{STATIC_URL}}js/perdido.js" ></script>
 	<script src="{{STATIC_URL}}js/encontrado.js" ></script>
 	<script src="{{STATIC_URL}}js/adopcion.js" ></script>
