@@ -4,13 +4,22 @@
 
 {{msg}}
 
-<div class="container">
-	<div class="row" id="contenido">
-		<h2>Mascotas Perdidas</h2>	
-	</div>	
+<div class="container" id="contenido">
+
+	<div class="row">
+		<h2>Mascotas Perdidas</h2>
+		<a href="{% url 'web:reportarAdopcion' %}"  class="pull-right btn btn-primary" role="button">
+			Publica una mascota perdida
+		</a>	
+	</div>
+
+	<!--<div class="row" id="contenido">
+	</div>-->	
+
+	<div class="ball" id="loading"></div>
 </div>
-<div class="ball" id="loading"></div>
-<a href="{% url 'web:reportarPerdido' %}"  class="btn btn-lg btn-primary" role="button"> Publica una mascota perdida</a>
+
+
 
 <script type="text/javascript">
 	$(document).ready(function(){

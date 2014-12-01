@@ -23,9 +23,10 @@ body{
 }
 
 footer{
-	margin-top: 50px;
 	background-color: #297FE5;
-	color:  white;
+    color:  white;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 #detalleMascota{
@@ -78,6 +79,31 @@ footer{
 	border-color: #ebccd1;
 	border-radius: 10px 5px 10px 5px;
 	list-style: none;
+}
+
+
+.izq-arriba{
+    padding: 65px;
+    border-bottom: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7; 
+}
+
+.izq-abajo{
+    padding: 65px;
+    border-bottom: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7; 
+}
+
+.der-arriba{
+    padding: 65px;
+    border-bottom: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7; 
+}
+
+.der-abajo{
+    padding: 65px;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7; 
 }
 
 
