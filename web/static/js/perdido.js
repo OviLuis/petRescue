@@ -76,11 +76,11 @@ function creaDivs(json) {
 	
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-    	var data = $('<div class = "mascota row">'+
-    					'<div class= "col-md-4">'+
-    						'<a href="/perdidos/'+json[i]['id']+'"><img class="img-circle imagenMascota" src="/media/'+json[i]['foto']+'"/></a>'+
+    	var data = $('<div class = "mascota col-md-5">'+
+    					'<div class= "col-md-6">'+
+    						'<a href="/perdidos/'+json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
-    					'<div class = "col-md-8">'+	
+    					'<div class = "col-md-6">'+	
     						'<a href="/perdidos/'+json[i]['id']+'"><h2>'+json[i]['nombre']+'</h2></a>'+
         					'<p>'+ json[i]['descripcion'] + '</p>'+
 						'</div>'+
