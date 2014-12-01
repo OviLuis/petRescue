@@ -30,7 +30,7 @@ def reportarPerdido(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
-                return HttpResponseRedirect(reverse('web:perdidos'))
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = PerdidosForm()
 
@@ -51,7 +51,7 @@ def reportarEncontrado(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
-                return HttpResponseRedirect(reverse('web:encontrados'))
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = EncontradosForm()
 
@@ -72,7 +72,7 @@ def reportarAdopcion(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
-                return HttpResponseRedirect(reverse('web:adopciones'))
+                return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = AdopcionesForm()
 
