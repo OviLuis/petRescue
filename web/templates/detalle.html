@@ -10,7 +10,7 @@
 {% if user.is_authenticated %}
 	<div id="addComentario">
 	<form id="formulario_comentario">{% csrf_token %}
-		<input id="id_texto" name="texto" type="text"></input><div id="msg-com-error"></div>
+		<input id="id_texto" name="texto" type="text"></input><div id="msg-com-error" class="errorlist"></div>
 		<input id="id_mascota" name="mascota" value="{{mascota.id}}" type="hidden">
 		<p><input type='submit' value='Comentar' class="btn btn-primary" /></p>
 	</form>
