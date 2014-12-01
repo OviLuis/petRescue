@@ -2,7 +2,7 @@ function sendDatosRegistroUsuario() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/usuario/'
+	url = 'http://'+window.location.host+'/api/usuario/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -19,17 +19,17 @@ function sendDatosRegistroUsuario() {
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
-		console.log("done")
+		console.log("done");
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
-		console.log("fail: "+ error.responseText)
-		console.log(error)
+		console.log("fail: "+ error.responseText);
+		console.log(error);
 	})
 	.always(function(){
 		//console.log("completo")
-		console.log("always")
-	})
+		console.log("always");
+	});
 }
 
 
@@ -37,7 +37,7 @@ function sendDatosLogin() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/auth/'
+	url = 'http://'+window.location.host+'/api/auth/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -56,20 +56,20 @@ function sendDatosLogin() {
 		$.cookie('usuario_id', response.id , { expires: 7, path: '/' });
 		$.cookie('usuario_nombre', response.nombre , { expires: 7, path: '/' });
 		$.cookie('usuario_email', response.email , { expires: 7, path: '/' });
-		console.log("autenticado")
+		console.log("autenticado");
 		location.reload();		
 	})
 	.fail(function(error){
 		if(401 == error.status)
 		{
-			$('#msg-login-error').text('Datos de usuario Incorrectos');
+			$('#msg-login-error').text('Datos de usuario Incorrectos').addClass("alert alert-danger col-md-6");
 		}
 
 	})
 	.always(function(){
 		//console.log("completo")
-		console.log("always")
-	})
+		console.log("always");
+	});
 }
 
 
@@ -77,7 +77,7 @@ function logout() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/auth/'
+	url = 'http://'+window.location.host+'/api/auth/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -93,20 +93,20 @@ function logout() {
 	})
 	.done(function(response){
 		//$("#gretting").text(response)
-		console.log("done")
+		console.log("done");
 		$.removeCookie('usuario_id');
 		$.removeCookie('usuario_nombre');
 		$.removeCookie('usuario_email');
 
-		location.reload()
+		location.reload();
 	})
 	.fail(function(error){
 		//$("#gretting").text("Fail")	
-		console.log("fail: "+ error.responseText)
-		console.log(error)
+		console.log("fail: "+ error.responseText);
+		console.log(error);
 	})
 	.always(function(){
 		//console.log("completo")
-		console.log("always")
-	})
+		console.log("always");
+	});
 }

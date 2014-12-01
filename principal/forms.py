@@ -41,6 +41,7 @@ class EncontradosForm(ModelForm):
 
 
 class AdopcionesForm(ModelForm):
+    required_css_class = 'required'
     nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Nombre'}))
     edad = forms.IntegerField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Edad'}))
     especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Especie'}))

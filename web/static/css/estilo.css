@@ -58,4 +58,15 @@ footer{
 	margin-top: 29px;
 }
 
-/*fa fa-paw*/
+#msg-login-error{
+	width: 268px;
+	margin-left: 16px;
+}
+
+/*errores django */
+.errorlist{
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	list-style: none;
+}
