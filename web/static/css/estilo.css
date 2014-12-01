@@ -68,5 +68,6 @@ footer{
 	color: #a94442;
 	background-color: #f2dede;
 	border-color: #ebccd1;
+	border-radius: 10px 5px 10px 5px;
 	list-style: none;
 }
