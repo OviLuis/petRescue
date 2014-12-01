@@ -50,7 +50,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 class Publicacion(models.Model):
     """docstring for Publicacion"""
     usuario = models.ForeignKey(Usuario, editable=False)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True, editable=False)
+    fechaPublicacion = models.DateField(auto_now=True, editable=False)
 
     class Meta:
         abstract = True

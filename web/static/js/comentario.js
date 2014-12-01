@@ -1,8 +1,8 @@
 function appendComentario(comentario)
 {
-    $("#comentarios").append("<span>"+comentario.usuario+"</span>"
-    	+"<span>"+comentario.texto+"</span>"
-    	+"<span>"+comentario.fechaPublicacion+"</span>")
+    $("#comentarios").append("<span>" +comentario.usuario+ "</span>"
+    	+"<span>" +comentario.texto+ "</span>"
+    	+"<span>" +comentario.fechaPublicacion+ "</span>")
 }
 
 
