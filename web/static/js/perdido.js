@@ -76,7 +76,7 @@ function creaDivs(json) {
 	
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
-    	var data = $('<div class = "mascota col-md-5">'+
+    	var data = $('<div class = "mascota col-md-4">'+
     					'<div class= "col-md-6">'+
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+

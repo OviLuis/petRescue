@@ -23,9 +23,10 @@ body{
 }
 
 footer{
-	margin-top: 50px;
 	background-color: #297FE5;
-	color:  white;
+    color:  white;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 #detalleMascota{

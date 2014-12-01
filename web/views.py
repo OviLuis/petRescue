@@ -120,7 +120,7 @@ def detail(request, mascota_id):
             except Perdidos.DoesNotExist:
                 raise Http404
 
-    return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
+    return render_to_response('detalleMascota.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
 def error404(request):

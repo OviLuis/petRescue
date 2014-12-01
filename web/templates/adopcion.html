@@ -2,11 +2,17 @@
 {% block contenido %}
 
 <div class="container" id="contenido">	
-<h2>Mascotas en Adopción</h2>
-</div>
-<div class="ball" id="loading"></div>
+	<div class="row">
+		<h2>Mascotas en Adopción</h2>
+		<a href="{% url 'web:reportarAdopcion' %}"  class="pull-right btn btn-primary" role="button">
+			Publica una mascota en adopcion
+		</a>	
+	</div>
+	
 
-<a href="{% url 'web:reportarAdopcion' %}"  class="btn btn-lg btn-primary" role="button">Publica una mascota en adopcion</a>
+	<div class="ball" id="loading"></div>
+</div>
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
