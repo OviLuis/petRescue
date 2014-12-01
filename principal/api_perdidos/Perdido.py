@@ -12,7 +12,19 @@ class PerdidoCRUD(viewsets.ModelViewSet):
     queryset = Perdidos.objects.all()
     permission_classes = (IsAuthenticated,)
 
+    """def create(self, request):
+        print "create"
+        print request.user
+        serializer = PerdidoSerializer(data=request.DATA, files=request.FILES)
+        if serializer.is_valid():
+            serializer.usuario = request.user
+            #self.pre_save(serializer)
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+"""
     def pre_save(self, obj):
+        print "pre save"
         obj.usuario = self.request.user
 
 

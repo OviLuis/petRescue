@@ -26,8 +26,11 @@ def reportarPerdido(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
             formulario = PerdidosForm(request.POST, request.FILES)
-            #if formulario.is_valid():
-                #return HttpResponseRedirect(reverse('web:perdidos'))
+            if formulario.is_valid():
+                model_instance = formulario.save(commit=False)
+                model_instance.usuario = request.user
+                model_instance.save()
+                return HttpResponseRedirect(reverse('web:perdidos'))
         else:
             formulario = PerdidosForm()
 

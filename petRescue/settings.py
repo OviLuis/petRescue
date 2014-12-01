@@ -125,5 +125,12 @@ AUTH_USER_MODEL = 'principal.Usuario'
 ALLOWED_HOSTS = ['*']
 
 
-FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
- "django.core.files.uploadhandler.TemporaryFileUploadHandler")
+"""
+FILE_UPLOAD_HANDLERS = (
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler", )
+"""
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',)
