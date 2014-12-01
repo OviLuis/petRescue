@@ -123,6 +123,11 @@ def detail(request, mascota_id):
     return render_to_response('perdidosDetalle.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
+
+def ayuda (request):
+    return render_to_response('ayuda.html', context_instance=RequestContext(request));
+
+
 def error404(request):
     return render_to_response('404.html', context_instance=RequestContext(request))
 
