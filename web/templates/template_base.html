@@ -9,6 +9,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
+		<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
+
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
@@ -22,15 +24,17 @@
 						<h1 class="logo" > <span class="fa fa-paw "></span> PetRescue</h1>		
 					</div>
 					<div class="pull-right col-md-6">
-						{% if user.is_authenticated %}
+		{% if user.is_authenticated %}
 						<div class="pull-right">
 							<h3>Hola {{user.nombre}}</h3>
 							<a href="#" class="pull-right btn btn-sm btn-primary" id="logout">Cerrar sesión</a>
 						</div>
 
-						{% else %}
+		{% else %}
 							<div class="pull-right col-md-6">
-								<a class="pull-right btn btn-sm btn-primary btn-inicia-sesion" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user"></span> Ingresar</a></li>	
+								<a class="pull-right btn btn-sm btn-primary btn-inicia-sesion" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user">
+									
+								</span> Ingresar</a></li>	
 							</div>
 							
 						{% endif %}
@@ -100,17 +104,15 @@
 							<h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
 						</div>
 						<div class="modal-body">
-							<div id="login" >
+							<div id="login" >																		
+							<form id='formulario_login' method='post' action=''>{% csrf_token %}
 								<div class="form-group">
-											<form id='formulario_login' method='post' action=''>
-												{% csrf_token %}
 												<div class="form-group">
-													<input  type="mail" class="form-control" placeholder="Correo Electronico">
+													<input  type="mail" class="form-control" placeholder="Correo Electronico" name="email">
 													<br>
-													<input  type="password" class="form-control" placeholder="Contraseña">
+													<input  type="password" class="form-control" placeholder="Contraseña" name="password">
 												</div>
 												<div id="msg-login-error"></div>
-											</form>
 									</div>
 									<div>
 										<strong style="margin-right:118px">
@@ -118,6 +120,8 @@
   										</strong>
 										<input type='submit' name="inicioSesion" class="btn btn-primary" value='Ingresar'/>
 									</div>
+							</form>
+
 								</div>
 						</div>
 					</div>
@@ -125,8 +129,17 @@
 			</div>
 
 	</div>
+	<script type="text/javascript">
+		$("#formulario_login").submit(function(){
+	    	sendDatosLogin();
+	    	return false;
+		});
 
-	<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
+		$("#logout").click(function(){
+			logout();
+			return false;
+		});
+	</script>
 	<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
 	<script src="{{STATIC_URL}}js/perdido.js" ></script>
 	<script src="{{STATIC_URL}}js/encontrado.js" ></script>
