@@ -3,7 +3,7 @@
 from django.forms import ModelForm
 from django import forms
 from principal.models import *
-import html5.forms.widgets as html5_widgets
+
 
 
 class MascotaForm(ModelForm):
@@ -16,7 +16,7 @@ class PerdidosForm(ModelForm):
     especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Especie*'}))
     raza = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Raza*'}))
     sexo = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Sexo*'}))
-    fechaDesaparicion = forms.DateField(input_formats=['%m/%d/%Y'], widget=forms.html5_widgets.DateInput(format = '%m/%d/%Y', attrs={'class': 'form-control input-sm'}))
+    fechaDesaparicion = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fecha Desaparicion (AAAA/MM/DD)*'}))
     dirDesaparicion = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Direccion*'}))
     descripcion = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Descripcion*'}))
 
@@ -30,7 +30,7 @@ class EncontradosForm(ModelForm):
     especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Especie*'}))
     raza = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Raza*'}))
     sexo = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Sexo*'}))
-    fechaEncuentro = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fecha Encuentro (dd/mm/aaaa)*'}))
+    fechaEncuentro = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fecha Encuentro (AAAA/MM/DD)*'}))
     dirEncuentro = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Direccion*'}))
     descripcion = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descripcion*'}))
 

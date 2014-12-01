@@ -80,12 +80,12 @@ class Comentario(Publicacion):
 
 
 class Perdidos(Mascota):
-    fechaDesaparicion = models.DateField()
+    fechaDesaparicion = models.CharField(max_length=15, help_text='AAAA/MM/DD')
     dirDesaparicion = models.CharField(max_length=50)
 
 
 class Encontrados(Mascota):
-    fechaEncuentro = models.CharField(max_length=15, help_text='dd/mm/aaaa')
+    fechaEncuentro = models.CharField(max_length=15, help_text='AAAA/MM/DD')
     dirEncuentro = models.CharField(max_length=50)
 
 
