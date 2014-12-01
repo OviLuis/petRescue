@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hni)5fd+&s9+tcuq)+v^nk1$u(06)%%*qgb5sdt9cw-uv!!g+j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'petRescue.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-if True:
+if DEBUG:
     print "Depuracion"
     DATABASES = {
         'default': {
@@ -71,8 +71,8 @@ if True:
     }
 else:
     print "deployment"
-    #import dj_database_url
-    #DATABASES['default'] = dj_database_url.config()
+    import dj_database_url
+    DATABASE = { 'default': dj_database_url.config() }
 
 
 # Internationalization
@@ -130,7 +130,9 @@ FILE_UPLOAD_HANDLERS = (
     "django.core.files.uploadhandler.MemoryFileUploadHandler",
     "django.core.files.uploadhandler.TemporaryFileUploadHandler", )
 """
+"""
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',)
+"""

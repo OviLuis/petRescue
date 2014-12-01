@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 from django.conf import settings
 from django.contrib.staticfiles import views
 
-if not settings.DEBUG:
+if settings.DEBUG:
     urlpatterns += [
         url(r'^static/(?P<path>.*)$', views.serve),
     ]
