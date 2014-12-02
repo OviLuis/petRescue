@@ -2,8 +2,12 @@ var main = function(){
 
 	console.log('ready');
 
-
-	/*$("#cat_perdidos").click(function() {
+	(function () {
+		console.log('popover');
+  		$('[data-toggle="popover"]').popover();
+	})
+	();
+			/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();
         return true;
     });*/
