@@ -1,18 +1,16 @@
 {% extends 'template_base.html' %}
 
 {% block contenido %}
-
-<h1>403 Forbiden Para realizar esta acción debe registrarse o iniciar sesión</h1>
-
-<div class="alert alert-danger col-md-6" role="alert">
-  		<p>Debes iniciar sesion para poder realizar comentarios</p>
+<br><br><br>
+<div class="alert alert-danger col-md-8 center-block" role="alert">
+  		<p>Debes iniciar sesion para poder publicar mascotas perdidas, adoptadas o encontradas</p>
   		<strong>
-  			<a href="" data-toggle="modal" data-target=".bs-example-modal-sm">Para iniciar sesion has click aqui</a>
+  			<a id="linkRegistro" href="" data-toggle="modal" data-target=".bs-example-modal-sm">Para iniciar sesion has click aqui</a>
   		</strong>
   		<br>
   		<strong>
-  			<a href="/" class="btn btn-danger" role="button">Registraté</a>
+  			<a  href="/" class="btn btn-danger" role="button">Registraté</a>
   		</strong>
 	</div>
-
+<br><br><br>
 {% endblock %}
