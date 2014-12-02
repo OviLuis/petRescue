@@ -19,7 +19,7 @@
 		<section>
 			<header class="page-header">
 				<div class="container">
-					
+
 					<div class="col-md-6">
 						<h1 class="logo" ><a href="/"> <span class="fa fa-paw "></span> PetRescue</a></h1>
 					</div>
@@ -33,10 +33,10 @@
 		{% else %}
 							<div class="pull-right col-md-6">
 								<a class="pull-right btn btn-sm btn-primary btn-inicia-sesion" data-toggle="modal" data-target=".bs-example-modal-sm" href=""><span class="glyphicon glyphicon-user">
-									
-								</span> Ingresar</a></li>	
+
+								</span> Ingresar</a></li>
 							</div>
-							
+
 						{% endif %}
 					</div>
 				</div>
@@ -72,27 +72,17 @@
 			{% endblock %}
 
 			<footer>
-				<div class="row">
-					<div class="col-md-4">
-					</div>
-					<div class="col-md-4">
-					<br>
-					<div style="margin-left: 168px">
-					</div>
-					<hr>
-						<div style="margin-left: 168px">
-							<span class="fa fa-google-plus-square fa-3x">		
+				<nav class="footer navbar-default navbar-fixed-bottom">
+
+						<div class="col-lg-2 col-md-2 col-sm-2 col-centered">
+							<span class="fa fa-google-plus-square fa-3x">
 							<span class="fa fa-facebook-square">
-							<span class="fa fa-twitter-square ">										
+							<span class="fa fa-twitter-square ">
 						</div>
-						
-					</div>
-					<div class="col-md-4">
-					</div>
-				
-				</div>
+
+					</nav>
 			</footer>
-				
+
 			<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
@@ -104,7 +94,7 @@
 							<h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
 						</div>
 						<div class="modal-body">
-							<div id="login" >																		
+							<div id="login" >
 							<form id='formulario_login' method='post' action=''>{% csrf_token %}
 								<div class="form-group">
 												<div class="form-group">
@@ -113,9 +103,9 @@
 													<input  type="password" class="form-control" placeholder="Contraseña" name="password">
 												</div>
 												<div class="row">
-													<div id="msg-login-error" role="alert"></div>	
+													<div id="msg-login-error" role="alert"></div>
 												</div>
-												
+
 									</div>
 									<div>
 										<strong style="margin-right:118px">

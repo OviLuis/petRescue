@@ -2,6 +2,7 @@
 
 body{
 	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 60px;/*salvacion footer*/
 }
 
 .active {
@@ -22,11 +23,16 @@ body{
 	color: #EDC143;
 }
 
-footer{
-	background-color: #297FE5;
+.footer
+{
+		background-color: #297FE5;
     color:  white;
     margin-top: 50px;
     margin-bottom: 0;
+}
+.col-centered{
+  	float: none;
+    margin: 0 auto;
 }
 
 #detalleMascota{
@@ -85,12 +91,12 @@ footer{
 .izq-arriba{
     padding: 65px;
     border-bottom: 3px solid #e7e7e7;
-    border-right: 3px solid #e7e7e7; 
+    border-right: 3px solid #e7e7e7;
 }
 
 .izq-abajo{
     padding: 65px;
-    border-right: 3px solid #e7e7e7; 
+    border-right: 3px solid #e7e7e7;
 }
 
 .der-arriba{
