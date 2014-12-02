@@ -1,29 +1,14 @@
-{% extends 'perdidos.html' %}
+{% extends 'template_base.html' %}
 {% block contenido %}
-			<div class = "breadcrumb">
-			{% block breadcrumbs %}
-    			{{block.super}} >> {{mascota.nombre}}
-			{% endblock %}
-		</div>
+
 <div class="row">
 	<div class="row">
 
 		<div class="col-md-6 detalleMascota">
-			<div class="col-md-6">
-				<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" />	
-			</div>
-			<div class=" col-md-6">
-				<label>Nombre: </label> {{mascota.nombre}}<br>
-				<label>Especie: </label> {{mascota.especie}}<br>
-				<label>Raza: </label> {{mascota.raza}}<br>
-				<label>Edad: </label> {{mascota.edad}}<br>
-				<label>Sexo: </label> {{mascota.sexo}}<br>
-				<label>Fecha de desaparicion: </label> {{mascota.fechaDesaparicion}}<br>
-				<label>Dirección de desaparicion: </label> {{mascota.dirDesaparicion}}<br>
-				<label>Descripcion:</label> {{mascota.descripcion}}<br>
-			</div>
+			
+			{% block infoMascota %}
+			{% endblock%}	
 		</div>
-		
 		<div class="col-md-4 pull-right">
 			
 			<h3>Comentarios</h3>
@@ -79,8 +64,6 @@
 
 		$("#comentarios").append('<div class="circle1"></div>')
 		setTimeout('evento()', 1000)
-
-
 
     	return false;
     });
