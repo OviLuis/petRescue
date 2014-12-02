@@ -3,7 +3,7 @@ function appendComentario(comentario)
 	var data = $('<li>'+
 					'<div class="row">'+
     					'<div class="col-md-4"><h3>'+comentario.usuario+'</h3></div>'+
-						'<div class="col-md-4"><p class="pull-right">'+comentario.fechaPublicacion+'</p></div>'+
+						'<div class="col-md-4 pull-right"><p>'+comentario.fechaPublicacion+'</p></div>'+
 					'</div>'+
 					'<div class="row">'+
 						'<p>'+comentario.texto+'</p>'+

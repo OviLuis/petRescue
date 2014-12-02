@@ -8,11 +8,11 @@
 <div class="row">
 	<div class="row">
 
-		<div class="col-md-6" id="detalleMascota">
+		<div class="col-md-6 detalleMascota">
 			<div class="col-md-6">
 				<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" />	
 			</div>
-			<div class=" col-md-6 pull-right">
+			<div class=" col-md-6">
 				<label>Nombre: </label> {{mascota.nombre}}<br>
 				<label>Especie: </label> {{mascota.especie}}<br>
 				<label>Raza: </label> {{mascota.raza}}<br>
@@ -24,9 +24,9 @@
 			</div>
 		</div>
 		
-		<div class="col-md-4 pull-right" data-spy="scroll">
+		<div class="col-md-4 pull-right">
 			<h3>Comentarios</h3>
-
+			<hr>
 			<a href="" id="ver_comentarios">Mostrar comentarios</a>
 			<ul id="comentarios">
 			</ul>
@@ -35,7 +35,7 @@
 			<br>
 			<div id="addComentario">
 				<form id="formulario_comentario">{% csrf_token %}
-					 <textarea id="id_texto" name="texto" class="form-control status-box" rows="2"placeholder="Ayuda a esta mascota">
+					 <textarea id="id_texto" name="texto" class="form-control status-box" placeholder="Ayuda a esta mascota">
 					 </textarea>
 					<div id="msg-com-error" class="errorlist"></div>
 
@@ -76,9 +76,8 @@
     	$("#ver_comentarios").hide()
 
 
-		$("#comentarios").append("<div class=\"circle1\"></div>")
-
-		setTimeout('evento()', 3000)
+		$("#comentarios").append('<div class="circle1"></div>')
+		setTimeout('evento()', 1000)
 
 
 
