@@ -5,7 +5,7 @@ function getDatosEncontrados()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-			creaDivs(json);
+			creaDivs(json,"encontrados");
 		
         },
         error : function(xhr,errmsg,err) {

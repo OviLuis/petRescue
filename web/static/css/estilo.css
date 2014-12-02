@@ -155,6 +155,15 @@ body{
   min-height: 42px;
 }
 
+#enlace{
+    color: #333;
+}
+
+#enlace:hover{
+    text-decoration: none;
+    color: black;
+}
+
 /*errores django */
 .errorlist{
 	color: #a94442;
