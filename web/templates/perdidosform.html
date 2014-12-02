@@ -12,6 +12,8 @@
 	<p>
 		Puedes publicar una mascota perdida, es muy facil, completa el formulario e ingresa una completa descripción de cómo, cuando y donde perdiste a tu mascota.<br> Nuestra comunidad intentará ayudar en la búsqueda.
 	</p>
+	<br><br>
+	<div class="col-md-4"></div>
 
 	<div class="form-group col-md-4">
 		<form id="formulario_perdido" method="POST" enctype="multipart/form-data" action="{% url 'web:reportarPerdido' %}">
@@ -20,6 +22,9 @@
 			<input type='submit' value='confirmar' class="btn btn-primary" />
 		</form>
 	</div>
+
+	<div class="col-md-4"></div>
+	
 </div>
 
 <script type="text/javascript">

@@ -1,8 +1,10 @@
 function appendComentario(comentario)
 {
-    $("#comentarios").append("<div><span>" +comentario.usuario+ "</span>"
+    $('<li>').text(comentario.usuario+comentario.texto+comentario.fechaPublicacion).prependTo('#comentarios');
+
+    /*$("#comentarios").append("<div><span>" +comentario.usuario+ "</span>"
     	+"<span>" +comentario.texto+ "</span>"
-    	+"<span>" +comentario.fechaPublicacion+ "</span></div>")
+    	+"<span>" +comentario.fechaPublicacion+ "</span></div>")*/
 }
 
 

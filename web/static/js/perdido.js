@@ -81,7 +81,8 @@ function creaDivs(json) {
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
     					'<div class = "col-md-6">'+	
-    						'<a href="/perdidos/'+json[i]['id']+'"><h2>'+json[i]['nombre']+'</h2></a>'+
+    						'<a href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
+        					'<hr>'+
         					'<p>'+ json[i]['descripcion'] + '</p>'+
 						'</div>'+
 					 '</div>');

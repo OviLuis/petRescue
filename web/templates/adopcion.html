@@ -5,16 +5,24 @@
 	<div class = "breadcrumb">
 	{% block breadcrumbs %}
     			{{block.super}} >> <a href="/adopciones">Adopciones</a>
-			{% endblock %}
-		</div>
-	<div class="row">
-		<h2>Mascotas en Adopción</h2>
-		<a href="{% url 'web:reportarAdopcion' %}"  class="pull-right btn btn-primary" role="button">
-			Publica una mascota en adopcion
-		</a>
+	{% endblock %}
 	</div>
+	-----------
+	<div class="row">
 
-
+		<h2>Mascotas en Adopción</h2>
+	</div>
+	<div class="col-md-2 pull-right publicacion">
+		<h4 class="pull-right">¿Quieres adoptar o dar en adopcion una mascota?</h4>
+		<p class="pull-right">
+			Reporta tu mascota dentro de nuestra pagina para que nuestra comunidad te ayude a buscarle un hogar
+		</p>	
+		<a href="{% url 'web:reportarAdopcion' %}"  class=" btn btn-primary " role="button">
+			Publicar
+			<img src="{{STATIC_URL}}/img/mas.png" class="img-responsive">
+		</a>
+		<p></p>
+	</div>
 	<div class="ball" id="loading"></div>
 </div>
 
@@ -25,5 +33,5 @@
 		setTimeout('getDatosAdopciones()', 4000)
 	});
 </script>
-
+</div>
 {% endblock %}

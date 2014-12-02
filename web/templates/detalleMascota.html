@@ -6,44 +6,59 @@
 			{% endblock %}
 		</div>
 <div class="row">
-	<div class="col-md-8 " id="detalleMascota">
+	<div class="row">
 
-		<img class="img-thumbnail imagenMascota img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" /><br>
-		<label>Nombre: {{mascota.nombre}}</label><br>
-		<label>Especie: {{mascota.especie}}</label>	<br>
-		<label>Raza: {{mascota.raza}}</label><br>
-		<label>Edad: {{mascota.edad}}</label><br>
-		<label>Sexo: {{mascota.sexo}}</label><br>
-		<label>Descripcion: {{mascota.descripcion}}</label><br>
-		<label>Fecha de desaparicion: {{mascota.fechaDesaparicion}}</label><br>
-		<label>Dirección de desaparicion: {{mascota.dirDesaparicion}}</label><br>
+		<div class="col-md-8" id="detalleMascota">
+			<img class="img-thumbnail imagenMascota img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" />
+			<br>
+			<label>Nombre: {{mascota.nombre}}</label><br>
+			<label>Especie: {{mascota.especie}}</label>	<br>
+			<label>Raza: {{mascota.raza}}</label><br>
+			<label>Edad: {{mascota.edad}}</label><br>
+			<label>Sexo: {{mascota.sexo}}</label><br>
+			<label>Descripcion: {{mascota.descripcion}}</label><br>
+			<label>Fecha de desaparicion: {{mascota.fechaDesaparicion}}</label><br>
+			<label>Dirección de desaparicion: {{mascota.dirDesaparicion}}</label><br>
+		</div>
+		
+		<div class="col-md-4">
+			<hr>
+			<h3>Comentarios</h3>
 
+			<a href="" id="ver_comentarios">Mostrar comentarios</a>
+			<ul id="comentarios">
+			</ul>
 
-		<a href="" id="ver_comentarios">Mostrar comentarios</a>
-<div id="comentarios">
-</div>
+			{% if user.is_authenticated %}
+			<br>
+			<div id="addComentario">
+				<form id="formulario_comentario">{% csrf_token %}
+					 <textarea id="id_texto" name="texto" class="form-control status-box" rows="2"placeholder="Ayuda a esta mascota">
+					 </textarea>
+					<div id="msg-com-error" class="errorlist"></div>
 
-{% if user.is_authenticated %}
-	<div id="addComentario">
-	<form id="formulario_comentario">{% csrf_token %}
-		<input id="id_texto" name="texto" type="text"></input><div id="msg-com-error" class="errorlist"></div>
-		<input id="id_mascota" name="mascota" value="{{mascota.id}}" type="hidden">
-		<p><input type='submit' value='Comentar' class="btn btn-primary" /></p>
-	</form>
-	</div>
-{% else %}
-	<div class="alert alert-danger col-md-6" role="alert">
-  		<p>Debes iniciar sesion para poder realizar comentarios</p>
-  		<strong>
-  			<a id="linkRegistro" href="" data-toggle="modal" data-target=".bs-example-modal-sm">Para iniciar sesion has click aqui</a>
-  		</strong>
-  		<br>
-  		<strong>
-  			<a href="/" class="btn btn-danger" role="button">Registraté</a>
-  		</strong>
-	</div>
-{% endif %}
+					<input id="id_mascota" name="mascota" value="{{mascota.id}}" type="hidden">
+					<br>
+					<p><input type='submit' value='Publicar' class="btn btn-primary" /></p>
 
+				</form>
+			</div>
+			{% else %}
+			<div class="alert alert-danger col-md-6" role="alert">
+	  			<p>Debes iniciar sesion para poder realizar comentarios</p>
+	  			<strong>
+	  				<a id="linkRegistro" href="" data-toggle="modal" data-target=".bs-example-modal-sm">
+	  					Para iniciar sesion has click aqui
+	  				</a>
+	  			</strong>
+	  		<br>
+	  		<strong>
+	  			<a href="/" class="btn btn-danger" role="button">Registraté</a>
+	  		</strong>
+			</div>
+		{% endif %}
+			
+		</div>
 
 <script type="text/javascript">
 	function evento(){
