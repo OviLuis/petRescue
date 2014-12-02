@@ -19,13 +19,22 @@ body{
 
 }
 
+#linkRegistro{
+    color: #a94442;    
+}
+
+#linkRegistro:hover{
+    color: #a94442;    
+}
+
 .navbar li a{
+    font-size: 17px;
 	color: #EDC143;
 }
 
 .footer
 {
-		background-color: #297FE5;
+	background-color: #297FE5;
     color:  white;
     margin-top: 50px;
     margin-bottom: 0;
@@ -50,7 +59,8 @@ body{
 }
 
 .mascota{
-    margin-left: 60px;
+    margin-left: 30px;
+    padding: 5px;
 	border: 1px solid #e7e7e7;
 	border-radius: 25px;
 }
@@ -76,6 +86,12 @@ body{
 #msg-login-error{
 	width: 268px;
 	margin-left: 16px;
+}
+
+.publicacion{
+    position: fixed;
+    margin-left: 900px;
+    border: solid 1px; 
 }
 
 /*errores django */
