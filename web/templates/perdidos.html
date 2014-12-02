@@ -21,19 +21,13 @@
 	</div>
 	<div class="col-md-2 pull-right publicacion">
 		<h4 class="pull-right">¿Perdiste a tu mascota?</h4>
-			<p class="pull-right">
+		<p class="pull-right">
 			Reporta tu mascota dentro de nuestra pagina para que nuestra comunidad te ayude a encontrarla
 		</p>	
-		
-		
-		
-	
-		<a href="{% url 'web:reportarPerdido' %}"  class="pull-right btn btn-primary" role="button">
-			
-			Publicar
-			<span class="pull-right fa fa-plus-square" ></span>
-
-		</a>	
+		<a href="{% url 'web:reportarPerdido' %}"  class=" btn btn-primary " role="button">
+			<img src="{{STATIC_URL}}/img/mas.png" class="img-responsive">
+		</a>
+		<p></p>
 	</div>
 
 	<!--<div class="row" id="contenido">

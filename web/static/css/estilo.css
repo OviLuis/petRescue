@@ -32,10 +32,6 @@ body{
 	color: #EDC143;
 }
 
-.grande
-{
-font-size:90px;
-}
 .footer
 {
 	background-color: #297FE5;
@@ -97,9 +93,17 @@ font-size:90px;
 }
 
 .publicacion{
+    background-color: #F8F8F8;
     position: fixed;
     margin-left: 900px;
-    border: solid 1px; 
+    border: solid 1px #e7e7e7;
+    color: #777;
+    border-radius: 0 25px 0 25px; 
+}
+
+.imagen-ayuda{
+    width: 90px;
+    height: 90px;
 }
 
 /*errores django */
@@ -111,7 +115,7 @@ font-size:90px;
 	list-style: none;
 }
 
-
+/*
 .izq-arriba{
     padding: 65px;
     border-bottom: 3px solid #e7e7e7;
@@ -132,7 +136,7 @@ font-size:90px;
 .der-abajo{
     padding: 65px;
 }
-
+*/
 
 /*loading*/
 .ball {
