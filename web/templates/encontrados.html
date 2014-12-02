@@ -2,17 +2,19 @@
 
 
 {% block contenido %}
-  
+
 
 <div class="container" id="contenido">
-	{% block breadcrumbs %}    
+	<div class = "breadcrumb">
+  {% block breadcrumbs %}
     			{{block.super}} >> <a href="/encontrados">Encontrados</a>
 			{% endblock %}
+    </div>
 	<div class="row">
 		<h2>Mascotas Encontradas</h2>
 		<a href="{% url 'web:reportarEncontrado' %}"  class="pull-right btn btn-primary" role="button">
 			Publica una mascota encontrada
-		</a>	
+		</a>
 	</div>
 
 <div class="ball" id="loading"></div>
@@ -20,10 +22,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+
 		setTimeout('getDatosEncontrados()', 1000)
 
-	}); 
+	});
 </script>
-	
+
 {% endblock %}

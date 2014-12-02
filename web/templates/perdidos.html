@@ -3,21 +3,21 @@
 {% block contenido %}
 
 {{msg}}
- 
- 
+
+
 
 
 <div class="container" id="contenido">
-	
 
-			{% block breadcrumbs %}    
+      <div class = "breadcrumb">
+			{% block breadcrumbs %}
     			{{block.super}} >> <a href="/perdidos">perdidos</a>
 			{% endblock %}
-
+    </div>
 
 	<div class="row">
 
-		<h2>Mascotas Perdidas</h2>	
+		<h2>Mascotas Perdidas</h2>
 	</div>
 	<div class="col-md-2 pull-right publicacion">
 		<h4 class="pull-right">¿Perdiste a tu mascota?</h4>
@@ -31,7 +31,7 @@
 	</div>
 
 	<!--<div class="row" id="contenido">
-	</div>-->	
+	</div>-->
 
 	<div class="ball" id="loading"></div>
 </div>
@@ -42,7 +42,7 @@
 	$(document).ready(function(){
 		setTimeout('getDatosPerdidos()', 3000)
 		;
-	}); 
+	});
 </script>
 
 {% endblock %}
