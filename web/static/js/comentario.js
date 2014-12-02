@@ -1,17 +1,14 @@
 function appendComentario(comentario)
 {
 	var data = $('<li>'+
-					'<div class="row">'+
-    					'<div class="col-md-4"><h3>'+comentario.usuario+'</h3></div>'+
-						'<div class="col-md-4 pull-right"><p>'+comentario.fechaPublicacion+'</p></div>'+
+    					'<h3>'+comentario.usuario+'</h3>'+
+						'<p class="pull-right">'+jQuery.timeago(comentario.fechaPublicacion)+'</p>'+
 					'</div>'+
-					'<div class="row">'+
 						'<p>'+comentario.texto+'</p>'+
-					'</div>'+
 				'</li>'
     			);
-    	
-    $('#comentarios').append(data);
+
+    $('#comentarios').append(data.timeago());
 }
 
 

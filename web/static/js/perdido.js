@@ -83,11 +83,16 @@ function creaDivs(json) {
     					'<div class = "col-md-6">'+	
     						'<a href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
         					'<hr>'+
-        					'<p>'+ json[i]['descripcion'] + '</p>'+
+        					'<p>'+ json[i]['descripcion'] +'</p>'+
+        					'<a href="{% url web:reportarEncontrado %}"  class="pull-right btn btn-primary" role="button">'+
+        						'Reporta la mascota'+
+        					'</a>'+	
 						'</div>'+
 					 '</div>');
     	
-
+    	/*<a href="{% url 'web:reportarEncontrado' %}"  class="pull-right btn btn-primary" role="button">
+				Reporta la mascota
+			</a>*/
 
 
     	$('#contenido').append(data);
