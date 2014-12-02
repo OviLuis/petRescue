@@ -1,7 +1,11 @@
-{% extends 'template_base.html' %}
+{% extends 'encontrados.html' %}
 
 {% block contenido %}
+
 <div class="container">
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/reportarEncontrado">ReportarEncontrado</a>
+			{% endblock %}
 	<h1>Publica mascotas encontradas.</h1>
 	<p>
 		 Puedes publicar una mascota que hayas encontrado, es muy facil, completa el formulario e ingresa una completa descripción de cómo, cuando y donde encontraste <br> la mascota. Nuestra comunidad agradecera tu ayuda.

@@ -4,7 +4,7 @@ var main = function(){
 	console.log(window.location.href);
 	console.log(window.location.pathname);
 	
-	$('.migasPan').append('<label>'+window.location.pathname+'</label>')
+	
 
 	/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();

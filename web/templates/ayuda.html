@@ -2,6 +2,9 @@
 
 {% block contenido %}
 <div class="container">
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/ayuda">ayuda</a>
+			{% endblock %}
 	<div class="row">
 		<div class="col-md-6 izq-arriba">
 			<h2>¿Cómo Reportar una moscota perdida?</h2>
