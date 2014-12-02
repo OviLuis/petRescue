@@ -1,6 +1,11 @@
 {% extends 'template_base.html' %}
 {% block contenido %}
 <div class="container">
+	{% load django_bootstrap_breadcrumbs %}
+
+			{% block breadcrumbs %}    
+    			{{block.super}}
+			{% endblock %}
 
 {% if user.is_authenticated %}
 

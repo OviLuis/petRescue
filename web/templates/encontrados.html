@@ -5,6 +5,9 @@
   
 
 <div class="container" id="contenido">
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/encontrados">Encontrados</a>
+			{% endblock %}
 	<div class="row">
 		<h2>Mascotas Encontradas</h2>
 		<a href="{% url 'web:reportarEncontrado' %}"  class="pull-right btn btn-primary" role="button">

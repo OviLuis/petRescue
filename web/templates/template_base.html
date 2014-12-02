@@ -68,7 +68,7 @@
 						<a href="/adopciones/">Mascotas en Adopción</a>
 					</li>
 					<li>
-						<a href="/encontrados/">Mascotas Encontrados</a>
+						<a href="/encontrados/">Mascotas Encontradas</a>
 					</li>
 					<li>
 						<a href="/ayuda/">Ayuda</a>
@@ -76,8 +76,12 @@
 				</ul>
 			</div>
 			</nav>
-			<div class="breadcrumb migasPan"></div>
+
 			{% block contenido %}
+				{% load django_bootstrap_breadcrumbs %}
+
+					{% block breadcrumbs %}<a href="/">Home</a>{% endblock %}
+					<!--{% render_breadcrumbs %}-->
 			{% endblock %}
 
 			<footer>

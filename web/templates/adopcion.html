@@ -2,6 +2,9 @@
 {% block contenido %}
 
 <div class="container" id="contenido">	
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/adopciones">Adopciones</a>
+			{% endblock %}
 	<div class="row">
 		<h2>Mascotas en Adopción</h2>
 		<a href="{% url 'web:reportarAdopcion' %}"  class="pull-right btn btn-primary" role="button">

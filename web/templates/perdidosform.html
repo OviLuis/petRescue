@@ -1,8 +1,11 @@
-{% extends 'template_base.html' %}
+{% extends 'perdidos.html' %}
 
 {% block contenido %}
 <div id="msg-success"></div>
 <div class="container">
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/reportarPerdidos">reportarPerdidos</a>
+			{% endblock %}
 	<h1>Publica mascotas perdidas.</h1>
 	<p>
 		Puedes publicar una mascota perdida, es muy facil, completa el formulario e ingresa una completa descripción de cómo, cuando y donde perdiste a tu mascota.<br> Nuestra comunidad intentará ayudar en la búsqueda.

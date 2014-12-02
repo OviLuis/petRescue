@@ -2,8 +2,14 @@
 
 {% block contenido %}
 <div class="container">
+
+	{% block breadcrumbs %}    
+    			{{block.super}} >> <a href="/ayuda">ayuda</a>
+			{% endblock %}
+	
 	<div class="row elementos-ayuda">
 		<div class="col-lg-10 col-md-10 ">
+
 			<h2>¿Cómo Reportar una moscota perdida?</h2>
 			<p>
 				Para reportar una mascota que se haya extraviado se debe ingresar a la seccion Mascostas Perdidas donde se encontrara un enlace a la página para reportar mascotas perdidas, alli aparecerá el formulario para el registro de mascotas perdias, diligencia todos los datos y selecciona la opción confirmar para enviar el formulario.
