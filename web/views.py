@@ -89,20 +89,6 @@ def inicio(request):
             return HttpResponseRedirect(reverse('web:inicio'))
     else:
         formulario = UsuarioForm()
-
-    """formulario = UsuarioForm()
-    usuario = request.user
-    loguin_form = loguinForm()
-    if 'registro' in request.POST:
-        usuario = request.user
-        formulario = UsuarioForm(request.POST)
-        if formulario.is_valid:
-            return HttpResponseRedirect(reverse('web:home'))
-        else:
-            formulario = UsuarioForm()
-    elif 'inicioSesion' in request.POST:
-        loguin_form = loguinForm()"""
-
     return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
 
 
@@ -111,12 +97,15 @@ from django.contrib.contenttypes.models import ContentType
 def detail(request, mascota_id):
     try:
         mascota = Adopciones.objects.get(pk=mascota_id)
+        return render_to_response('detalleMascotaAdoptada.html', {'mascota': mascota}, context_instance=RequestContext(request))
     except Adopciones.DoesNotExist:
         try:
             mascota = Encontrados.objects.get(pk=mascota_id)
+            return render_to_response('detalleMascotaEncontrada.html', {'mascota': mascota}, context_instance=RequestContext(request))
         except Encontrados.DoesNotExist:
             try:
                 mascota = Perdidos.objects.get(pk=mascota_id)
+                return render_to_response('detalleMascotaPerdida.html', {'mascota': mascota}, context_instance=RequestContext(request))
             except Perdidos.DoesNotExist:
                 raise Http404
 
