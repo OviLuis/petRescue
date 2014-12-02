@@ -2,11 +2,11 @@
 {% block contenido %}
 <div class="container">
 	{% load django_bootstrap_breadcrumbs %}
-
-			{% block breadcrumbs %}    
+		<div class = "breadcrumb">
+			{% block breadcrumbs %}
     			{{block.super}}
 			{% endblock %}
-
+		</div>
 {% if user.is_authenticated %}
 
 	{% else %}

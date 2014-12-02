@@ -18,17 +18,12 @@ body{
 	margin-bottom: 0;
 
 }
-
-#linkRegistro{
-    color: #a94442;    
-}
-
-#linkRegistro:hover{
-    color: #a94442;    
+.breadcrumb
+{
+	padding: 3px 15px;
 }
 
 .navbar li a{
-    font-size: 17px;
 	color: #EDC143;
 }
 
@@ -38,7 +33,7 @@ font-size:90px;
 }
 .footer
 {
-	background-color: #297FE5;
+		background-color: #297FE5;
     color:  white;
     margin-top: 50px;
     margin-bottom: 0;
@@ -57,7 +52,7 @@ font-size:90px;
 	border: 1px solid #e7e7e7;
 	border-radius: 25px 25px 25px 25px;
 	padding: 10px 10px 10px 150px;
-	/*box-shadow: 0px 0px 25px #e7e7e7;*/
+	box-shadow: 0px 0px 25px #e7e7e7;
 }
 .imagenMascota{
 	width: 220px;
@@ -67,8 +62,7 @@ font-size:90px;
 }
 
 .mascota{
-    margin-left: 30px;
-    padding: 5px;
+    margin-left: 60px;
 	border: 1px solid #e7e7e7;
 	border-radius: 25px;
 }
@@ -94,12 +88,6 @@ font-size:90px;
 #msg-login-error{
 	width: 268px;
 	margin-left: 16px;
-}
-
-.publicacion{
-    position: fixed;
-    margin-left: 900px;
-    border: solid 1px; 
 }
 
 /*errores django */

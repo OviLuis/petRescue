@@ -1,10 +1,7 @@
 var main = function(){
 
 	console.log('ready');
-	console.log(window.location.href);
-	console.log(window.location.pathname);
-	
-	
+
 
 	/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();
@@ -15,6 +12,7 @@ var main = function(){
 
 	//console.log($.cookie());
 
+	console.log($.cookie());
 	//si hay  un usuario autenticado -> elimino los formularios
 
 

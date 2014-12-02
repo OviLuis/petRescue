@@ -3,41 +3,41 @@
 {% block contenido %}
 
 {{msg}}
- 
- 
+
+
 
 
 <div class="container" id="contenido">
-	
 
-			{% block breadcrumbs %}    
+      <div class = "breadcrumb">
+			{% block breadcrumbs %}
     			{{block.super}} >> <a href="/perdidos">perdidos</a>
 			{% endblock %}
-
+    </div>
 
 	<div class="row">
 
-		<h2>Mascotas Perdidas</h2>	
+		<h2>Mascotas Perdidas</h2>
 	</div>
 	<div class="col-md-2 pull-right publicacion">
 		<h4 class="pull-right">¿Perdiste a tu mascota?</h4>
 			<p class="pull-right">
 			Reporta tu mascota dentro de nuestra pagina para que nuestra comunidad te ayude a encontrarla
-		</p>	
-		
-		
-		
-	
+		</p>
+
+
+
+
 		<a href="{% url 'web:reportarPerdido' %}"  class="pull-right btn btn-primary" role="button">
-			
+
 			Publicar
 			<span class="pull-right fa fa-plus-square" ></span>
 
-		</a>	
+		</a>
 	</div>
 
 	<!--<div class="row" id="contenido">
-	</div>-->	
+	</div>-->
 
 	<div class="ball" id="loading"></div>
 </div>
@@ -48,7 +48,7 @@
 	$(document).ready(function(){
 		setTimeout('getDatosPerdidos()', 3000)
 		;
-	}); 
+	});
 </script>
 
 {% endblock %}
