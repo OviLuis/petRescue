@@ -8,21 +8,23 @@
 <div class="row">
 	<div class="row">
 
-		<div class="col-md-8" id="detalleMascota">
-			<img class="img-thumbnail imagenMascota img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" />
-			<br>
-			<label>Nombre: {{mascota.nombre}}</label><br>
-			<label>Especie: {{mascota.especie}}</label>	<br>
-			<label>Raza: {{mascota.raza}}</label><br>
-			<label>Edad: {{mascota.edad}}</label><br>
-			<label>Sexo: {{mascota.sexo}}</label><br>
-			<label>Descripcion: {{mascota.descripcion}}</label><br>
-			<label>Fecha de desaparicion: {{mascota.fechaDesaparicion}}</label><br>
-			<label>Dirección de desaparicion: {{mascota.dirDesaparicion}}</label><br>
+		<div class="col-md-6" id="detalleMascota">
+			<div class="col-md-6">
+				<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Perdido" />	
+			</div>
+			<div class=" col-md-6 pull-right">
+				<label>Nombre: </label> {{mascota.nombre}}<br>
+				<label>Especie: </label> {{mascota.especie}}<br>
+				<label>Raza: </label> {{mascota.raza}}<br>
+				<label>Edad: </label> {{mascota.edad}}<br>
+				<label>Sexo: </label> {{mascota.sexo}}<br>
+				<label>Fecha de desaparicion: </label> {{mascota.fechaDesaparicion}}<br>
+				<label>Dirección de desaparicion: </label> {{mascota.dirDesaparicion}}<br>
+				<label>Descripcion:</label> {{mascota.descripcion}}<br>
+			</div>
 		</div>
 		
-		<div class="col-md-4">
-			<hr>
+		<div class="col-md-4 pull-right" data-spy="scroll">
 			<h3>Comentarios</h3>
 
 			<a href="" id="ver_comentarios">Mostrar comentarios</a>
