@@ -23,7 +23,7 @@
 					<div class="col-md-6">
 						<h1 class="logo" ><a href="/"> <span class="fa fa-paw "></span> PetRescue</a></h1>
 					</div>
-					<div class="pull-right col-md-6">
+					<div class="pull-right col-md-6 col-sm-6 col-xs-6">
 		{% if user.is_authenticated %}
 						<div class="pull-right">
 							<h3>Hola {{user.nombre}}</h3>
@@ -67,7 +67,7 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="migasPan"></div>
+			<div class="breadcrumb migasPan"></div>
 			{% block contenido %}
 			{% endblock %}
 
