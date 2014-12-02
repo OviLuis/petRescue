@@ -32,6 +32,10 @@ body{
 	color: #EDC143;
 }
 
+.grande
+{
+font-size:90px;
+}
 .footer
 {
 	background-color: #297FE5;
@@ -42,6 +46,10 @@ body{
 .col-centered{
   	float: none;
     margin: 0 auto;
+}
+.elementos-ayuda
+{
+	margin: 60px 0;
 }
 
 #detalleMascota{
