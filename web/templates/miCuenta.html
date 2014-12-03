@@ -1,0 +1,51 @@
+{% extends 'template_base.html' %}
+
+<!--<div class = "breadcrumb">
+			{% block breadcrumbs %}
+    			{{block.super}}  
+			{% endblock %}
+		</div>-->
+
+{% block contenido %}
+
+<div class="container">
+	<h1> {{user.nombre}} </h1>
+	<p>En esta seccion puedes ver tus datos personales y editarlos para mantenerlos actualizados.</p>
+	<div class="col-md-4 col-centered">
+			<div id="registro">
+				<div class="form-group">
+					<form id='formulario_registro_usuario' method='post' action=''>
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="form-group">
+								<br><br>
+								<label>Nombre:</label>
+								<input  type="text" class="form-control" placeholder="{{user.nombre}}" name="nombre">
+								<br>
+								<label>Email:</label>
+								<input  type="email" class="form-control" placeholder="{{user.email}}" name="email">
+								<br>
+								<label>Dirección:</label>
+								<input  type="text" class="form-control" placeholder="{{user.direccion}}" name="direccion">
+								<br>
+								<label>Telefono:</label>
+								<input  type="text" class="form-control" placeholder="{{user.telefono}}" name="telefono">
+								<br>
+								<p>Actualiza tu contraseña</p>
+								<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+								<br>	
+								<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2">
+							</div>
+							<div class="row">
+								<div id="msg-login-error" role="alert"></div>
+							</div>
+
+						</div>
+						<input type='submit' name="registro" class="btn btn-primary" value='Actuailzar'/>
+					</form>
+				</div>
+			</div>
+		</div>
+</div>
+
+{% endblock %}
