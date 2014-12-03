@@ -16,7 +16,7 @@ from principal.models import *
 
 from django.contrib import messages
 
-mascotaOK = 'Su mascota fue publicada con éxito'
+mascotaOK = 'Su mascota fué publicada con éxito'
 usuarioOK = "Usuario registrado satisfactoriamente"
 
 def perdidos(request):
