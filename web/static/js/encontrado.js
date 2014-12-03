@@ -1,7 +1,7 @@
 function getDatosEncontrados()
 {
 	$.ajax({
-		url : "http://"+window.location.host+"/api/encontrado", 
+		url : "//"+window.location.host+"/api/encontrado", 
         type : "GET",   
         success : function(json) {
             console.log("completo");
@@ -25,7 +25,7 @@ function sendDatosEncontrado(data) {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/encontrado/';
+	url = '//'+window.location.host+'/api/encontrado/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -64,7 +64,7 @@ function deleteEncontrado(id)
 		//obtiene el csrftoken
 		var csrftoken = $.cookie('csrftoken');
 		//url de la peticion
-		url = 'http://'+window.location.host+'/api/encontrado/edit/'+id;
+		url = '//'+window.location.host+'/api/encontrado/edit/'+id;
 
 		//configura el csrftoken a la peticion ajax
 		$.ajaxSetup({
