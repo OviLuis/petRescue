@@ -99,9 +99,10 @@ def inicio(request):
         formulario = UsuarioForm()
 
     perdidos = Perdidos.objects.order_by('-fechaPublicacion')[:3]
-    publicaciones = {'perdidos': perdidos}
+    encontradas = Encontrados.objects.order_by('-fechaPublicacion')[:3]
+    adoptados = Adopciones.objects.order_by('-fechaPublicacion')[:3]
 
-    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'perdidos': perdidos}, context_instance=RequestContext(request))
+    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'perdidos': perdidos,'encontradas': encontradas,'adoptados': adoptados }, context_instance=RequestContext(request))
 
 
 

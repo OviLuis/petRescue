@@ -142,14 +142,16 @@ function creaDivs(json, path) {
     		data = $('<div class = "mascota col-md-4" id="id-perd-'+json[i]['id']+'">'+
     					'<div class= "col-md-6">'+
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
+    						'<figcaption>'+
+    						 	'<a href="/reportarEncontrado">'+
+        						'reportar como encontrada'+
+        						'</a>'+	
+    						 '</figcaption>'+
     					'</div>'+
     					'<div class = "col-md-6">'+	
     						'<a id="enlace" href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
         					'<hr>'+
         					'<p>'+ json[i]['descripcion'] +'</p>'+
-        					'<a href="/reportarEncontrado">'+
-        						'reportar como encontrada'+
-        					'</a>'+	
 						'</div>'+
 					 '</div>');	
     	}
