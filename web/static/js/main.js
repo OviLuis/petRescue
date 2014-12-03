@@ -1,10 +1,12 @@
 var main = function(){
 
-	console.log('ready');
+	(function () {
+  		$('[data-toggle="popover"]').popover();
+	})
+	();
 
 	(function () {
-		console.log('popover');
-  		$('[data-toggle="popover"]').popover();
+	  $('[data-toggle="tooltip"]').tooltip()
 	})
 	();
 			/*$("#cat_perdidos").click(function() {
@@ -14,14 +16,6 @@ var main = function(){
 
 
 
-	//si hay  un usuario autenticado -> elimino los formularios
-
-
-
-	/*$('#myButton').popover();*/
-
-
-};
 
 var active = function()
 {

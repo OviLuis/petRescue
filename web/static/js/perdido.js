@@ -5,7 +5,10 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-			creaDivs(json,"perdidos");
+            console.log(json);
+
+			creaDivs(json.results,"perdidos");
+
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -53,6 +56,7 @@ function deletePerdido(id)
 		console.log("always");
 	});
 }
+
 
 
 
@@ -126,6 +130,7 @@ function creaDivs(json, path) {
         					'<p>'+ json[i]['descripcion']+'</p>'+
 						'</div>'+
 					 '</div>');
+
     	}else if(path==='perdidos'){
     		data = $('<div class = "mascota col-md-4" id="id-perd-'+json[i]['id']+'">'+
     					'<div class= "col-md-6">'+
@@ -135,8 +140,8 @@ function creaDivs(json, path) {
     						'<a id="enlace" href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
         					'<hr>'+
         					'<p>'+ json[i]['descripcion'] +'</p>'+
-        					'<a href="/reportarEncontrado"  class="pull-right btn btn-primary" role="button">'+
-        						'Reporta la mascota'+
+        					'<a href="/reportarEncontrado">'+
+        						'reportar como encontrada'+
         					'</a>'+	
 						'</div>'+
 					 '</div>');	
@@ -152,5 +157,11 @@ function creaDivs(json, path) {
 			var post = "id-perd-"+json[i]['id'];
 			$("#"+post).append("<span onclick=deletePerdido("+json[i]['id']+")>x</span>")
 		}
+
     }   
+
+    // var next = $('<a href="'+ json[0]['next']+'">Página siguiente</a>')
+    // 	$('#contenido').append(next);
+
+    
 }

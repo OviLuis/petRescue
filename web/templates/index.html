@@ -9,6 +9,7 @@
 		</div>
 {% if user.is_authenticated %}
 	<a href="#" tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
 	{% for pub in perdidos %}
 		<label>Nombre: </label> {{ pub.nombre}}<br>
 				<label>Especie: </label> {{pub.especie}}<br>
@@ -21,6 +22,18 @@
 			</div>
 	{% endfor %}
 {% else %}
+
+
+	<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+
+<ul>
+	<li>
+		<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>	
+	</li>
+</ul>
+	
+	{% else %}
+
 		<div class="col-md-8">
 		<!--slide boostra-->
 		   <div id="myCarousel" class="carousel slide" data-ride="carousel">

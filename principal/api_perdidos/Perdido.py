@@ -1,6 +1,8 @@
 from principal.models import Perdidos
 from principal.serializers import *
 
+from django.core.paginator import Paginator, PageNotAnInteger
+
 from rest_framework import viewsets
 
 
@@ -42,7 +44,29 @@ from rest_framework import status
 class PerdidoAPI(APIView):
     """docstring for PerdidoPublicacionAPI"""
 
-    def get(self, request, *args, **kwargs):
+    # def get(self, request, *args, **kwargs):
+    #     perdidos = Perdidos.objects.all()
+    #     serializado = PerdidoSerializer(perdidos, many=True)
+        
+
+    #     return Response(serializado.data,{'perdidos':perdidos}, status=status.HTTP_200_OK)
+
+
+    def get(self, request):
         perdidos = Perdidos.objects.all()
         serializado = PerdidoSerializer(perdidos, many=True)
-        return Response(serializado.data, status=status.HTTP_200_OK)
+        paginator = Paginator(perdidos, 6)
+        page = request.QUERY_PARAMS.get('page')
+        try:
+            perdidos = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            perdidos = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999),
+            # deliver last page of results.
+            perdidos = paginator.page(paginator.num_pages)
+
+        serializer_context = {'request': request}
+        serializer = PaginatePerdidos(perdidos, context=serializer_context)
+        return Response(serializer.data, status=status.HTTP_200_OK)

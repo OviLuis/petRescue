@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from principal.forms import *
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
+
 from django.http import HttpResponse
 
 from django.http import Http404
@@ -89,6 +90,7 @@ def inicio(request):
             return HttpResponseRedirect(reverse('web:inicio'))
     else:
         formulario = UsuarioForm()
+<<<<<<< HEAD
 
     """formulario = UsuarioForm()
     usuario = request.user
@@ -107,6 +109,9 @@ def inicio(request):
     publicaciones = {'perdidos': perdidos}
 
     return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'perdidos': perdidos}, context_instance=RequestContext(request))
+=======
+    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
+>>>>>>> 887077b8a03d4032ed17bf7618e4f17369bcc6df
 
 
 from django.contrib.contenttypes.models import ContentType
@@ -114,21 +119,34 @@ from django.contrib.contenttypes.models import ContentType
 def detail(request, mascota_id):
     try:
         mascota = Adopciones.objects.get(pk=mascota_id)
+        return render_to_response('detalleMascotaAdoptada.html', {'mascota': mascota}, context_instance=RequestContext(request))
     except Adopciones.DoesNotExist:
         try:
             mascota = Encontrados.objects.get(pk=mascota_id)
+            return render_to_response('detalleMascotaEncontrada.html', {'mascota': mascota}, context_instance=RequestContext(request))
         except Encontrados.DoesNotExist:
             try:
                 mascota = Perdidos.objects.get(pk=mascota_id)
+                return render_to_response('detalleMascotaPerdida.html', {'mascota': mascota}, context_instance=RequestContext(request))
             except Perdidos.DoesNotExist:
                 raise Http404
 
     return render_to_response('detalleMascota.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
-
 def ayuda (request):
     return render_to_response('ayuda.html', context_instance=RequestContext(request));
+
+
+def miCuenta (request):
+    usuario = request.user
+    if request.method == 'POST':
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid:
+            return HttpResponseRedirect(reverse('web:inicio'))
+    else:
+        formulario = UsuarioForm()
+    return render_to_response('miCuenta.html',{'formulario': formulario, 'usuario': usuario, },  context_instance=RequestContext(request));
 
 
 def error404(request):

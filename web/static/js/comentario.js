@@ -1,9 +1,9 @@
 function appendComentario(comentario)
 {
-	console.log("append")
-	
-	var data = $('<li id="id-cmt-'+comentario.id+'">'+
-    					'<h3>'+comentario.usuario+'</h3>'+
+
+	var data = $('<li> id="id-cmt-'+comentario.id+''+
+						'<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+
+    					'<h4>'+$.cookie('usuario_nombre')+'</h4>'+
 						'<p class="pull-right">'+jQuery.timeago(comentario.fechaPublicacion)+'</p>'+
 					'</div>'+
 						'<p>'+comentario.texto+'</p>'+
@@ -17,6 +17,7 @@ function appendComentario(comentario)
 
     $('#comentarios').append(data.timeago());
 
+    $('#comentarios').append(data);
 }
 
 function deleteComentario(id)
