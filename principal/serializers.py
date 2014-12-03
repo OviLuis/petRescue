@@ -1,5 +1,8 @@
 from rest_framework import serializers
-from .models import *
+from rest_framework.pagination import *
+from rest_framework import pagination
+
+from .models import * 
 
 
 
@@ -8,6 +11,12 @@ class PerdidoSerializer(serializers.ModelSerializer):
     class Meta:
         """docstring for Meta"""
         model = Perdidos
+
+
+class PaginatePerdidos(pagination.PaginationSerializer):
+    class Meta:
+        object_serializer_class = PerdidoSerializer
+        
 
 
 class EncontradoSerializer(serializers.ModelSerializer):

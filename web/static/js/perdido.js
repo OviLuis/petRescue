@@ -5,7 +5,9 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
-			creaDivs(json);
+            console.log(json.next);
+             console.log(json);
+			creaDivs(json.results);
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
@@ -18,6 +20,7 @@ function getDatosPerdidos()
 	})
 	;
 }
+
 
 
 
@@ -86,10 +89,15 @@ function creaDivs(json) {
         					'<p>'+ json[i]['descripcion'] + '</p>'+
 						'</div>'+
 					 '</div>');
-    	
-
 
 
     	$('#contenido').append(data);
+
+    	
     }   
+
+    // var next = $('<a href="'+ json[0]['next']+'">Página siguiente</a>')
+    // 	$('#contenido').append(next);
+
+    
 }
