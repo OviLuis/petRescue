@@ -5,7 +5,7 @@ function getDatosAdopciones()
         type : "GET",   
         success : function(json) {
             console.log(json);
-			creaDivs(json,"adopcion");
+			creaDivs(json,"adopciones");
         },
         error : function(xhr,errmsg,err) {
         	alert(xhr.status + ": " + xhr.responseText);
