@@ -23,17 +23,16 @@
 			{% for pub in perdidos %}
 				<div class = "mascota col-md-3">
     					<div class= "col-md-6">
-    						<a href="">
+    						<a href="/perdidos/{{pub.id}}">
     							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
     						</a>
     						<figcaption>
-    						 	<a href="/reportarEncontrado">
-        						reportar como encontrada
+    						 	<a class="fa fa-map-marker fa-lg" data-toggle="tooltip" data-placement="bottom" title="Reportar como encontrado" href="/reportarEncontrado">
         						</a>
     						 </figcaption>
     					</div>
     					<div class = "col-md-6">
-    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+    						<a id="enlace" href="/perdidos/{{pub.id}}"><h3>{{ pub.nombre}}</h3></a>
         					<hr>
         					<label>Raza: </label><p>{{pub.raza}}</p>
 						</div>
@@ -56,12 +55,12 @@
 				{% for pub in adoptados %}
 					<div class = "mascota col-md-3">
     					<div class= "col-md-6">
-    						<a href="">
+    						<a href="/adopcion/{{pub.id}}">
     							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
     						</a>
     					</div>
     					<div class = "col-md-6">
-    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+    						<a id="enlace" href="/adopcion/{{pub.id}}"><h3>{{ pub.nombre}}</h3></a>
         					<hr>
         					<label>Raza: </label><p>{{pub.raza}}</p>
 						</div>
@@ -83,12 +82,12 @@
 				{% for pub in encontrasdas %}
 					<div class = "mascota col-md-3">
     					<div class= "col-md-6">
-    						<a href="">
+    						<a href="/encontrados/{{pub.id}}">
     							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
     						</a>
     					</div>
     					<div class = "col-md-6">
-    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+    						<a id="enlace" href="/encontrados/{{pub.id}}"><h3>{{ pub.nombre}}</h3></a>
         					<hr>
         					<label>Raza: </label><p>{{pub.raza}}</p>
 						</div>

@@ -1,4 +1,4 @@
-from principal.models import *
+# -*- coding: utf-8 -*-
 from django.template.context import RequestContext
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
@@ -16,8 +16,8 @@ from principal.models import *
 
 from django.contrib import messages
 
-mascotaOK = 'Su mascota fue publicada'
-usuarioOK = "Usuario registrado"
+mascotaOK = 'Su mascota fue publicada con éxito'
+usuarioOK = "Usuario registrado satisfactoriamente"
 
 def perdidos(request):
     return render_to_response('perdidos.html', context_instance=RequestContext(request))

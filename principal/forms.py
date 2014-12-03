@@ -27,7 +27,7 @@ class PerdidosForm(ModelForm):
 
 class EncontradosForm(ModelForm):
     nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Nombre*'}))
-    especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Especie*' , 'data-placement': 'right', 'title': 'tipo de mascotas ej: perro'}))
+    especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Especie*' , 'data-toggle':'tooltip', 'data-placement': 'right', 'title': 'tipo de mascotas ej: perro'}))
     raza = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Raza*'}))
     sexo = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Sexo*'}))
     fechaEncuentro = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fecha del encuentro*', 'data-toggle':'tooltip', 'data-placement': 'right', 'title': 'Formato: aaaa/mm/dd'}))
@@ -40,8 +40,8 @@ class EncontradosForm(ModelForm):
 
 
 class AdopcionesForm(ModelForm):
-    nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Nombre*'}))    
-    especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Especie*', 'data-placement': 'right', 'title': 'tipo de mascotas ej: perro'}))
+    nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Nombre*'}))
+    especie = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Especie*', 'data-toggle':'tooltip', 'data-placement': 'right', 'title': 'tipo de mascotas ej: perro'}))
     raza = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Raza*'}))
     sexo = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Sexo*'}))
     direccion = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control input-sm', 'placeholder': 'Direccion*'}))
