@@ -74,7 +74,7 @@ if DB:
 else:
     print "deployment"
     import dj_database_url
-    DATABASE = { 'default': dj_database_url.config() }
+    DATABASES = { 'default': dj_database_url.config() }
 
 
 # Internationalization
