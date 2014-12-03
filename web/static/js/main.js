@@ -14,7 +14,7 @@ var main = function(){
         return true;
     });*/
 
-
+}
 
 
 var active = function()

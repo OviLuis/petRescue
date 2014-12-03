@@ -1,12 +1,17 @@
 {% extends 'detalleMascota.html' %}
-	<div class = "breadcrumb">
+	<!--<div class = "breadcrumb">
 		{% block breadcrumbs %}
 	    	{{block.super}} >> <a href="/perdidos">Perdidos</a> >> {{mascota.nombre}}
 		{% endblock %}
-	</div>
+	</div>-->
 
 	{% block infoMascota %}
-		<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true" onclick=delete({{mascota.id}})>&times;</span><span class="sr-only">Close</span></button>
+	{% if user.id == mascota.usuario.id %}
+		<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true" onclick=deletePerdido({{mascota.id}})>&times;</span><span class="sr-only">Close</span></button>
+	{% else %}
+		
+	{% endif %}
+
 		<div class="col-md-6">
 			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />
 			<figcaption>

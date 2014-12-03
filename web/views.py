@@ -14,10 +14,10 @@ from principal.models import *
 
 # Create your views here.
 
+from django.contrib import messages
 
-def home(request):
-    return render_to_response('index.html', {'loguin_form': loguinForm()}, context_instance=RequestContext(request))
-
+mascotaOK = 'Su mascota fue publicada'
+usuarioOK = "Usuario registrado"
 
 def perdidos(request):
     return render_to_response('perdidos.html', context_instance=RequestContext(request))
@@ -31,6 +31,7 @@ def reportarPerdido(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
+                messages.add_message(request, messages.SUCCESS, mascotaOK)
                 return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = PerdidosForm()
@@ -52,6 +53,7 @@ def reportarEncontrado(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
+                messages.add_message(request, messages.SUCCESS, mascotaOK)
                 return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = EncontradosForm()
@@ -73,6 +75,8 @@ def reportarAdopcion(request):
                 model_instance = formulario.save(commit=False)
                 model_instance.usuario = request.user
                 model_instance.save()
+                messages.add_message(request, messages.SUCCESS, mascotaOK)
+
                 return HttpResponseRedirect(reverse('web:detail', kwargs={"mascota_id": model_instance.id}))
         else:
             formulario = AdopcionesForm()
@@ -83,10 +87,13 @@ def reportarAdopcion(request):
 
 
 def inicio(request):
+    messages.add_message(request, messages.SUCCESS, "mensajes de confirmacion")
     usuario = request.user
     if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
-        if formulario.is_valid:
+        if formulario.is_valid():
+            formulario.save()
+            messages.add_message(request, messages.SUCCESS,  usuarioOK)
             return HttpResponseRedirect(reverse('web:inicio'))
     else:
         formulario = UsuarioForm()

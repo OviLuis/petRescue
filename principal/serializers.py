@@ -55,7 +55,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class ComentarioSerializer(serializers.ModelSerializer):
     """docstring for ComentarioSerializer"""
     #usuario = serializers.HyperlinkedIdentityField(view_name='usuario')
-    usuario = UsuarioSerializer(many=False)
+    usuario = UsuarioSerializer(many=False, required=False)
 
 
     class Meta:

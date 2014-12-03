@@ -1,10 +1,10 @@
 {% extends 'template_base.html' %}
 {% block contenido %}
-		<div class = "breadcrumb">
+		<!--<div class = "breadcrumb">
 			{% block breadcrumbs %}
     			{{block.super}}  
 			{% endblock %}
-		</div>
+		</div>-->
 
 <div class="row">
 	<div class="row">
@@ -24,10 +24,8 @@
 			<br>
 			<div id="addComentario">
 				<form id="formulario_comentario">{% csrf_token %}
-					 <textarea id="id_texto" name="texto" class="form-control status-box" placeholder="Ayuda a esta mascota">
-					 </textarea>
+					 <textarea id="id_texto" name="texto" class="form-control status-box" placeholder="Ayuda a esta mascota"></textarea>
 					<div id="msg-com-error" class="errorlist"></div>
-
 					<input id="id_mascota" name="mascota" value="{{mascota.id}}" type="hidden">
 					<br>
 					<p><input type='submit' value='Publicar' class="btn btn-primary" /></p>
