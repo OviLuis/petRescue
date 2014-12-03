@@ -15,12 +15,12 @@
 		<div class="col-md-6">
 			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />
 			<figcaption>
-			 	<a href="/reportarEncontrado">
-					reportar como encontrada
+				<br>
+			 	<a class="fa fa-map-marker fa-2x" data-toggle="tooltip" data-placement="bottom" title="Reportar como encontrado" href="/reportarEncontrado">
 				</a>	
 			 </figcaption>	
 		</div>
-		<div class=" col-md-6">
+		<div class=" col-md-6" style="height:315px; overflow:auto">
 			<label>Nombre: </label><br> {{mascota.nombre}}<br>
 			<label>Especie: </label><br> {{mascota.especie}}<br>
 			<label>Raza: </label><br> {{mascota.raza}}<br>

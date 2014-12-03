@@ -132,7 +132,7 @@ function creaDivs(json, path) {
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
     					'<div class = "col-md-6">'+	
-    						'<a id="enlace" href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
+    						'<a id="enlace" href="/'+path+'/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
         					'<hr>'+
         					'<p>'+ json[i]['descripcion']+'</p>'+
 						'</div>'+
@@ -143,8 +143,7 @@ function creaDivs(json, path) {
     					'<div class= "col-md-6">'+
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
     						'<figcaption>'+
-    						 	'<a href="/reportarEncontrado">'+
-        						'reportar como encontrada'+
+    						 	'<a class="fa fa-map-marker fa-lg" data-toggle="tooltip" data-placement="bottom" title="Reportar como encontrado" href="/reportarEncontrado">'+
         						'</a>'+	
     						 '</figcaption>'+
     					'</div>'+
