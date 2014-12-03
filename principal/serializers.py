@@ -35,19 +35,8 @@ class AdopcionSerializer(serializers.ModelSerializer):
         #fields = ('nombre', 'raza', 'edad', 'especie', 'sexo', 'foto', 'descripcion', 'direccion', )
 
 
-#class ComentarioSerializer(serializers.HyperlinkedModelSerializer):
-class ComentarioSerializer(serializers.ModelSerializer):
-    """docstring for ComentarioSerializer"""
-    #usuario = serializers.HyperlinkedIdentityField(view_name='usuario')
-
-    class Meta:
-        """docstring for Meta"""
-        model = Comentario
-        fields = ('id', 'texto', 'mascota', 'fechaPublicacion', 'usuario')
-
 class UsuarioSerializer(serializers.ModelSerializer):
     """docstring for UsuarioSerializer"""
-    #comentarios = ComentarioSerializer(many=True)
 
     class Meta:
         """docstring for Meta"""
@@ -61,3 +50,17 @@ class UsuarioSerializer(serializers.ModelSerializer):
         user = super(UsuarioSerializer, self).restore_object(attrs, instance)
         user.set_password(attrs['password'])
         return user
+
+#class ComentarioSerializer(serializers.HyperlinkedModelSerializer):
+class ComentarioSerializer(serializers.ModelSerializer):
+    """docstring for ComentarioSerializer"""
+    #usuario = serializers.HyperlinkedIdentityField(view_name='usuario')
+    usuario = UsuarioSerializer(many=False)
+
+
+    class Meta:
+        """docstring for Meta"""
+        model = Comentario
+        fields = ('id', 'texto', 'mascota', 'fechaPublicacion', 'usuario')
+
+

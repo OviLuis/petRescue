@@ -4,12 +4,12 @@ function appendComentario(comentario)
 	console.log(comentario.usuario)
 	
 	var com_html = '<li id="id-cmt-'+comentario.id+'">';
-	if(comentario.usuario == $.cookie('usuario_id') )
+	if(comentario.usuario.id == $.cookie('usuario_id') )
 	{
 		console.log("Autor")
 		com_html += '<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true" onclick=deleteComentario('+comentario.id+')>&times;</span><span class="sr-only">Close</span></button>';
 	}
-	com_html += '<h4>Nombre usuario</h4>'+
+	com_html += '<h4>'+comentario.usuario.nombre+'</h4>'+
 						'<p class="pull-right">'+jQuery.timeago(comentario.fechaPublicacion)+'</p>'+
 					'</div>'+
 						'<p>'+comentario.texto+'</p>'+
