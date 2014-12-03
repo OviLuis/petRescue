@@ -15,6 +15,8 @@ urlpatterns = patterns('',
   url(r'^adopciones/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
   url(r'^miCuenta/$', 'web.views.miCuenta', name='miCuenta'),
   url(r'^ayuda/$', 'web.views.ayuda', name='ayuda'),
+  url(r'^h/$', 'web.views.h',),
+  url(r'^u/$', 'web.views.u',),
 
   url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
        {'document_root':settings.MEDIA_ROOT,}
@@ -25,3 +27,5 @@ urlpatterns = patterns('',
 
 
 handler404 = 'web.views.error404'
+
+
