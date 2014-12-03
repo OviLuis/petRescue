@@ -1,7 +1,7 @@
 function getDatosEncontrados()
 {
 	$.ajax({
-		url : "//"+window.location.host+"/api/encontrado", 
+		url : "//"+window.location.host+"/api/encontrado/", 
         type : "GET",   
         success : function(json) {
             console.log("completo");

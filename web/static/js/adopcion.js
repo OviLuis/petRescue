@@ -1,7 +1,7 @@
 function getDatosAdopciones()
 {
 	$.ajax({
-		url : "//"+window.location.host+"/api/adopcion", 
+		url : "//"+window.location.host+"/api/adopcion/", 
         type : "GET",   
         success : function(json) {
             console.log(json);
