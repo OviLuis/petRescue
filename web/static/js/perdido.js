@@ -94,10 +94,7 @@ function creaDivs(json, path) {
         					'<p>'+ json[i]['descripcion']+'</p>'+
 						'</div>'+
 					 '</div>');
-<<<<<<< HEAD
-
-
-=======
+=
     	}else if(path==='perdidos'){
     		data = $('<div class = "mascota col-md-4">'+
     					'<div class= "col-md-6">'+
@@ -113,7 +110,7 @@ function creaDivs(json, path) {
 						'</div>'+
 					 '</div>');	
     	}
->>>>>>> 742e7a6deb558933d1a5464dd25e1c4a803a1266
+
     	$('#contenido').append(data);
 
     	
