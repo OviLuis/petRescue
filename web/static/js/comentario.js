@@ -29,7 +29,7 @@ function deleteComentario(id)
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/comentario/edit/'+id;
+	url = '//'+window.location.host+'/api/comentario/edit/'+id;
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -63,7 +63,7 @@ function sendComentario() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/comentario/edit/';
+	url = '//'+window.location.host+'/api/comentario/edit/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -113,7 +113,7 @@ function appendListaComentario (comentarios) {
 function getComentarios(idMascota)
 {
 	$.ajax({
-		url : "http://"+window.location.host+"/api/comentario/"+idMascota+"/", 
+		url : "//"+window.location.host+"/api/comentario/"+idMascota+"/", 
         type : "GET",   
         success : function(json) {
         	$("#comentarios").empty()
