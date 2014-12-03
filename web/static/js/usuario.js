@@ -2,7 +2,7 @@ function sendDatosRegistroUsuario() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/usuario/';
+	url = '//'+window.location.host+'/api/usuario/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -37,7 +37,7 @@ function sendDatosLogin() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/auth/';
+	url = '//'+window.location.host+'/api/auth/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -77,7 +77,7 @@ function logout() {
 	//obtiene el csrftoken
 	var csrftoken = $.cookie('csrftoken');
 	//url de la peticion
-	url = 'http://'+window.location.host+'/api/auth/';
+	url = '//'+window.location.host+'/api/auth/';
 
 	//configura el csrftoken a la peticion ajax
 	$.ajaxSetup({
@@ -115,7 +115,7 @@ function logout() {
 function getDatosUsuario()
 {
 	$.ajax({
-		url : "http://"+window.location.host+"/api/usuario/edit/"+$.cookie('usuario_id'), 
+		url : "//"+window.location.host+"/api/usuario/edit/"+$.cookie('usuario_id'), 
         type : "GET",   
         success : function(json) {
             console.log("completo");
