@@ -87,7 +87,6 @@ def reportarAdopcion(request):
 
 
 def inicio(request):
-    messages.add_message(request, messages.SUCCESS, "mensajes de confirmacion")
     usuario = request.user
     if request.method == 'POST':
         formulario = UsuarioForm(request.POST)
