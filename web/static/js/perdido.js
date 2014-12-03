@@ -125,7 +125,7 @@ function creaDivs(json, path) {
 	for (var i = 0, length = json.length; i <length ; i++ ) 
     {
 
-    	if(path=='encontrados' || path=='adopcion'){
+    	if(path=='encontrados' || path=='adopciones'){
     		console.log("entor");
     		data = $('<div class = "mascota col-md-4" id="id-post-'+json[i]['id']+'">'+
     					'<div class= "col-md-6">'+
