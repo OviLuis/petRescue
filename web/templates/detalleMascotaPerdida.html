@@ -8,7 +8,12 @@
 	{% block infoMascota %}
 					
 		<div class="col-md-6">
-			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />	
+			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />
+			<figcaption>
+			 	<a href="/reportarEncontrado">
+					reportar como encontrada
+				</a>	
+			 </figcaption>	
 		</div>
 		<div class=" col-md-6">
 			<label>Nombre: </label><br> {{mascota.nombre}}<br>
@@ -18,11 +23,6 @@
 			<label>Fecha de desaparicion: </label><br> {{mascota.fechaDesaparicion}}<br>
 			<label>Dirección de desaparicion: </label><br> {{mascota.dirDesaparicion}}<br>
 			<label>Descripcion:</label><br> {{mascota.descripcion}}<br>
-		</div>
-		<div class=" col-md-6">
-			<a href="/reportarEncontrado">
-				reportar mascota como encontrada
-			</a>
 		</div>
 	{% endblock%}	
 
