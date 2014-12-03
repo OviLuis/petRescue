@@ -1,6 +1,12 @@
 {% extends 'detalleMascota.html' %}
+	<div class = "breadcrumb">
+		{% block breadcrumbs %}
+	    	{{block.super}} >> <a href="/perdidos">Perdidos</a> >> {{mascota.nombre}}
+		{% endblock %}
+	</div>
+
 	{% block infoMascota %}
-		
+					
 		<div class="col-md-6">
 			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />	
 		</div>
