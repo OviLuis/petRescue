@@ -103,7 +103,10 @@ def inicio(request):
     elif 'inicioSesion' in request.POST:
         loguin_form = loguinForm()"""
 
-    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
+    perdidos = Perdidos.objects.order_by('-fechaPublicacion')[:3]
+    publicaciones = {'perdidos': perdidos}
+
+    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'perdidos': perdidos}, context_instance=RequestContext(request))
 
 
 from django.contrib.contenttypes.models import ContentType

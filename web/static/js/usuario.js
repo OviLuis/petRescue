@@ -110,3 +110,24 @@ function logout() {
 		console.log("always");
 	});
 }
+
+
+function getDatosUsuario()
+{
+	$.ajax({
+		url : "http://"+window.location.host+"/api/usuario/edit/"+$.cookie('usuario_id'), 
+        type : "GET",   
+        success : function(json) {
+            console.log("completo");
+			console.log(json)
+		},
+        error : function(xhr,errmsg,err) {
+        	alert(xhr.status + ": " + xhr.responseText);
+        }
+    })
+	.done(function(json){
+	})
+	.always(function  () {
+	})
+	;
+}

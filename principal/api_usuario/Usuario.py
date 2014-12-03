@@ -9,3 +9,4 @@ from principal.serializers import UsuarioSerializer
 class UsuarioAPI(viewsets.ModelViewSet):
     model = Usuario
     serializer_class = UsuarioSerializer
+

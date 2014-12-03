@@ -1,8 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-
-
 from principal.models import Comentario
 from principal.serializers import *
 
@@ -13,18 +11,13 @@ class ComentarioCRUD(viewsets.ModelViewSet):
     """docstring for ComentarioAPI"""
     model = Comentario
     serializer_class = ComentarioSerializer
-    queryset = Comentario.objects.all()
 
-    def list(self, request):
-        queryset = Comentario.objects.all()
-        serializer = ComentarioSerializer(queryset, many=True)
-        return Response(serializer.data)
+    def get(self, pk):
+        pass
 
-    def retrieve(self, request, pk=None):
-        queryset = Comentario.objects.filter(mascota=pk)
-        serializer = ComentarioSerializer(queryset, many=True)
-        return Response(serializer.data)
-
+    def get_queryset(self):
+        return Comentario.objects.filter(usuario=self.request.user)
+    
     def pre_save(self, obj):
         obj.usuario = self.request.user
 

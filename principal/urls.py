@@ -9,7 +9,7 @@ from rest_framework import routers
 
 from .api_usuario import Usuario
 usuario = routers.DefaultRouter()
-usuario.register(r'usuario', Usuario.UsuarioAPI)
+usuario.register(r'usuario/edit', Usuario.UsuarioAPI)
 
 
 from .api_perdidos import Perdido
@@ -37,6 +37,8 @@ comentario.register(r'comentario/edit', Comentario.ComentarioCRUD)
 #perdido_comentarios.register('comentario', Comentario.ComentarioAPI)
 
 
+import api
+
 urlpatterns = patterns(
     '',
     #urls para CRUD
@@ -47,11 +49,13 @@ urlpatterns = patterns(
     url(r'^api/', include(comentario.urls)),
 
     #urls publicas
-    url(r'^api/perdido/', Perdido.PerdidoAPI.as_view()),
+    url(r'^api/perdido/$', Perdido.PerdidoAPI.as_view()),
     url(r'^api/encontrado/', Encontrado.EncontradoAPI.as_view()),
+
     url(r'^api/comentario/(?P<id_mascota>\d+)', Comentario.ComentarioAPI.as_view()),
 
 
 #
 #
     url(r'^api/auth', Autenticacion.AuthView.as_view()),)
+

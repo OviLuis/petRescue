@@ -19,6 +19,41 @@ function getDatosPerdidos()
 	;
 }
 
+function deletePerdido(id)
+{
+	//obtiene el csrftoken
+	var csrftoken = $.cookie('csrftoken');
+	//url de la peticion
+	url = 'http://'+window.location.host+'/api/perdido/edit/'+id;
+
+	//configura el csrftoken a la peticion ajax
+	$.ajaxSetup({
+    	beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    	}
+	});
+
+	//peticion ajax
+	$.ajax({
+		type: 'DELETE',
+		url: url
+	})
+	.done(function(response){
+		//$("#gretting").text(response)
+		console.log("perdido eliminado");
+		$("#id-perd-"+id).remove()
+	})
+	.fail(function(error){
+		console.log("fail")
+		console.log("no se pudo borrar el perdido")
+		
+	})
+	.always(function(){
+		//console.log("completo")
+		console.log("always");
+	});
+}
+
 
 
 function sendDatosPerdidos(event) {
@@ -81,7 +116,7 @@ function creaDivs(json, path) {
 
     	if(path=='encontrados' || path=='adopcion'){
     		console.log("entor");
-    		data = $('<div class = "mascota col-md-4">'+
+    		data = $('<div class = "mascota col-md-4" id="id-post-'+json[i]['id']+'">'+
     					'<div class= "col-md-6">'+
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
@@ -92,7 +127,7 @@ function creaDivs(json, path) {
 						'</div>'+
 					 '</div>');
     	}else if(path==='perdidos'){
-    		data = $('<div class = "mascota col-md-4">'+
+    		data = $('<div class = "mascota col-md-4" id="id-perd-'+json[i]['id']+'">'+
     					'<div class= "col-md-6">'+
     						'<a href="'+window.location.pathname + json[i]['id']+'"><img class="img-thumbnail imagenMascota img-responsive" alt ="foto '+json[i]['nombre']+'" src="/media/'+json[i]['foto']+'"/></a>'+
     					'</div>'+
@@ -106,6 +141,16 @@ function creaDivs(json, path) {
 						'</div>'+
 					 '</div>');	
     	}
+
+    	//si el usuari que se encuentra autenticado es quien creó la publicacion
+
     	$('#contenido').append(data);
+
+    	if(json[i].usuario == $.cookie('usuario_id') )
+		{
+			console.log("autor")
+			var post = "id-perd-"+json[i]['id'];
+			$("#"+post).append("<span onclick=deletePerdido("+json[i]['id']+")>x</span>")
+		}
     }   
 }
