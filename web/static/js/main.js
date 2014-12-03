@@ -1,25 +1,22 @@
 var main = function(){
 
-	console.log('ready');
+	(function () {
+  		$('[data-toggle="popover"]').popover();
+	})
+	();
 
-
-	/*$("#cat_perdidos").click(function() {
+	(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+	();
+			/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();
         return true;
     });*/
 
 
 
-	//console.log($.cookie());
-
-	console.log($.cookie());
-	//si hay  un usuario autenticado -> elimino los formularios
-
-
-
-	/*$('#myButton').popover();*/
-
-
+	
 };
 
 var active = function()

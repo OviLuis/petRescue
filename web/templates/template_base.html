@@ -9,8 +9,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
+		<script src="{{STATIC_URL}}libs/jquery/jquery.timeago.js" ></script>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
-
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
@@ -70,6 +70,11 @@
 					<li>
 						<a href="/encontrados/">Mascotas Encontradas</a>
 					</li>
+					{% if user.is_authenticated %}
+					<li>
+						<a href="/miCuenta/">Mi Cuenta</a>
+					</li>
+					{% endif %}
 					<li>
 						<a href="/ayuda/">Ayuda</a>
 					</li>

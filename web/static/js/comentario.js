@@ -1,16 +1,13 @@
 function appendComentario(comentario)
 {
 	var data = $('<li>'+
-					'<div class="row">'+
-    					'<div class="col-md-4"><h3>'+comentario.usuario+'</h3></div>'+
-						'<div class="col-md-4 pull-right"><p>'+comentario.fechaPublicacion+'</p></div>'+
+						'<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+
+    					'<h4>'+$.cookie('usuario_nombre')+'</h4>'+
+						'<p class="pull-right">'+jQuery.timeago(comentario.fechaPublicacion)+'</p>'+
 					'</div>'+
-					'<div class="row">'+
 						'<p>'+comentario.texto+'</p>'+
-					'</div>'+
 				'</li>'
     			);
-    	
     $('#comentarios').append(data);
 }
 

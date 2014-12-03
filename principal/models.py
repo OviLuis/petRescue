@@ -56,18 +56,37 @@ class Publicacion(models.Model):
         abstract = True
 
 
+def content_file_name(instance, filename):
+    return '/'.join(['mascotas', "o", filename])
+
+
+from PIL import Image as Img
+import StringIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+
 class Mascota(Publicacion):
     nombre = models.CharField(max_length=50)
     especie = models.CharField(max_length=50)
     raza = models.CharField(max_length=50)
     sexo = models.CharField(max_length=10)
-    foto = models.ImageField(upload_to='mascotas', verbose_name='Imagen')
+    foto = models.ImageField(upload_to=content_file_name, verbose_name='Imagen')
     descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
 
     #class Meta:
         #abstract = True
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
+
+    def save(self, *args, **kwargs):
+        if self.foto:
+            size = 400, 400
+            image = Img.open(StringIO.StringIO(self.foto.read()))
+            image.thumbnail(size, Img.ANTIALIAS)
+            output = StringIO.StringIO()
+            image.save(output, format='JPEG', quality=75)
+            output.seek(0)
+            self.foto = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.id, 'image/jpeg', output.len, None)
+        super(Mascota, self).save(*args, **kwargs)
 
 
 class Comentario(Publicacion):

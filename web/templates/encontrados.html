@@ -12,10 +12,20 @@
     </div>
 	<div class="row">
 		<h2>Mascotas Encontradas</h2>
-		<a href="{% url 'web:reportarEncontrado' %}"  class="pull-right btn btn-primary" role="button">
-			Publica una mascota encontrada
-		</a>
 	</div>
+
+	<div class="col-md-2 pull-right publicacion">
+		<h4 class="pull-right">¿Encontraste una mascota?</h4>
+		<p class="pull-right">
+			Reporta la mascota que encontraste para que las personas de nuestra comunidad se enteren tu ayuda es valiosa
+		</p>	
+		<a href="{% url 'web:reportarEncontrado' %}"  class=" btn btn-primary " role="button" data-toggle="tooltip" data-placement="bottom" title="Publicar Mascota">
+			
+			<img src="{{STATIC_URL}}/img/mas.png" class="img-responsive">
+		</a>
+		<p></p>
+	</div>
+
 
 <div class="ball" id="loading"></div>
 </div>
