@@ -173,6 +173,24 @@
 			/*$("#formulario_registro_usuario").submit(function(){
 	        	sendDatosRegistroUsuario();
 	    	});*/
+			// just for the demos, avoids form submit
+			jQuery.validator.setDefaults({
+  				debug: true,
+  				success: "valid"
+			});
+			$( "#formulario_registro_usuario").validate({
+  				rules: {
+    				id_password: "required",
+    				id_password2: {
+      					equalTo: "#id_password"
+    				}
+  				},
+  				messages: {       	
+        			id_password2: {            			
+            			equalTo: "Please enter the same password as above"      
+   				 	}
+   				}
+			});
 	    </script>
 	</div>
 </div>
