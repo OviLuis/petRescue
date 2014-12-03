@@ -30,7 +30,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nombre = models.CharField(max_length=55)
     direccion = models.CharField(max_length=50, null=True)
-    telefono = models.IntegerField(max_length=15, null=True)
+    telefono = models.CharField(max_length=15, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
