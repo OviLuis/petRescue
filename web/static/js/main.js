@@ -1,9 +1,6 @@
 var main = function(){
 
-	console.log('ready');
-
 	(function () {
-		console.log('popover');
   		$('[data-toggle="popover"]').popover();
 	})
 	();
@@ -14,16 +11,7 @@ var main = function(){
 
 
 
-	//console.log($.cookie());
-
-	console.log($.cookie());
-	//si hay  un usuario autenticado -> elimino los formularios
-
-
-
-	/*$('#myButton').popover();*/
-
-
+	
 };
 
 var active = function()

@@ -28,7 +28,3 @@ class AuthView(APIView):
         logout(request)
         return Response(status=status.HTTP_200_OK)
 
-"""{
-    "email":"aslheyramirez@gmail.com",
-    "password":"rizotas"
-    }"""
