@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
 	<head>
 		<meta charset='utf-8'>
 		<title>PetRescue</title>
@@ -81,14 +80,18 @@
 				</ul>
 			</div>
 			</nav>
-
+			{% load django_bootstrap_breadcrumbs %}
+			<div class = "breadcrumb">{% block breadcrumbs %}<a href="/">Home</a>{% endblock %}</div>
+			<ul>
+    			{% for message in messages %}
+        			<li{% if message.tags %} class="{{ message.tags }} btn-success"{% endif %}>{{ message }}</li>
+    			{% endfor %}
+			</ul>
 			{% block contenido %}
-				{% load django_bootstrap_breadcrumbs %}
-
-					{% block breadcrumbs %}<a href="/">Home</a>{% endblock %}
+				
 					<!--{% render_breadcrumbs %}-->
 			{% endblock %}
-
+			
 			<footer>
 				<nav class="footer navbar-default  navbar-fixed-bottom">
 

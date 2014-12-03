@@ -56,3 +56,44 @@ function sendDatosEncontrado(data) {
 }
 
 
+function deleteEncontrado(id)
+{
+	var r = confirm("¿Está seguro que quiere eliminar?");
+	if (r == true) {
+	    	
+		//obtiene el csrftoken
+		var csrftoken = $.cookie('csrftoken');
+		//url de la peticion
+		url = 'http://'+window.location.host+'/api/encontrado/edit/'+id;
+
+		//configura el csrftoken a la peticion ajax
+		$.ajaxSetup({
+	    	beforeSend: function(xhr, settings) {
+	        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	    	}
+		});
+
+		//peticion ajax
+		$.ajax({
+			type: 'DELETE',
+			url: url
+		})
+		.done(function(response){
+			//$("#gretting").text(response)
+			console.log("encontrado eliminado");
+			//$("#id-perd-"+id).remove()
+		})
+		.fail(function(error){
+			console.log("fail")
+			console.log("no se pudo borrar el perdido")
+			
+		})
+		.always(function(){
+			//console.log("completo")
+			console.log("always");
+		});
+
+	} else {
+	    
+	}
+}

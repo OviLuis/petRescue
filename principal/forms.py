@@ -62,4 +62,11 @@ class UsuarioForm(ModelForm):
 
     class Meta:
         model = Usuario
-        fields = []
+        fields = ['nombre', 'email', 'direccion', 'telefono', 'password']
+
+    def save(self, commit=True):
+        user = super(UsuarioForm, self).save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
