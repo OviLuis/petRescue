@@ -50,7 +50,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 class Publicacion(models.Model):
     """docstring for Publicacion"""
     usuario = models.ForeignKey(Usuario, editable=False)
-    fechaPublicacion = models.DateField(auto_now=True, editable=False)
 
     class Meta:
         abstract = True
@@ -76,6 +75,8 @@ class Mascota(Publicacion):
     sexo = models.CharField(max_length=10)
     foto = models.ImageField(upload_to=content_file_name, verbose_name='Imagen')
     descripcion = models.CharField(max_length=400, verbose_name="Descripcion")
+    fechaPublicacion = models.DateField(auto_now=True, editable=False)
+
 
     #class Meta:
         #abstract = True
@@ -102,6 +103,8 @@ class Comentario(Publicacion):
     """docstring for Comentario"""
     texto = models.CharField(max_length=300)
     mascota = models.ForeignKey(Mascota)
+    fechaPublicacion = models.DateTimeField(auto_now=True, editable=False)
+
 
     def __unicode__(self):
         return u'%s - %s' % (self.id, self.mascota)
