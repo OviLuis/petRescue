@@ -1,7 +1,7 @@
 function appendComentario(comentario)
 {
 	console.log("apend")
-	//console.log(comentario.fechaPublicacion)
+	console.log(comentario.fechaPublicacion)
 	
 	var com_html = '<li id="id-cmt-'+comentario.id+'">';
 	if(comentario.usuario.id == $.cookie('usuario_id') )
