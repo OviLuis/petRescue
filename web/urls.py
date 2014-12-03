@@ -13,6 +13,7 @@ urlpatterns = patterns('',
   url(r'^perdidos/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
   url(r'^encontrados/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
   url(r'^adopciones/(?P<mascota_id>\d+)/$', 'web.views.detail', name='detail'),
+  url(r'^miCuenta/$', 'web.views.miCuenta', name='miCuenta'),
   url(r'^ayuda/$', 'web.views.ayuda', name='ayuda'),
 
   url(r'^media/(?P<path>.*)$', 'django.views.static.serve',

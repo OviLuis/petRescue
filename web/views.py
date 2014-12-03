@@ -112,9 +112,19 @@ def detail(request, mascota_id):
     return render_to_response('detalleMascota.html', {'mascota': mascota}, context_instance=RequestContext(request))
 
 
-
 def ayuda (request):
     return render_to_response('ayuda.html', context_instance=RequestContext(request));
+
+
+def miCuenta (request):
+    usuario = request.user
+    if request.method == 'POST':
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid:
+            return HttpResponseRedirect(reverse('web:inicio'))
+    else:
+        formulario = UsuarioForm()
+    return render_to_response('miCuenta.html',{'formulario': formulario, 'usuario': usuario, },  context_instance=RequestContext(request));
 
 
 def error404(request):

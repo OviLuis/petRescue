@@ -100,8 +100,8 @@ function creaDivs(json, path) {
     						'<a id="enlace" href="/perdidos/'+json[i]['id']+'"><h1>'+json[i]['nombre']+'</h1></a>'+
         					'<hr>'+
         					'<p>'+ json[i]['descripcion'] +'</p>'+
-        					'<a href="/reportarEncontrado"  class="pull-right btn btn-primary" role="button">'+
-        						'Reporta la mascota'+
+        					'<a href="/reportarEncontrado">'+
+        						'reportar como encontrada'+
         					'</a>'+	
 						'</div>'+
 					 '</div>');	
