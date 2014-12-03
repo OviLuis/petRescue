@@ -4,6 +4,11 @@ var main = function(){
   		$('[data-toggle="popover"]').popover();
 	})
 	();
+
+	(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+	();
 			/*$("#cat_perdidos").click(function() {
         getDatosPerdidos();
         return true;
