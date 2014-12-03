@@ -19,7 +19,7 @@
 		<form id="formulario_perdido" method="POST" enctype="multipart/form-data" action="{% url 'web:reportarPerdido' %}">
 			{% csrf_token %}
 			{{formulario.as_p}}
-			<input type='submit' value='confirmar' class="btn btn-primary" />
+			<input type='submit' value='publicar' class="btn btn-primary" />
 		</form>
 	</div>
 	

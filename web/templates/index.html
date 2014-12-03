@@ -10,49 +10,89 @@
 {% if user.is_authenticated %}
 	<div class="container" id="contenido">
 		<div class="row">
-			<h2>Mascotas Perdidas</h2>
-			{% for pub in perdidos %}
-				<div class="col-md-3 mascota">
-					<label>Nombre: </label> {{ pub.nombre}}<br>
-					<label>Especie: </label> {{pub.especie}}<br>
-					<label>Raza: </label> {{pub.raza}}<br>
-					<label>Edad: </label> {{pub.edad}}<br>
-					<label>Sexo: </label> {{pub.sexo}}<br>
-					<label>Fecha de desaparicion: </label> {{pub.fechaDesaparicion}}<br>
-					<label>Dirección de desaparicion: </label> {{pub.dirDesaparicion}}<br>
-					<label>Descripcion:</label> {{pub.descripcion}}<br>	
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<span><img src="{{STATIC_URL}}/img/ayuda/2.png" class="imagen-ayuda img-responsive" style="width: 90px;height: 70px;"></span>
 				</div>
+				<div class="col-md-10" style="margin-left: -90px;">
+					<h2>Mascotas Perdidas</h2>
+					<hr>		
+				</div>
+			</div>
+			
+			{% for pub in perdidos %}
+				<div class = "mascota col-md-3">
+    					<div class= "col-md-6">
+    						<a href="">
+    							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
+    						</a>
+    						<figcaption>
+    						 	<a href="/reportarEncontrado">
+        						reportar como encontrada
+        						</a>
+    						 </figcaption>
+    					</div>
+    					<div class = "col-md-6">
+    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+        					<hr>
+        					<label>Raza: </label><p>{{pub.raza}}</p>
+						</div>
+					 </div>
 				
 			{% endfor %}
 		</div>
+		<hr>
+		<br>
 		<div class="row">
-			<h2>Mascotas en Adopcion</h2>
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<span><img src="{{STATIC_URL}}/img/ayuda/1.png" class="imagen-ayuda img-responsive" style="width: 90px;height: 70px;"></span>
+				</div>
+				<div class="col-md-10" style="margin-left: -90px;">
+					<h2>Mascotas en Adopción</h2>
+					<hr>		
+				</div>
+			</div>
 				{% for pub in adoptados %}
-					<div class="col-md-4 mascota">
-						<label>Nombre: </label> {{ pub.nombre}}<br>
-						<label>Especie: </label> {{pub.especie}}<br>
-						<label>Raza: </label> {{pub.raza}}<br>
-						<label>Edad: </label> {{pub.edad}}<br>
-						<label>Sexo: </label> {{pub.sexo}}<br>
-						<label>Fecha de desaparicion: </label> {{pub.fechaDesaparicion}}<br>
-						<label>Dirección de desaparicion: </label> {{pub.dirDesaparicion}}<br>
-						<label>Descripcion:</label> {{pub.descripcion}}<br>
-					</div>
+					<div class = "mascota col-md-3">
+    					<div class= "col-md-6">
+    						<a href="">
+    							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
+    						</a>
+    					</div>
+    					<div class = "col-md-6">
+    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+        					<hr>
+        					<label>Raza: </label><p>{{pub.raza}}</p>
+						</div>
+					 </div>
 				{% endfor %}
 		</div>
+		<hr>
+		<br>
 		<div class="row">
-			<h2>Mascotas Encontradas</h2>
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<span><img src="{{STATIC_URL}}/img/ayuda/3.png" class="imagen-ayuda img-responsive" style="width: 90px;height: 70px;"></span>
+				</div>
+				<div class="col-md-10" style="margin-left: -90px;">
+					<h2>Mascotas Encontradas</h2>
+					<hr>		
+				</div>
+			</div>
 				{% for pub in encontrasdas %}
-					<div class="col-md-4 mascota">
-						<label>Nombre: </label> {{ pub.nombre}}<br>
-						<label>Especie: </label> {{pub.especie}}<br>
-						<label>Raza: </label> {{pub.raza}}<br>
-						<label>Edad: </label> {{pub.edad}}<br>
-						<label>Sexo: </label> {{pub.sexo}}<br>
-						<label>Fecha de desaparicion: </label> {{pub.fechaDesaparicion}}<br>
-						<label>Dirección de desaparicion: </label> {{pub.dirDesaparicion}}<br>
-						<label>Descripcion:</label> {{pub.descripcion}}<br>
-					</div>
+					<div class = "mascota col-md-3">
+    					<div class= "col-md-6">
+    						<a href="">
+    							<img src="{{MEDIA_URL}}{{pub.foto}}" class="imagenMascotaInicio" /><br>
+    						</a>
+    					</div>
+    					<div class = "col-md-6">
+    						<a id="enlace" href=""><h3>{{ pub.nombre}}</h3></a>
+        					<hr>
+        					<label>Raza: </label><p>{{pub.raza}}</p>
+						</div>
+					 </div>
 				{% endfor %}
 		</div>
 	</div>

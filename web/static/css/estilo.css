@@ -66,6 +66,13 @@ body{
     margin-bottom: 20px;
 }
 
+.imagenMascotaInicio{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .imagenMascotaDetalle{
     width: 450px;
     height: 270px;
@@ -76,6 +83,15 @@ body{
     margin-left: 40px;
 	border: 2px solid #e7e7e7;
     border-radius: 0 25px 0 25px; 
+}
+
+.inicioMascota{
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 2px solid #e7e7e7;
+    border-radius: 0 25px 0 25px;
+    height: 300px;
+    padding: 30px;
 }
 
 .logo a
