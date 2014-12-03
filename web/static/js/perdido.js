@@ -5,8 +5,9 @@ function getDatosPerdidos()
         type : "GET",   
         success : function(json) {
             console.log("completo");
+            console.log(json);
 
-			creaDivs(json,"perdidos");
+			creaDivs(json.results,"perdidos");
 
         },
         error : function(xhr,errmsg,err) {
@@ -94,7 +95,7 @@ function creaDivs(json, path) {
         					'<p>'+ json[i]['descripcion']+'</p>'+
 						'</div>'+
 					 '</div>');
-=
+
     	}else if(path==='perdidos'){
     		data = $('<div class = "mascota col-md-4">'+
     					'<div class= "col-md-6">'+
