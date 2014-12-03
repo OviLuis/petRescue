@@ -22,7 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hni)5fd+&s9+tcuq)+v^nk1$u(06)%%*qgb5sdt9cw-uv!!g+j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+DB = False
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -62,7 +63,7 @@ WSGI_APPLICATION = 'petRescue.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-if DEBUG:
+if DB:
     print "Depuracion"
     DATABASES = {
         'default': {
@@ -100,7 +101,11 @@ TEMPLATE_DIRS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/web/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'web/static')
+STATIC_URL = '/staticos/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 
 AUTH_USER_MODEL = 'principal.Usuario'
@@ -120,7 +125,7 @@ AUTH_USER_MODEL = 'principal.Usuario'
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
