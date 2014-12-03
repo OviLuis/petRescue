@@ -44,18 +44,16 @@ from rest_framework import status
 class PerdidoAPI(APIView):
     """docstring for PerdidoPublicacionAPI"""
 
-    # def get(self, request, *args, **kwargs):
-    #     perdidos = Perdidos.objects.all()
-    #     serializado = PerdidoSerializer(perdidos, many=True)
-        
-
-    #     return Response(serializado.data,{'perdidos':perdidos}, status=status.HTTP_200_OK)
-
-
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         perdidos = Perdidos.objects.all()
         serializado = PerdidoSerializer(perdidos, many=True)
-        paginator = Paginator(perdidos, 6)
+        return Response(serializado.data, status=status.HTTP_200_OK)
+
+
+"""    def get(self, request):
+        perdidos = Perdidos.objects.all()
+        serializado = PerdidoSerializer(perdidos, many=True)
+        paginator = Paginator(perdidos, 50)
         page = request.QUERY_PARAMS.get('page')
         try:
             perdidos = paginator.page(page)
@@ -70,3 +68,4 @@ class PerdidoAPI(APIView):
         serializer_context = {'request': request}
         serializer = PaginatePerdidos(perdidos, context=serializer_context)
         return Response(serializer.data, status=status.HTTP_200_OK)
+"""

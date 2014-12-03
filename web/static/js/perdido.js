@@ -7,7 +7,7 @@ function getDatosPerdidos()
             console.log("completo");
             console.log(json);
 
-			creaDivs(json.results,"perdidos");
+			creaDivs(json,"perdidos");
 
         },
         error : function(xhr,errmsg,err) {
