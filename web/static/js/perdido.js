@@ -153,13 +153,6 @@ function creaDivs(json, path) {
 
     	$('#contenido').append(data);
 
-    	if(json[i].usuario == $.cookie('usuario_id') )
-		{
-			console.log("autor")
-			var post = "id-perd-"+json[i]['id'];
-			$("#"+post).append("<span onclick=deletePerdido("+json[i]['id']+")>x</span>")
-		}
-
     }   
 
     // var next = $('<a href="'+ json[0]['next']+'">Página siguiente</a>')

@@ -62,5 +62,8 @@ class ComentarioSerializer(serializers.ModelSerializer):
         """docstring for Meta"""
         model = Comentario
         fields = ('id', 'texto', 'mascota', 'fechaPublicacion', 'usuario')
+        usuario = serializers.Field(source='usuario')
+
+
 
 

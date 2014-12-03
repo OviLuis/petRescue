@@ -6,7 +6,7 @@
 	</div>
 
 	{% block infoMascota %}
-					
+		<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true" onclick=delete({{mascota.id}})>&times;</span><span class="sr-only">Close</span></button>
 		<div class="col-md-6">
 			<img class="img-thumbnail imagenMascotaDetalle img-responsive" src="{{MEDIA_URL}}{{mascota.foto}}" alt="Detalle Mascota" />
 			<figcaption>

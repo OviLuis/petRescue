@@ -82,7 +82,7 @@ class Mascota(Publicacion):
     def __unicode__(self):
         return u'%s %s' % (self.id, self.nombre)
 
-    """def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         if self.foto:
             size = 400, 400
             image = Img.open(StringIO.StringIO(self.foto.read()))
@@ -92,7 +92,7 @@ class Mascota(Publicacion):
             output.seek(0)
             self.foto = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.id, 'image/jpeg', output.len, None)
         super(Mascota, self).save(*args, **kwargs)
-    """
+    
     def was_published_recently(self):
         return self.fechaPublicacion >= timezone.now() - datetime.timedelta(days=1)
 

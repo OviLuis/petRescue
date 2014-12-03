@@ -18,7 +18,6 @@ function appendComentario(comentario)
 
 	var data = $(com_html);
 
-	
 
     $('#comentarios').append(data.timeago());
 
