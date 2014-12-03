@@ -1,19 +1,24 @@
 function appendComentario(comentario)
 {
-
-	var data = $('<li> id="id-cmt-'+comentario.id+''+
-						'<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+
-    					'<h4>'+$.cookie('usuario_nombre')+'</h4>'+
+	console.log("apend")
+	console.log(comentario.usuario)
+	
+	var com_html = '<li id="id-cmt-'+comentario.id+'">';
+	if(comentario.usuario == $.cookie('usuario_id') )
+	{
+		console.log("Autor")
+		com_html += '<button type="button" class="close" data-toggle="tooltip" data-placement="top" title="Eliminar"><span aria-hidden="true" onclick=deleteComentario('+comentario.id+')>&times;</span><span class="sr-only">Close</span></button>';
+	}
+	com_html += '<h4>Nombre usuario</h4>'+
 						'<p class="pull-right">'+jQuery.timeago(comentario.fechaPublicacion)+'</p>'+
 					'</div>'+
 						'<p>'+comentario.texto+'</p>'+
-				'</li>'
-    			);
+				'</li>';					
+    					
 
-	if(comentario.usuario == $.cookie('usuario_id') )
-	{
-		data.append("<span onclick=deleteComentario("+comentario.id+")>x</span>")
-	}
+	var data = $(com_html);
+
+	
 
     $('#comentarios').append(data.timeago());
 

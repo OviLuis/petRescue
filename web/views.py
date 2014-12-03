@@ -90,28 +90,12 @@ def inicio(request):
             return HttpResponseRedirect(reverse('web:inicio'))
     else:
         formulario = UsuarioForm()
-<<<<<<< HEAD
-
-    """formulario = UsuarioForm()
-    usuario = request.user
-    loguin_form = loguinForm()
-    if 'registro' in request.POST:
-        usuario = request.user
-        formulario = UsuarioForm(request.POST)
-        if formulario.is_valid:
-            return HttpResponseRedirect(reverse('web:home'))
-        else:
-            formulario = UsuarioForm()
-    elif 'inicioSesion' in request.POST:
-        loguin_form = loguinForm()"""
 
     perdidos = Perdidos.objects.order_by('-fechaPublicacion')[:3]
     publicaciones = {'perdidos': perdidos}
 
     return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, 'perdidos': perdidos}, context_instance=RequestContext(request))
-=======
-    return render_to_response('index.html', {'formulario': formulario, 'usuario': usuario, }, context_instance=RequestContext(request))
->>>>>>> 887077b8a03d4032ed17bf7618e4f17369bcc6df
+
 
 
 from django.contrib.contenttypes.models import ContentType
